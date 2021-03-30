@@ -1,0 +1,123 @@
+<!-- search -->
+
+ <block wx:if="{{ischeck  == 0}}">
+<view class="search">
+		<text>精确匹配：{{totalnum}} 个{{selecttitle[4]}}</text>
+
+</view>
+<!-- 排序 -->
+
+<!-- 选择区域 -->
+
+
+
+
+
+
+<view style="height:58px;"></view>
+
+<!-- 列表 -->
+<view class="news">
+
+   
+
+          <view class="newslist" wx:for="{{joblist}}">
+                            <view class="title" bindtap="{{item.toJobDetail}}" data-id="{{item.id}}">
+                                      <view class="address">
+                                            <view class="jobname"> {{item.title}} </view>
+                                           
+                                              <view><block  wx:if="{{item.money == 0}}">面议</block><block  wx:else>{{item.money}}元/月</block>  </view>
+                                      </view>
+
+                                <view class="joblable">
+                                  <view><block wx:if="{{item.sex==1}}"> 男</block><block wx:elif="{{item.sex==2}}">女</block><block wx:else>男女不限</block>
+|{{item.education}}|{{item.age}}</view>
+                                  <view class='vprice2'>{{item.createtime}}</view>
+                                </view>
+                                <view class="special">
+                                                <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial">{{itemSpecial}}</view>
+                                            
+                                            </view>
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.thumb}}"></image>
+                                           </view>
+                                           <view class="info">
+                                          
+                                                  <view class="companyinfo"> 
+                                                        <view> {{item.companyname}} </view>
+                                                        <view>{{item.address}}</view>
+                                                  
+                                                  </view>
+                                                      <view class="jobmoney">
+                                                 
+
+                                                   </view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+  
+
+
+
+
+
+
+
+
+</view>
+
+
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>
+
+<view class="u-tap-btn">
+
+  <button class="u-go-home2" open-type='contact'>
+<view class="iconfont fa fa-comments-o" ></view>
+  </button>
+</view>
+
+
+
+</block>
+<block wx:else>
+
+
+
+
+<!--case begin-->
+        <view class="case">
+    
+                  
+                  <view class="caselist">
+
+
+                    <view class="caseitem" wx:for-items="{{glist}}">
+                          <view class="pic" bindtap="toNewsDetail" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                          </view>
+                          <view class="title" bindtap="toNewsDetail" data-id="{{item.id}}">
+                             {{item.title}}
+                          </view>
+                    </view>
+
+                  
+
+
+
+                  </view>
+
+              
+    
+        </view>
+<!--case end-->
+
+
+</block>

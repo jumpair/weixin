@@ -1,0 +1,82 @@
+ 
+ <view class="container">
+ <form bindsubmit="bindSave">
+<view class="search">
+	<icon type="search" size="14"></icon>
+	<input type="text" placeholder="请输入相关职位或企业名称" placeholder-class="search_plac" confirm-type="search"  name="keyword" ></input>
+	<button formType="submit">搜索</button>
+</view>
+  </form>
+
+
+
+
+<!-- begin-->
+        <view class="news">
+          <view class="newstitle"><view></view><view>搜索结果</view></view>
+
+          <block wx:if="{{list}}">
+
+             <view class="newslist" wx:for="{{list}}">
+                            <view class="title" bindtap="toJobDetail" data-id="{{item.id}}">
+                                      <view class="address">
+                                            <view class="jobname">{{item.title}}<text>（{{item.areaname}}）</text></view>
+                                           
+                                        
+                                      </view>
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.thumb}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view class="special">
+                                                <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial">{{itemSpecial}}</view>
+                                            
+                                            </view>
+                                            <view> {{item.companyname}} </view>
+                                            <view class="jobmoney"><text>{{item.money}}元/月</text> <text>{{item.createtime}}</text> </view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+                            
+
+
+         </block>
+        
+             
+
+              
+        </view>
+<!-- end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="loadmore" hidden='{{loadmore}}'>
+	<text>未查找相关信息</text>
+</view>
+    </view>
+<!--news end-->

@@ -1,0 +1,273 @@
+
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+          个人基本信息
+        </view>
+        <view class="list">
+
+           <view class="item">
+              <view class="name">意向职位</view>
+              <view class="selectitem"><input  value="{{noteinfo.jobtitle ? noteinfo.jobtitle:''}}" type="text" name="jobtitle" placeholder="请输入意向职位" /></view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">姓 名</view>
+              <view class="selectitem"><input  value="{{noteinfo.name ? noteinfo.name:''}}" type="text" name="name" placeholder="请输入姓名" /></view>
+
+            </view>
+
+
+              <view class="item">
+              <view class="name">性 别</view>
+              <view class="selectitem">
+
+                  <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio">
+    <radio value="1" checked="{{noteinfo.sex ==1 ? 'checked':''}}"/>男
+  </label>
+    <label class="radio">
+    <radio value="0" checked="{{noteinfo.sex ==0 ? 'checked':''}}"/>女
+  </label>
+
+</radio-group>
+              
+              
+              </view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">出生年份</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{birthday}}"   bindchange="bindBirthdayChange">  
+                        <view class="picker">  
+
+                            {{birthday[birthdayindex] ? birthday[birthdayindex] : '请选择出生年份'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+  
+           <view class="item">
+              <view class="name">最高学历</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{education}}" range-key=""  bindchange="bindEducationChange">  
+              <view class="picker">  
+
+                  {{education[educationindex] ? education[educationindex] : '请选择学历要求'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+             
+              <view class="item">
+              <view class="name">工作经验</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{express}}"   bindchange="bindExpressChange">  
+              <view class="picker">  
+
+                  {{express[expressindex] ? express[expressindex] : '请选择工作经验'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+
+
+            <view class="item">
+              <view class="name"> 现居住地</view>
+              <view class="selectitem"><input  type="text"  value = "{{noteinfo.address ? noteinfo.address:''}}" name="address" placeholder="请输入现居住地" /></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name"> 邮 箱 </view>
+              <view class="selectitem"><input  type="text"  value = "{{noteinfo.email ? noteinfo.email:''}}" name="email" placeholder="请输入邮箱" /></view>
+
+            </view>
+
+              
+             <view class="item">
+              <view class="name"> 手机号码 </view>
+              <view class="selectitem"><input  type="text"  value = "{{noteinfo.tel ? noteinfo.tel:''}}" name="tel" placeholder="请输入手机号码" /></view>
+
+            </view>
+
+
+
+        </view>
+
+    </view>
+
+
+ <view class="main">
+        <view class="title">
+          个人详情信息
+        </view>
+        <view class="list">
+
+  
+
+            <view class="item">
+              <view class="name">目前状态</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{currentstatus}}"  bindchange="bindCurrentstatusChange">  
+                        <view class="picker">  
+
+                            {{currentstatus[currentstatusindex] ? currentstatus[currentstatusindex] : '请选择目前状态'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+             <view class="item">
+              <view class="name">工作性质</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{worktype}}"  bindchange="bindWorktypeChange">  
+                        <view class="picker">  
+
+                            {{worktype[worktypeindex] ? worktype[worktypeindex] : '请选择工作性质'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+              
+
+             <view class="item">
+              <view class="name">期望行业</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{jobcate}}" range-key="name"  bindchange="bindJobcateChange">  
+                        <view class="picker">  
+
+                            {{jobcate[jobcateindex].name ? jobcate[jobcateindex].name : '请选择期望行业'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+         <view class="item">
+              <view class="name">期望薪资</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{money}}"  bindchange="bindMoneyChange">  
+                        <view class="picker">  
+
+                            {{money[moneyindex] ? money[moneyindex] : '请选择期望薪资'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+         <view class="item">
+              <view class="name">工作地区</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{arealist}}" range-key="name"  bindchange="bindAreaChange">  
+                        <view class="picker">  
+
+                            {{arealist[areaindexid].name ? arealist[areaindexid].name : '请选择工作地区'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+        </view>
+</view>
+
+
+
+    <view class="main">
+        <view class="title">
+          自我介绍及工作经历
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+         <textarea name="content" placeholder="请填写自我介绍及工作经历" value="{{noteinfo.content}}" />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+    
+   <view class="main">
+        <view class="title">
+          个人形象
+        </view>
+           <view class="imglist">
+            <view class="imgitem" >
+              <image src="{{imgurl1 ? imgurl1: '../../resource/images/pub.png'}}" bindtap='upload' data-id="1"></image>
+              <view class="sum" hidden="{{true1}}" bindtap="delupload" data-id="1"><text>×</text></view>
+             </view>
+          </view>
+
+
+    </view>
+
+
+       
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >保存简历</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+
+<view class="weixinmao-msg_show" hidden="{{isuser}}">
+    <view class="weixinmao-content_show">
+
+        <view class="title">
+        <view></view>
+        <view>消息提醒</view>
+        <view ></view>
+        </view>
+
+        <view class="list"  style='height:300rpx;'>
+
+    <view class="heaerpic" >
+        
+          <image src="{{companyinfo.logo}}"></image>
+                     <view>{{companyinfo.name}}</view>
+        </view>
+
+        
+      
+        </view>
+
+        <button class="masterbtn" open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+   
+    </view>
+</view>

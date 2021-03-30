@@ -1,0 +1,492 @@
+<import src="templates/ejoblist.wxml" />
+<import src="templates/hjoblist.wxml" />
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+
+<view class="weixinmao-msg-usertel-showmsg" hidden="{{indeximg}}" >
+
+    <view class="weixinmao-content-usertel-showmsg">
+
+        <image src="{{intro.indeximg}}" bindtap="getRedmoney"></image>
+                     
+     <view class="sum" bindtap='closeIndeximg'  ><image src="../../resource/images/close.png"></image></view>
+
+
+    </view>
+</view>
+
+
+
+<view class="container" hidden='{{isshow}}'>
+
+
+<view class="header" style="background:{{intro.maincolor}};position: absolute;top: 0;width: 100%;z-index: 999;background-color: rgba(0,0,0,0.2);" >
+	<navigator url="../city/index?id=0" hover-class="none">
+
+    <view class="city">
+     <text class="fa fa-map-marker  fa-lg"></text> {{city}}
+    </view>
+
+	</navigator>
+    <view class="search" bindtap='toSearch'>
+      	<icon type="search" size="14"/><view>{{ischeck == 0 ? searchtitle[0] : searchtitle[1] }}</view>
+    </view>
+</view>
+
+
+   <view class="swiper-container">
+        <swiper class="swiper_box"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style="height:{{imgheights[current]}}rpx;" bindchange="swiperChange" >
+            <block wx:for="{{banners}}">
+                <swiper-item >
+                   <image  data-id="" src="{{item.thumb}}" class="slide-image" bindload="imageLoad"  
+style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;" bindtap='{{item.toway}}' data-id='{{item.link}}' data-appid='{{item.appid}}'/> 
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="dots">  
+            <block wx:for="{{banners}}" wx:key="index">  
+                <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
+            </block>  
+        </view>   
+   </view>
+
+ <block wx:if="{{ischeck  == 0}}">
+
+<view class="tongji">
+<view><image src="../../resource/images/tongji.png" style="margin-right:10px;width: 20px;height: 20px;vertical-align: middle;"></image>入驻企业:<text>{{companycount}}</text></view>
+<view><image src="../../resource/images/zhiw.png" style="margin-right:10px;width: 20px;height: 20px;vertical-align: middle;"></image>职位:<text>{{jobcount}}</text></view>
+<view><image src="../../resource/images/jl.png" style="margin-right:10px;width: 20px;height: 20px;vertical-align: middle;"></image>简历:<text>{{notecount}}</text></view>
+
+</view>
+
+</block>
+
+   
+ <block wx:if="{{navlist!=''}}">
+<view class="navlist">
+
+<block wx:if="{{navlist.length <=8}}">
+
+          <view class="item"  wx:for="{{navlist}}" >
+
+      <form bindsubmit="{{item.link}}" report-submit>
+          <button  class="shares" style="background-image:url({{item.thumb}}); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+      <input type="text" name="appid" value="{{item.appid}}" hidden="true" />
+      <input type="text" name="innerurl" value="{{item.innerurl}}" hidden="true" />
+      <input type="text" name="id" value="{{item.id}}" hidden="true" />
+
+            </form>
+
+          <view>{{item.advname}}</view>
+          
+          </view>
+
+
+
+      </block>
+    <block wx:else>
+
+
+
+
+         <view class="swiper-container">
+        <swiper class="swiper_box" style="height:400rpx;"   autoplay="{{autoplay2}}" interval="{{interval}}" duration="{{duration}}" catchtap="onSwiperTap"  bindchange="swiperChange" >
+
+
+        
+                <swiper-item >
+<view class="navlist"  > 
+
+<block wx:for="{{navlist}}" wx:key="index" >
+    <block wx:if="{{index <8}}">
+
+    <!--
+
+ <view class="item"  bindtap='{{item.link}}' data-id="{{item.cateid}}" data-url="{{item.innerurl}}"  data-appid="{{item.appid}}" ><image src="{{item.thumb}}"></image><view>{{item.advname}}</view></view>  
+
+ -->
+
+  <view class="item"  >
+
+      <form bindsubmit="{{item.link}}" report-submit>
+          <button  class="shares" style="background-image:url({{item.thumb}}); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+      <input type="text" name="appid" value="{{item.appid}}" hidden="true" />
+      <input type="text" name="innerurl" value="{{item.innerurl}}" hidden="true" />
+      <input type="text" name="id" value="{{item.id}}" hidden="true" />
+
+            </form>
+
+          <view>{{item.advname}}</view>
+          
+          </view>
+
+    </block>
+  </block>
+
+
+</view>
+                </swiper-item>
+
+
+
+                      <swiper-item>
+<view class="navlist"> 
+
+<block wx:for="{{navlist}}" wx:key="index" >
+    <block wx:if="{{index >= 8}}">
+
+
+  <view class="item"   >
+
+      <form bindsubmit="{{item.link}}" report-submit>
+          <button  class="shares" style="background-image:url({{item.thumb}}); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+      <input type="text" name="appid" value="{{item.appid}}" hidden="true" />
+      <input type="text" name="innerurl" value="{{item.innerurl}}" hidden="true" />
+      <input type="text" name="id" value="{{item.id}}" hidden="true" />
+
+            </form>
+
+          <view>{{item.advname}}</view>
+          
+          </view>
+
+    </block>
+  </block>
+
+</view>
+                </swiper-item>
+
+    </swiper>
+
+
+      <view class="dots" style="bottom:-10rpx;">  
+                <view class="dot{{0 == swiperCurrent ? ' active' : ''}}" style="background:#666;"></view>  
+               <view class="dot{{1 == swiperCurrent ? ' active' : ''}}" style="background:#666;"></view>  
+        </view>   
+   </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </block>
+
+
+
+</view>
+ </block>
+    <block wx:else>
+<view class="navlist">
+    <view class="item">
+<form bindsubmit="toFindjob" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/findjob.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+
+       </form>
+
+    <view>{{navtitle[0]}}</view>
+    
+    </view>
+
+
+
+<view class="item" >
+
+<form bindsubmit="toFindworker" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/findwork.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+
+       </form>
+
+<view>{{navtitle[1]}}</view></view>
+    <view class="item" >
+    <form bindsubmit="toActive" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/metting.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+
+       </form>
+  <view>{{navtitle[2]}}</view></view>
+    <view class="item" >
+    <form bindsubmit="toArticle" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/news.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+     </form>
+
+    <view>{{navtitle[3]}}</view></view>
+
+  <view class="item"  >
+   <form bindsubmit="toMyNote" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/publish_resume.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+     </form>
+
+  
+  <view>{{navtitle[4]}}</view></view>
+  <view class="item"  >  
+   <form bindsubmit="toMySave" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/save.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+     </form>
+     <view>{{navtitle[5]}}</view></view>
+  <view class="item" >
+     <form bindsubmit="toNotice" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/notice.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+     </form>
+  <view>{{navtitle[6]}}</view></view>
+  <view class="item" >
+     <form bindsubmit="toLogin" report-submit>
+     <button  class="shares" style="background-image:url(https://api.site100.cn/jobimg/company.png); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+     </form>
+  
+  <view>{{navtitle[7]}}</view></view>
+
+</view>
+  </block>
+
+ <block wx:if="{{ischeck  == 0}}">
+
+
+<view class="addjob">
+  <view bindtap="toMyNote"><text class="fa fa-pencil-square-o  fa-lg" style="margin-right:5px;"></text >{{pubtitle[0]}}</view>
+  <view bindtap="toAddCompanyjob"><text class="fa fa-pencil-square-o  fa-lg" style="margin-right:5px;"></text>{{pubtitle[1]}}</view>
+</view>
+
+
+ <block wx:if="{{intro.iscompany  == 1}}">
+      <view class="news">
+          <view class="newstitle"><view></view><view>{{cmtitle[0]}}</view></view>
+        </view>
+
+      <view class="type-container" >
+       <scroll-view class="type-navbar" scroll-x="true" style="width: 100%">
+            <view class="type-box" wx:for="{{companylist}}" >
+                <view data-id="{{item.id}}" class="type-navbar-item " bindtap="toCompanydetial">
+                       <image src="{{item.thumb}}" style='width:200rpx; height:200rpx;'></image>
+
+                </view>
+                
+            </view>
+
+
+            
+        </scroll-view>
+        </view>
+
+</block>
+
+
+
+<block wx:if="{{advmoney}}">
+<view class="advmoney">
+<ad unit-id="{{advmoney.advid}}"></ad>
+</view>
+</block>
+
+
+ <block wx:if="{{intro.isnote  == 1}}">
+<view class="news">
+        
+        <view class="newstitle"><view></view><view>{{cmtitle[1]}}</view></view>
+
+        </view>
+  <view class="type-container">
+       <scroll-view class="type-navbar" scroll-x="true" style="width: 100%;height:270rpx; color:#999999;">
+
+
+               <view class="type-box" wx:for="{{notelist}}"  >
+                <view id="{{item.id}}" class="type-navbar-item " bindtap="toWorkerdetial">
+                       <image src="{{item.avatarUrl}}"  style="width:200rpx;height:200rpx;border-radius:100rpx;"></image>
+
+                </view>
+                {{item.name}}
+            </view>
+            
+            
+        </scroll-view>
+    </view>
+</block>
+<!-- begin-->
+<view class="news">
+          <view class="newstitle"><view></view><view>{{cmtitle[2]}}</view></view>
+
+
+<template is="hjoblist" wx:if="{{topjoblist}}" data="{{topjoblist}}" />
+
+<template is="hjoblist" wx:if="{{joblist}}" data="{{joblist}}" />
+
+
+   </view>
+
+
+<!-- end-->
+
+
+</block>
+<block wx:else>
+
+    <!--intro begin-->
+      <view class="case">
+         <view class="casetitle"><view></view><view>企业介绍</view></view>
+         <view class="content">
+            {{intro.content}}......
+         
+         </view>
+      </view>
+<!--intro-->
+
+
+<!--case begin-->
+        <view class="case">
+                  <view class="casetitle"><view></view><view>我们的服务</view></view>
+                  
+                  <view class="caselist">
+
+
+                    <view class="caseitem" wx:for-items="{{glist}}">
+                          <view class="pic" bindtap="toNewsDetail" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                          </view>
+                          <view class="title" bindtap="toNewsDetail" data-id="{{item.id}}">
+                             {{item.title}}
+                          </view>
+                    </view>
+
+                  
+
+
+
+                  </view>
+
+              
+    
+        </view>
+<!--case end-->
+
+
+</block>
+
+
+
+
+
+<view hidden="{{!isshow}}">
+
+
+
+
+<view class="container">
+
+  <view class="swiper-container">
+        <swiper class="swiper_box" 
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+            <block wx:for="{{banners}}">
+                <swiper-item>
+                    <image bindtap="tapBanner" data-id="{{item.id}}" src="{{item.thumb}}" class="slide-image"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="dots">  
+            <block wx:for="{{banners}}" wx:key="unique">  
+                <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
+            </block>  
+        </view>   
+   </view>
+
+   
+</view>
+
+
+   <view class="type-container2">
+        <scroll-view class="type-navbar2" scroll-x="true">
+            <view class="type-box2" wx:for-items="{{category}}"  >
+                <view id="{{item.id}}" class="type-navbar-item2 {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                    {{item.name}}
+                </view>
+            </view>
+            
+
+        </scroll-view>
+    </view>
+
+
+<view class="container">
+        <view class="news2" >
+                  <view class="newslist" wx:for-items="{{article}}">
+                        <view class="pic" bindtap="toNewsDetail" data-id="{{item.id}}">
+                          <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title" bindtap="toNewsDetail" data-id="{{item.id}}">
+                          <view>{{item.title}}</view>
+                          <view>{{item.createtime}}</view>
+                        </view>
+                  </view>
+           
+                  
+        </view>
+<!--news end-->
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+      
+           <view class="userinfo-content">
+          
+          <view>为了提供更好的服务</view>
+          <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+      
+  <view class="userinfo-img">
+         <image src="../../resource/images/getinfo.png"></image>
+        </view>
+
+   <view class="userinfo-button">
+             <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">我知道了</button>
+        </view>
+
+
+    </view>
+</view>
+
+
+
+
+
+
+
+
+<view class="u-tap-btn">
+
+  <button class="u-go-home2" open-type='contact'>
+<view class="iconfont fa fa-comments-o" ></view>
+  </button>
+</view>

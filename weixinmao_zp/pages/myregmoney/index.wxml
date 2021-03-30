@@ -1,0 +1,21 @@
+   <view class="container">
+
+ 
+
+      <view class="orderlist" wx:for-items="{{list}}">
+        <view class="orderid ">  {{item.jobname}} <text class="money">奖金￥{{item.money}}元({{item.status == 0 ? '已收益' : '未收益'}})</text></view>
+        <view class="content">
+                <view class="item jobdata"> <view class="listdata"> {{title[1]}}<text>{{item.companyname}}</text></view><view class="listdata">电话:<text>{{item.jobtel}}</text></view> <view class="listdata"><text>{{item.createtime}}</text></view></view>
+          
+  
+        </view>
+      </view>
+</view>
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <view class="footer" bindtap='toRegmoney'>{{title[2]}}</view>
+    </view>
+</view>

@@ -1,0 +1,217 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+          企业注册  【当前城市:{{city}}】
+        </view>
+        <view class="list">
+
+       <view class="item">
+              <view class="name">选择区域</view>
+              <view class="selectitem">
+              
+              
+                 <picker value="{{Index}}"  range="{{arealist}}" range-key="name"  bindchange="bindAreaChange">  
+    <view class="picker">  
+
+        {{arealist[areaidindex].name ? arealist[areaidindex].name : '请选择地区'}}
+    </view>  
+  </picker>
+          
+              
+              
+              
+              </view>
+
+            </view>
+           <view class="item">
+              <view class="name">企业名称</view>
+              <view class="selectitem"><input  value="{{companyinfo.companyname ? companyinfo.companyname:''}}" type="text" name="companyname" placeholder="请输入企业名称" /></view>
+
+            </view>
+            <view class="item">
+              <view class="name">企业行业</view>
+             <view class="selectitem"><input  value="{{companyinfo.companycate ? companyinfo.companycate:''}}" type="text" name="companycate" placeholder="请输入企业行业" /></view>
+
+
+            </view>
+
+            
+
+         
+
+              <view class="item">
+              <view class="name">企业性质</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{companytype}}" range-key=""  bindchange="bindCompanytypeChange">  
+              <view class="picker">  
+
+                  {{companytype[companytypeindex] ? companytype[companytypeindex] : '请选择企业性质'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+ 
+
+  <view class="item">
+              <view class="name">人员规模</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{companyworker}}" range-key=""  bindchange="bindCompanyworkerChange">  
+              <view class="picker">  
+
+                  {{companyworker[companyworkerindex] ? companyworker[companyworkerindex] : '请选择人员规模'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+
+            <view class="item">
+              <view class="name"> 负责人</view>
+              <view class="selectitem"><input  type="text"  value = "{{companyinfo.mastername ? companyinfo.mastername:''}}" name="mastername" placeholder="请输入负责人" /></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name"> 电 话</view>
+              <view class="selectitem"><input  type="text"  value = "{{companyinfo.tel ? companyinfo.tel:''}}" name="tel" placeholder="请输入电话" /></view>
+
+            </view>
+
+               <view class="item">
+              <view class="name">地址</view>
+                  <view class="selectitem"><input  type="text"  value = "{{address}}" name="address" placeholder="请输入地址" /> <button class="getpos" bindtap='getpostion'>获取位置</button></view>
+
+            </view>
+             <view class="item">
+              <view class="name">登录账号</view>
+                  <view class="selectitem"><input  type="text"  value = "" name="account" placeholder="请输入登录账号" /></view>
+
+            </view>
+
+
+              <view class="item">
+              <view class="name">密码</view>
+                  <view class="selectitem"><input  type="password"  value = "" name="password" placeholder="请输入登录密码" /></view>
+
+            </view>
+             <view class="item">
+              <view class="name">确认密码</view>
+                  <view class="selectitem"><input  type="password"  value = "" name="password2" placeholder="请再次输入密码" /></view>
+
+            </view>
+              
+         </view>
+         </view>
+
+
+
+
+
+
+
+    <view class="main">
+        <view class="title">
+          公司介绍
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+         <textarea name="content" placeholder="请填写公司介绍" value="{{companyinfo.content}}" maxlength="-1"  />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+      <view class="main">
+        <view class="title">
+          企业LOGO
+        </view>
+           <view class="imglist">
+            <view class="imgitem" >
+              <image src="{{imgurl1 ? imgurl1: '../../resource/images/pub.png'}}" bindtap='upload' data-id="1"></image>
+              <view class="sum" hidden="{{true1}}" bindtap="delupload" data-id="1"><text>×</text></view>
+             </view>
+
+        </view>
+
+    </view>
+    <view class="main">
+        <view class="title">
+          企业执照或相关证件
+        </view>
+           <view class="imglist">
+            <view class="imgitem" >
+              <image src="{{imgurl2 ? imgurl2: '../../resource/images/pub.png'}}" bindtap='upload' data-id="2"></image>
+              <view class="sum" hidden="{{true2}}" bindtap="delupload" data-id="2"><text>×</text></view>
+             </view>
+
+        </view>
+
+    </view>
+
+
+ <view class="doagree">
+    <checkbox-group bindchange="doagree">
+
+    <checkbox value="1" checked=""/>我已阅读并同意<text style='color:blue;' bindtap='goHousexy'>《企业入驻协议》</text>
+
+</checkbox-group>
+  </view>
+
+
+
+
+</view>
+
+<view class="weixinmao-float" >
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >注册企业信息</button>
+    </view>
+</view>
+   </form>
+
+
+
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+      
+           <view class="userinfo-content">
+          
+          <view>为了提供更好的服务</view>
+          <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+      
+  <view class="userinfo-img">
+         <image src="../../resource/images/getinfo.png"></image>
+        </view>
+
+   <view class="userinfo-button">
+             <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">我知道了</button>
+        </view>
+
+
+    </view>
+</view>
+
+
+

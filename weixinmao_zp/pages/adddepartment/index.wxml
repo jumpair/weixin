@@ -1,0 +1,66 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+  <view class="header">
+      <view class="title">添加部门</view>
+   
+  </view>
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+ <view class="item">
+              <view class="name">部门名称</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入部门名称" /></view>
+
+            </view>
+
+          
+             <view class="item">
+              <view class="name">排序</view>
+              <view class="selectitem"><input  type="text" name="sort" placeholder="请输入排序" /></view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >提交信息</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

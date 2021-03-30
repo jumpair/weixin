@@ -1,0 +1,402 @@
+page{
+
+  background-color: #f8f8f9;
+
+
+}
+.container {
+  background-color: #f8f8f9;
+  min-height: 100%
+}
+.container .header{
+  display: flex;
+  flex-direction:column;  
+  background:linear-gradient(to bottom,#ff6732,#ff4c35);
+  width:750rpx;
+  height: 450rpx;
+  border-radius: 0 0 50% 50%;
+  align-items: center;
+}
+.container .header .moneytitle{
+
+  color: #ffed02;
+  margin-top: 50rpx;
+
+}
+
+.container .header .money{
+
+  color: #ffed02;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 40rpx;
+}
+
+.container .title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750rpx;  
+}
+
+.container .title .jobtitle{
+  width:650rpx;
+  height: 400rpx;
+  background: #FFF;
+  margin-top:-200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  padding-top:40rpx;
+}
+.container .title .jobtitle .jobname{
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.container .title .jobtitle .redtitle{
+background: #fff9f0;
+color: #ff9102;
+font-size: .8rem;
+margin-top:20rpx;
+padding: 5rpx;
+
+}
+
+.role{
+
+    position: absolute;
+    width:180rpx;
+    text-align: center;
+    height:60rpx;
+    line-height: 60rpx;
+    background: #fca35a;
+    color:#FFF;
+    border-radius: 25rpx 0 0 25rpx;
+    left:572rpx;
+    font-size:.7rem;
+
+}
+
+.container .title .jobtitle .jobdata{
+  width:650rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  margin-top:80rpx;
+}
+
+.container .title .jobtitle .jobdata .jobdataleft{
+  display: flex;
+  flex-direction: column;
+  width:325rpx;
+  align-items: center;
+
+}
+
+.container .title .jobtitle .jobdata .jobdataleft view:nth-child(1){
+
+  color: #fd725c;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.container .title .jobtitle .jobdata .jobdataleft view:nth-child(2){
+
+  color: #999999;
+  font-size: .8rem;
+}
+
+
+.container .title .jobtitle .jobdata .jobdataright{
+  display: flex;
+  flex-direction: column;
+  width:325rpx;
+  align-items: center;
+
+}
+
+.container .title .jobtitle .jobdata .jobdataright view:nth-child(2){
+
+  color: #999999;
+  font-size: .8rem;
+}
+
+.container .title .jobtitle .jobdata .jobdataright view:nth-child(1){
+
+  color: #fd725c;
+  font-size: .8rem;
+  font-weight: bold;
+}
+.container .jobinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:#FFF;
+  margin-top: 20rpx;
+padding-top:  30rpx ;
+padding-bottom:  10rpx ;
+}
+
+.container .jobinfo .jobtitle{
+  width:650rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  
+}
+.container .jobinfo .jobtitle view:nth-child(1){
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.container .jobinfo .jobtitle view:nth-child(2){
+ background: #fff9f0;
+ color: #ff9102;
+ font-size: .8rem;
+ padding: 5rpx;
+}
+
+
+.container .jobinfo .joblabel{
+  width:650rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top:90rpx;
+  
+}
+
+.container .jobinfo .joblabel view:nth-child(1){
+
+  font-size:.8rem;
+   color: #ff9102;
+}
+.container .jobinfo .joblabel view:nth-child(2){
+  font-size: .8rem;
+  color: #7b7a7a;
+  
+}
+.container .jobinfo .joblabel view:nth-child(3){
+  font-size: .8rem;
+  color: #7b7a7a;
+}
+
+
+.container .jobdetail{
+  background:#FFF;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  width:750rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+
+}
+
+.container .jobdetail .jobtitle{
+  font-weight: 600;
+  font-size: 1rem;
+  width:640rpx;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+
+}
+
+
+.container .jobcontent{
+  background:#FFF;
+  display: flex;
+  flex-direction: column;
+  width:750rpx;
+  align-items: center;
+
+}
+
+.container .jobcontent .detail{
+  width:640rpx;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+
+}
+
+
+.container .companyinfo{
+margin-top:10rpx;
+width:650rpx;
+background: #FFF;
+display: flex;
+flex-direction: row;
+justify-content: center;
+border-bottom: 1rpx solid #e5e5e5;
+align-self: center;
+
+
+
+}
+
+.container .companyinfo image{
+
+  width:150rpx;
+  height: 150rpx;
+  align-self: center;
+  
+}
+.company{
+
+  background: #FFF;
+  display:flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  width:750rpx;
+
+
+}
+
+
+.container .companyinfo .companyname{
+  width:70%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+   padding-top:40rpx;
+  padding-bottom:40rpx;
+ 
+}
+.container .companyinfo .companyname view:nth-child(1){
+
+  font-size: .8rem;
+  color: #000;
+}
+.container .companyinfo .companyname view:nth-child(2){
+
+ font-size: .7rem;
+  color: #777676;
+}
+.container .companyinfo .companyname view:nth-child(3){
+ font-size: .7rem;
+  color: #777676;
+
+}
+.container .companyaddress{
+      padding-left: 20rpx;
+       padding-top: 20rpx;
+  
+      font-size: .8rem;
+}
+
+.weixinmao-float{ height: 150rpx;}
+.weixinmao-foot{ 
+  display:flex; 
+  justify-content: space-between;
+  flex-direction:row;
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  background: #FFF;
+  padding-bottom: 10rpx;
+  padding-top:10rpx;
+  }
+
+
+
+
+
+
+button::after{
+border: none;
+}
+     
+.weixinmao-foot view:nth-child(1){
+align-self: center;
+height: 80rpx;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+width:20%;
+text-align: center;
+ padding-top:20rpx;
+ background: #fff;
+}    
+.black{
+color:#777676;
+
+}
+.red{
+
+color:red;
+
+}
+.weixinmao-foot view:nth-child(2){
+color:#FFF;
+align-self: center;
+height: 100rpx;
+line-height: 100rpx;
+text-align: center;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+width:35%;
+}
+
+.weixinmao-foot view:nth-child(3){
+color:#FFF;
+align-self: center;
+height: 100rpx;
+line-height: 100rpx;
+text-align: center;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+
+width:35%;
+}
+
+.weixinmao-foot view image{
+width:50rpx;
+height: 50rpx;
+align-self: center;
+
+}
+
+.footerbuttons{
+font-size:.8rem; 
+height:80rpx;
+line-height: 80rpx;
+background: #FFF;
+border:1rpx solid #ff4c35;
+color:#ff4c35;
+margin-top:15rpx;
+}
+
+.weixinmao-float_pay{ height: 150rpx;}
+.weixinmao-foot_pay{ 
+  display:flex; 
+  justify-content: center;
+  flex-direction:row;
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  background: #1aac19;
+  }
+
+.weixinmao-foot_pay view{
+color:#FFF;
+align-self: center;
+height: 100rpx;
+line-height: 100rpx;
+font-size: .9rem;
+display: flex;
+flex-direction: row;
+}
+.weixinmao-foot_pay view image{
+width:70rpx;
+height: 70rpx;
+align-self: center;
+
+}

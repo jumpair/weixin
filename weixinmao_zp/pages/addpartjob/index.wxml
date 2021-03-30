@@ -1,0 +1,214 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+          {{parttitle[1]}}
+        </view>
+        <view class="list">
+
+           <view class="item">
+              <view class="name">{{parttitle[2]}}</view>
+              <view class="selectitem"><input  value="{{jobinfo.jobtitle ? jobinfo.jobtitle:''}}" type="text" name="jobtitle" placeholder="{{parttitle[3]}}" /></view>
+
+            </view>
+            <view class="item">
+              <view class="name">{{parttitle[4]}}</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{jobcate}}" range-key="name"  bindchange="bindJobcateChange">  
+                        <view class="picker">  
+
+                            {{jobcate[jobcateindex].name ? jobcate[jobcateindex].name : parttitle[5]}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+ <view class="item">
+              <view class="name">结算方式</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{worktype}}"  bindchange="bindWorktypeChange">  
+                        <view class="picker">  
+
+                            {{worktype[worktypeindex] ? worktype[worktypeindex] : '请选择结算方式'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+            <view class="item">
+              <view class="name"> {{parttitle[6]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.money ? jobinfo.money:''}}" name="money" placeholder="{{parttitle[7]}}" /></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name"> {{parttitle[8]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.num ? jobinfo.num:''}}" name="num" placeholder="{{parttitle[9]}}" /></view>
+
+            </view>
+
+
+            <view class="item">
+              <view class="name">学历要求</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{education}}" range-key=""  bindchange="bindEducationChange">  
+              <view class="picker">  
+
+                  {{education[educationindex] ? education[educationindex] : '请选择学历要求'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+
+              <view class="item">
+              <view class="name">{{parttitle[10]}}</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{express}}"   bindchange="bindExpressChange">  
+              <view class="picker">  
+
+                  {{express[expressindex] ? express[expressindex] : parttitle[11]}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+    
+             <view class="item">
+              <view class="name"> 年龄要求</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.age ? jobinfo.age:''}}" name="age" placeholder="请输入年龄要求" /></view>
+
+            </view>
+
+
+             <view class="item">
+              <view class="name">性 别</view>
+              <view class="selectitem">
+
+                  <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio">
+    <radio value="1" checked="{{jobinfo.sex ==1 ? 'checked':''}}"/>男
+  </label>
+    <label class="radio">
+    <radio value="0" checked="{{jobinfo.sex ==0 ? 'checked':''}}"/>女
+  </label>
+
+   <label class="radio">
+    <radio value="2" checked="{{jobinfo.sex ==2 ? 'checked':''}}"/>不限
+  </label>
+</radio-group>
+              
+              
+              </view>
+
+            </view>
+          
+           <view class="item">
+              <view class="name">{{parttitle[12]}}</view>
+              <view class="selectitem">
+              
+          <picker style='margin-right:10%;' mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">  
+    <view class="picker">  
+    {{dates ? dates : '请选择日期'}}
+    </view>  
+  </picker>
+  -
+       <picker style='margin-right:10%;' mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange2">  
+    <view class="picker">  
+     {{dates2 ? dates2 : '请选择日期'}}
+    </view>  
+  </picker>
+              
+              </view>
+
+            </view>
+
+
+              <view class="item">
+              <view class="name"> {{parttitle[13]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.workaddress ? jobinfo.workaddress:''}}" name="workaddress" placeholder="{{parttitle[14]}}" /></view>
+
+            </view>
+  <view class="item">
+              <view class="name"> 集合地点</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.address ? jobinfo.address:''}}" name="address" placeholder="请输入集合地点" /></view>
+
+            </view>
+
+        </view>
+
+
+
+
+
+
+    </view>
+
+
+
+  <view class="main">
+        <view class="title">
+          {{parttitle[15]}}
+        </view>
+        <view class="checklist">
+        <checkbox-group bindchange="checkboxChange">
+             <view class="checkitem" wx:for="{{speciallist}}"><checkbox name="special" value="{{item.name}}" checked="{{item.checked ? true:false}}"/>{{item.name}}</view>
+             
+        </checkbox-group>
+        </view>
+    </view>
+
+
+
+
+    <view class="main">
+        <view class="title">
+          {{parttitle[16]}}
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+         <textarea name="content" placeholder=" {{parttitle[17]}}" />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+    
+   
+
+
+       
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >立即保存</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+

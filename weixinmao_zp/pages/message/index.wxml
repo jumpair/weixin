@@ -1,0 +1,62 @@
+<view class="container">
+
+
+
+  <view class="swiper-container">
+        <swiper class="swiper_box"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+            <block wx:for="{{banners}}">
+                <swiper-item>
+                    <image bindtap="tapBanner" data-id="{{item.id}}" src="{{item.thumb}}" class="slide-image" width="750rpx" height="562.5rpx"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="dots">  
+            <block wx:for="{{banners}}" wx:key="unique">  
+                <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
+            </block>  
+        </view>   
+</view>
+
+
+
+    <form bindsubmit="bindSave" report-submit>
+    <view class="form-box">
+        <view class="row-wrap">
+            <view class="label">账 号</view>
+            <view class="label-right">
+                <input name="name" class="input" type="text" placeholder="请输入账号" value=""/>
+            </view>
+        </view>
+        <view class="row-wrap">
+            <view class="label">密 码</view>
+            <view class="label-right">
+                <input name="password" class="input" maxlength="20" type="password" placeholder="请输入密码" value=""/>
+            </view>
+        </view>
+    
+      <view class="forget" bindtap="toCompanyforget">忘记密码？</view>
+       
+    </view>
+    <button  class="save-btn" formType="submit" hidden="{{!isuser}}">立即登录</button>
+
+     <button  class="save-btn" open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" hidden="{{isuser}}">立即登录</button>
+    
+    <button  class="save-btn" bindtap='goregister' hidden="{{!isuser}}">立即注册</button>
+
+       <button  class="save-btn" open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" hidden="{{isuser}}">立即注册</button>
+        
+
+    </form>
+
+
+
+
+
+</view>  
+
+<view class="u-tap-btn">
+
+  <button class="u-go-home2" open-type='contact'>
+<view class="iconfont fa fa-comments-o" ></view>
+  </button>
+</view>

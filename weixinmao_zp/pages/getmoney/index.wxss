@@ -1,0 +1,62 @@
+/* weixinmao_zp/pages/getmoney/index.wxss */
+.container {
+  background-color: #FFF;
+  min-height: 100%
+}
+.container .header{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+
+
+
+}
+.container .header image
+{
+    width:180rpx;
+    height:180rpx;
+
+}
+.container .header view:nth-child(2)
+{
+
+  font-size: .8rem;
+  color: #414141;
+
+
+}
+
+.container .header view:nth-child(3)
+{
+
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top: 10rpx;
+
+}
+
+.container  .getmoney button
+{
+ width:600rpx;
+ height: 80rpx;
+ line-height: 80rpx;
+ font-size: .8rem;
+ margin-bottom: 20rpx;
+ color: #FFF;
+
+
+}
+.container  .getmoney button:nth-child(1){
+
+background: #47b34e;
+
+  }
+
+  .container  .getmoney button:nth-child(2){
+
+background: #bfbfbf;
+
+  }

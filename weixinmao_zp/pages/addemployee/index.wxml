@@ -1,0 +1,162 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+  <view class="header">
+      <view class="title">请核对并填写入职信息</view>
+   
+  </view>
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+ <view class="item">
+              <view class="name">员工姓名</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入员工姓名"  value="{{noteinfo.name}}"/></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name">上岗职位</view>
+              <view class="selectitem"><input  type="text" name="jobtitle"  value="{{jobinfo.jobtitle}}"  placeholder="请输入职位" /></view>
+            </view>
+
+      
+
+
+                <view class="item">
+              <view class="name">所属部门</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{departmentlist}}" range-key="name"  bindchange="bindJobcateChange">  
+                        <view class="picker">  
+
+                            {{departmentlist[jobcateindex].name ? departmentlist[jobcateindex].name : '请选择部门'}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+
+
+              <view class="item">
+              <view class="name">员工类别</view>
+              <view class="selectitem">
+              
+                 <radio-group class="radio-group" bindchange="radioTypeChange">
+  <label class="radio">
+    <radio value="1" checked="checked"/>正式工
+  </label>
+    <label class="radio">
+    <radio value="0" checked=""/>临时工
+  </label>
+
+</radio-group>
+              
+              
+              
+              </view>
+            </view>
+      
+          
+           <view class="item">
+              <view class="name">员工性别</view>
+              <view class="selectitem">
+              
+                 <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio">
+    <radio value="1" checked="checked"/>男
+  </label>
+    <label class="radio">
+    <radio value="0" checked=""/>女
+  </label>
+
+</radio-group>
+              
+              
+              
+              </view>
+            </view>
+
+
+
+            <view class="item">
+              <view class="name">员工电话</view>
+              <view class="selectitem"><input  type="text" name="tel" placeholder="请输入员工电话" value="{{noteinfo.tel}}"  /></view>
+            </view>
+            
+
+              <view class="item">
+              <view class="name">身份证号</view>
+              <view class="selectitem"><input  type="text" name="cardnum" placeholder="请输入身份证号" value="{{noteinfo.cardnum}}" /></view>
+            </view>
+            
+           
+
+               <view class="item">
+              <view class="name">基本工资</view>
+              <view class="selectitem"><input  type="text" name="money" placeholder="请输入基本工资"  /></view>
+            </view>
+
+
+             <view class="item">
+              <view class="name">入职日期</view>
+              <view class="selectitem">
+              
+            <picker  mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">  
+    <view class="picker">  
+        {{dates ? dates : '请选择入职日期'}}
+    </view>  
+  </picker>
+              
+              
+              </view>
+            </view>
+            
+             <view class="item">
+              <view class="name">其他说明</view>
+              <view class="selectitem"><input  type="text" name="mark" placeholder="请输入其他说明" /></view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >提交信息</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

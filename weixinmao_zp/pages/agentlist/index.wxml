@@ -1,0 +1,45 @@
+<!-- search -->
+<view class="search">
+	<navigator url="../city/city" hover-class="none">
+		<image src="../../resource/images/coord.png" mode="aspectFit"></image>
+		<text>{{city}}</text>
+	</navigator>
+	<view bindtap="toSearch" class="search_box">
+		<icon type="search" size="14"/>
+	    <text>请输入查询信息</text>
+	</view>
+</view>
+
+
+
+<view style="height:10rpx;"></view>
+ <block wx:if="{{list}}">
+
+ <view class="newslist" wx:for="{{list}}" >
+                        <view class="pic" bindtap="toAgentDetail" data-id="{{item.id}}">
+                              <image src="{{item.logo}}"></image>
+                        </view>
+                        <view class="title" bindtap="toAgentDetail" data-id="{{item.id}}">
+                                  <view class="address">
+                                        <view> {{item.name}}</view>
+                                  </view>
+                                <view class="perprice">
+                                   <text class="fa fa-phone  fa-fw"></text> {{item.tel}}  
+                                </view>
+                                 <view class="perprice">
+                                   <text class="fa fa-weixin  fa-fw"></text> {{item.weixin}}  
+                                </view>
+
+                                 <view class="perprice">
+                                   <text class="fa fa-envelope-o fa-fw"></text> {{item.email}}  
+                                </view>
+
+                        </view>
+                        
+ </view>
+</block>
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>

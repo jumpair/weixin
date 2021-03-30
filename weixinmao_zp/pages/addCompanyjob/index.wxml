@@ -1,0 +1,249 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+          {{title[1]}}
+        </view>
+        <view class="list">
+
+           <view class="item">
+              <view class="name"> {{title[2]}}</view>
+              <view class="selectitem"><input  value="{{jobinfo.jobtitle ? jobinfo.jobtitle:''}}" type="text" name="jobtitle" placeholder="{{title[3]}}" /></view>
+
+            </view>
+            <view class="item">
+              <view class="name"> {{title[4]}}</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{jobcate}}" range-key="name"  bindchange="bindJobcateChange">  
+                        <view class="picker">  
+
+                            {{jobcate[jobcateindex].name ? jobcate[jobcateindex].name : title[5]}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+ <view class="item">
+              <view class="name"> 悬赏奖金</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.vprice ? jobinfo.vprice:''}}" name="vprice" placeholder="请输入悬赏奖金" /></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name">{{title[6]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.noteprice ? jobinfo.noteprice:''}}" name="noteprice" placeholder="{{title[7]}}" /></view>
+
+            </view>
+
+            <view class="item">
+              <view class="name"> 薪资待遇</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.money ? jobinfo.money:''}}" name="money" placeholder="请输入薪资待遇" /></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name"> {{title[8]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.num ? jobinfo.num:''}}" name="num" placeholder="{{title[9]}}" /></view>
+
+            </view>
+
+
+            <view class="item">
+              <view class="name">学历要求</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{education}}" range-key=""  bindchange="bindEducationChange">  
+              <view class="picker">  
+
+                  {{education[educationindex] ? education[educationindex] : '请选择学历要求'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+
+              <view class="item">
+              <view class="name">{{title[10]}}</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{express}}"   bindchange="bindExpressChange">  
+              <view class="picker">  
+
+                  {{express[expressindex] ? express[expressindex] : title[11]}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+            
+     <view class="item">
+              <view class="name">{{title[12]}}</view>
+              <view class="selectitem">  
+                    <picker value="{{Index}}"  range="{{worktype}}"  bindchange="bindWorktypeChange">  
+                        <view class="picker">  
+
+                            {{worktype[worktypeindex] ? worktype[worktypeindex] : title[13]}}
+                        </view>  
+                      </picker>
+             </view>
+
+            </view>
+
+
+
+             <view class="item">
+              <view class="name"> 年龄要求</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.age ? jobinfo.age:''}}" name="age" placeholder="请输入年龄要求" /></view>
+
+            </view>
+
+
+             <view class="item">
+              <view class="name">性 别</view>
+              <view class="selectitem">
+
+                  <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio">
+    <radio value="1" checked="{{jobinfo.sex ==1 ? 'checked':''}}"/>男
+  </label>
+    <label class="radio">
+    <radio value="2" checked="{{jobinfo.sex ==0 ? 'checked':''}}"/>女
+  </label>
+
+   <label class="radio">
+    <radio value="0" checked="{{jobinfo.sex ==0 ? 'checked':''}}"/>不限
+  </label>
+</radio-group>
+              
+              
+              </view>
+
+            </view>
+          
+          
+
+
+
+        </view>
+
+    </view>
+
+
+
+  <view class="main">
+        <view class="title">
+          特色服务
+        </view>
+        <view class="checklist">
+        <checkbox-group bindchange="checkboxChange">
+             <view class="checkitem" wx:for="{{speciallist}}"><checkbox name="special" value="{{item.name}}" checked="{{item.checked ? true:false}}"/>{{item.name}}</view>
+             
+        </checkbox-group>
+        </view>
+    </view>
+
+
+
+
+    <view class="main">
+        <view class="title">
+          {{title[14]}}
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+          <editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady">
+  </editor>
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+
+
+ <view class="main">
+        
+ <view class="list">
+              <view class="title"><view>视频上传</view><view>(禁止上传不良视频)</view></view>
+              <view class="item">
+                 <view class="uploadimg" bindtap="chooseVideo"  ><image src="../../resource/images/upvideo.png"></image>                 <view class="uploadtitle">视频限于20M</view>
+</view>
+              </view>
+          </view>
+
+
+        <view class="list" style='display:{{isvideo}};'>
+      <view class='imgsbox'>
+      <view class="weui-uploader">
+        <view class="img-v">
+          <view class="imgvedio" >
+
+ <video src="{{src}}" style='width:660rpx;height:400rpx;'></video>
+            <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
+           <!-- <image class='imgx' src='../images/x.png'></image>-->
+            </view>
+          </view>
+
+      </view>
+      </view>
+      </view>
+      </view>
+
+</view>
+
+   
+
+
+
+
+
+<!--
+<view class="main" >
+           <view class="title">付费信息</view>
+            <view class="list">
+                        <view class="item">
+                            <view class="name">支付选项</view>
+                             
+                                <view class="selectitem">  
+                                    <picker value="{{Index}}"  range="{{payjoblist}}" range-key="title"  bindchange="bindToplistChange">  
+                                      <view class="picker">  
+
+                                          {{payjoblist[toplistidindex].title ? payjoblist[toplistidindex].title : '选择上线天数'}}
+                                      </view>  
+                                    </picker>
+                                </view>
+                        </view>
+              </view>
+</view>
+-->
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >立即保存</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+

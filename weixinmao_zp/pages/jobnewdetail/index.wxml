@@ -1,0 +1,164 @@
+
+<import src="../../resource/wxParse/wxParse.wxml" />
+<view class="container" hidden='{{isshow}}'>
+ 
+  <view class="jobinfo">
+
+      <view class="jobtitle">
+          <view>{{data.title}}</view>
+          <view>{{data.money}}元/月</view>
+      </view>
+         <view class="joblabel">
+          <view> <block wx:if="{{data.sex==1}}"> 男</block><block wx:elif="{{data.sex==2}}">女</block><block wx:else>男女不限</block></view>
+      
+          <view>{{data.education}}</view>
+    
+          <view>{{data.express}}</view>
+    
+          <view>{{data.jobtype}}</view>
+  
+          <view>{{data.age}}</view>
+ 
+          <view>{{title[0]}}{{data.num}}人</view>
+      </view>
+
+  </view>
+
+  <view class="company">
+                  <view class="companyinfo" bindtap='toCompanyDetail' data-id="{{data.companyid}}">
+
+                      <image src='{{data.thumb}}'></image>
+                      <view class="companyname">
+                          <view>{{data.companyname}}</view>
+                          <view>{{data.companyworker}}| {{data.companytype}}|{{data.companycate}} </view>
+                          <view><text class="fa fa-map-marker fa-lg" style='color:#bfbfbf;'></text> {{data.address}}</view>
+                        </view>
+
+                  </view>
+                
+                  
+          </view>
+
+  <view class="jobdetail">
+      <view class="jobtitle">{{title[3]}}</view>
+  </view>
+  <view class="jobcontent">
+      <view class="detail">   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+  </view>
+
+
+
+ <view class="jobdetail" >
+      <view class="jobtitle" style='width:750rpx;text-align:center;background:#f8f8f9;color:#666363;'>{{title[8]}}</view>
+  </view>
+   
+
+  <!-- begin-->
+        <view class="news">
+
+
+
+               <view class="newslist" wx:for="{{joblist}}">
+                            <view class="title" bindtap="toJobDetail" data-id="{{item.id}}">
+                                      <view class="address">
+                                            <view class="jobname"><!--<image src="../../resource/images/ding.png"></image>--> {{item.title}} </view>
+                                           
+                                              <view><block  wx:if="{{item.money == 0}}">面议</block><block  wx:else>{{item.money}}元/月</block>  </view>
+                                      </view>
+                                <view class="joblable">
+                                  <view>{{item.areaname}}|<block wx:if="{{item.sex==1}}"> 男</block><block wx:elif="{{item.sex==2}}">女</block><block wx:else>男女不限</block>|{{item.age}}</view>
+                                </view>
+                                <view class="special">
+                                             
+                                            
+                                            </view>
+                                       <view class="detail">
+                                         
+                                           <view class="info">
+                                          
+                                                  <view class="companyinfo" style='border:0rpx;'> 
+                                                        <view> {{item.companyname}} </view>
+                                                        <view>{{item.address}}</view>
+                                                  
+                                                  </view>
+                                                
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+                            
+
+
+                    
+        
+             
+
+              
+        </view>
+<!-- end-->
+
+
+
+</view>
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+     
+      <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}" data-id="{{data.companyid}}" > <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+
+
+        <view class="footer"  data-id="{{data.companyid}}">  
+ 
+       <button  class="footerbuttons"  bindtap='toSharejob' data-id="{{data.id}}" >{{title[4]}}</button>
+     
+     
+     </view>
+
+
+      <view class="footer"  data-id="{{data.companyid}}">  
+
+       <button class="footerbuttons"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo"  hidden="{{isuser}}"    >{{title[5]}}</button>
+ 
+      <form bindsubmit="doSendjob" report-submit="true">
+       <button  hidden="{{!isuser}}" class="footerbuttons"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo"   formType="submit" >{{title[5]}}</button>
+     </form>
+     
+     </view>
+    
+
+
+
+
+
+    </view>
+</view>
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+      
+           <view class="userinfo-content">
+          
+          <view>为了提供更好的服务</view>
+          <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+      
+  <view class="userinfo-img">
+         <image src="../../resource/images/getinfo.png"></image>
+        </view>
+
+   <view class="userinfo-button">
+             <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">我知道了</button>
+        </view>
+
+
+    </view>
+</view>

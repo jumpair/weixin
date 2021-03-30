@@ -1,0 +1,10 @@
+<view class="container">
+
+<view style='font-weight:bold;font-size:.8rem;color:red;width:750rpx;text-align:center;margin-top:50rpx;' >剩余：{{msgcount}}条</view>
+ <form bindsubmit="bindMsg" report-submit>
+ 
+    <button  class="save-btn" formType="submit">刷新消息</button>
+            
+
+    </form>
+</view>

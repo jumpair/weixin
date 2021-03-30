@@ -1,0 +1,229 @@
+
+<import src="../../resource/wxParse/wxParse.wxml" />
+<view class="container" hidden='{{isshow}}'>
+ 
+  <view class="jobinfo">
+
+      <view class="jobtitle">
+          <view>{{data.title}}</view>
+          <view>{{data.money}}元/月</view>
+      </view>
+
+     
+      
+      <view class="joblabel">
+          <view> <block wx:if="{{data.sex==1}}"> 男</block><block wx:elif="{{data.sex==2}}">女</block><block wx:else>男女不限</block></view>
+      
+          <view>{{data.education}}</view>
+    
+          <view>{{data.express}}</view>
+    
+          <view>{{data.jobtype}}</view>
+  
+          <view>{{data.age}}</view>
+ 
+          <view>{{title[0]}}{{data.num}}人</view>
+      </view>
+
+     
+
+      <block wx:if="{{ispay== 1 ||  data.dmoney ==0}}">
+          <view class="company">
+                  <view class="companyinfo" bindtap='toCompanyDetail' data-id="{{data.companyid}}">
+
+                      <image src='{{data.thumb}}'></image>
+                      <view class="companyname">
+                          <view>{{data.companyname}}</view>
+                          <view>{{data.companyworker}}| {{data.companytype}}|{{data.companycate}} </view>
+                          <view><text class="fa fa-map-marker fa-lg" style='color:#bfbfbf;'></text> {{data.address}}</view>
+                        </view>
+
+                  </view>
+                
+                  
+          </view>
+  <view class="jobdetail">
+      <view class="jobtitle">{{title[7]}}</view>
+  </view>
+
+    <view class="contentlist">
+
+      <view class="special">
+            <view class="item" wx:for="{{data.special}}">{{item}} </view>
+  
+      </view>
+
+    </view>
+
+
+      <block wx:if="{{advmoney}}">
+<view class="advmoney">
+<ad unit-id="{{advmoney.advid}}"></ad>
+</view>
+</block>
+
+            <block wx:if="{{intro.istel == 0 }}">
+
+  <view class="jobdetail">
+      <view class="jobtitle">联系方式</view>
+  </view>
+              <view class="contentlist">
+                  
+                <view class="listitem">
+                    <view class="items"><text class="fa fa-user fa-lg" style="color:#bfbfbf"></text> <text>{{data.mastername}}</text></view>
+                    <view class="items"><text class="fa fa-phone fa-lg" style='color:#bfbfbf;'></text><text>{{data.tel}}</text></view>
+                  
+                </view>
+                    
+              </view>
+ </block>
+
+
+   </block>
+
+
+
+
+  <block wx:if="{{data.videourl !='' }}">
+
+  <view class="jobdetail">
+      <view class="jobtitle">视频介绍</view>
+  </view>
+  <view class="jobcontent">
+      <view class="detail2"> 
+      
+       <video autoplay="true" src='{{data.videourl}}' style='width:700rpx;'></video>
+       </view>
+  </view>
+
+
+
+</block>
+
+
+
+     <view class="jobdetail">
+      <view class="jobtitle">{{title[3]}}</view>
+  </view>
+  <view class="jobcontent">
+      <view class="detail">   <template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
+  </view>
+
+
+   
+  </view>
+
+
+
+
+
+</view>
+
+
+ <block wx:if="{{data.dmoney<=0}}">
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+       <view class="footer"><button open-type="share"><text class="fa fa-share-square-o fa-lg"></text></button></view>
+       <view class="footer" bindtap='doCheckCall'    data-id="{{data.companyid}}"><text class="fa fa-phone fa-lg"></text>电话</view>
+      <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}" data-id="{{data.companyid}}" > <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+       <view class="footer"  data-id="{{data.companyid}}"> 
+
+     
+        <form bindsubmit="doSendjob" report-submit="true">
+      <button class="footerbutton"   hidden="{{!isuser}}"  style='background:#fe552e; font-size:.8rem; height:100rpx;'   formType="submit" >{{title[5]}}</button>
+     </form>
+     
+
+      <button class="footerbutton"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" style='background:#fe552e; font-size:.8rem; height:100rpx;'  hidden="{{isuser}}"  >{{title[5]}}</button>
+     
+     </view>
+    </view>
+</view>
+
+</block>
+    <block wx:else>
+
+        <block wx:if="{{ispay== 1}}">
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+       <view class="footer"><button open-type="share"><text class="fa fa-share-square-o fa-lg"></text></button></view>
+       <view class="footer" bindtap='doCall'   data-tel="{{data.tel}}"><text class="fa fa-phone fa-lg"></text>电话</view>
+      <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}" data-id="{{data.companyid}}" > <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+
+      <view class="footer"  data-id="{{data.companyid}}">  
+
+       <button class="footerbutton"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" style='background:#fe552e; font-size:.8rem; height:100rpx;' hidden="{{isuser}}"    >投递简历</button>
+ 
+      <form bindsubmit="doSendjob" report-submit="true">
+       <button  hidden="{{!isuser}}" class="footerbutton"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" style='background:#fe552e; font-size:.8rem; height:100rpx;'   formType="submit" >投递简历</button>
+     </form>
+     
+     </view>
+    
+
+    </view>
+</view>
+
+          </block>
+            <block wx:else>
+
+<view class="weixinmao-float_pay" bindtap='pay' hidden='{{isshow}}'>
+            <view class="weixinmao-foot_pay">
+          
+                <view class="footer_pay" >打赏￥{{data.dmoney}}查看联系方式</view>
+                
+            </view>
+        </view>
+
+
+             </block>
+
+    </block>
+
+
+
+
+
+
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+      
+           <view class="userinfo-content">
+          
+          <view>为了提供更好的服务</view>
+          <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+      
+  <view class="userinfo-img">
+         <image src="../../resource/images/getinfo.png"></image>
+        </view>
+
+   <view class="userinfo-button">
+             <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">我知道了</button>
+        </view>
+
+
+    </view>
+</view>
+
+
+
+
+<view class="u-tap-btn">
+  <navigator open-type="redirect" url="/weixinmao_zp/pages/newsharejob/index?id={{data.id}}" class="u-go-home">
+    <view class="iconfont fa fa-share-alt"></view>
+  </navigator>
+
+   <navigator bindtap='goMap'  class="u-go-home">
+    <view class="iconfont fa fa-location-arrow"></view>
+  </navigator>
+</view>

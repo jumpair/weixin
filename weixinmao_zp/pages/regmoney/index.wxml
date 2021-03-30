@@ -1,0 +1,69 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+  <view class="header">
+      <view class="title">{{title[0]}}</view>
+      <view class="content">
+      {{title[1]}}
+      </view>
+  </view>
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+ <view class="item">
+              <view class="name">好友姓名</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入您好友的姓名" /></view>
+
+            </view>
+      
+          
+           <view class="item">
+              <view class="name">{{title[2]}}</view>
+              <view class="selectitem"><input  type="text" name="companyname" placeholder="{{title[3]}}" /></view>
+            </view>
+            <view class="item">
+              <view class="name">联系方式</view>
+              <view class="selectitem"><input  type="text" name="tel" placeholder="请输入您好友的手机号" /></view>
+            </view>
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >提交申请</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

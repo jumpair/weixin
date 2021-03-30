@@ -1,0 +1,38 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+<view class="container">
+  <view class="header">
+        <view class="pic">
+        
+          <image src="{{data.avatarUrl}}"></image>
+          
+              
+              <view>{{data.name}}</view>
+        </view>
+  </view>
+
+
+  <view class="list">
+        <view class="item" bindtap='doCall' data-tel="{{data.tel}}"><text class="fa fa-phone  fa-fw"></text>  {{data.tel}}</view>
+        <view class="item"> <text class="fa fa-weixin  fa-fw"></text> {{data.weixin}}</view>
+         <view class="item"><text class="fa fa-envelope-o fa-fw"></text>  {{data.email}}</view>
+
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+       <view class="footer" bindtap='Changeagent'>切换经纪人</view>
+     
+   
+
+    </view>
+</view>
+

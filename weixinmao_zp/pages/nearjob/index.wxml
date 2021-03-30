@@ -1,0 +1,64 @@
+<!-- search -->
+<view class="search">
+	<navigator url="../city/index?id=1" hover-class="none">
+		<image src="../../resource/images/coord.png" mode="aspectFit"></image>
+		<text>{{city}}</text>
+	</navigator>
+	<view bindtap="toSearch" class="search_box">
+		<icon type="search" size="14"/>
+	    <text>请输入查询信息</text>
+	</view>
+</view>
+<!-- 排序 -->
+
+
+
+
+
+<view style="height:150rpx;"></view>
+
+<!-- 列表 -->
+<view class="news">
+          <view class="newslist" wx:for="{{list}}">
+                            <view class="title" bindtap='toCompanyDetail'  data-id="{{item.id}}">
+                                    
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.thumb}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view class="special">
+                                            {{item.companyname}}
+                                            </view>
+                                            <view class="jobmoney"><text>{{item.jobcount}}{{title[1]}}</text> <text>{{item.km}}</text> </view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+  
+
+
+
+
+
+
+
+
+</view>
+
+
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>
+
+<view class="u-tap-btn">
+
+  <button class="u-go-home2" open-type='contact'>
+<view class="iconfont fa fa-comments-o" ></view>
+  </button>
+</view>

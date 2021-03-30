@@ -1,0 +1,135 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+<view class="container">
+
+
+
+   <view class="header" style='background-image: linear-gradient(to right, #1C52F4 , #436ff3);'>
+         <view>
+                  <view class="pic" >
+                  
+                    <image src="{{agentinfo.logo}}"></image>
+                              <view class="userinfo">
+                              
+                              <view>{{agentinfo.name}}</view>
+                              
+                                <view>经纪人</view>
+                                </view>
+
+                  </view>
+
+            
+
+  
+      </view>
+   
+</view>
+
+
+<view class="service">
+
+
+     <view class="servicelist"   bindtap='toMytask' >
+        <view class="logo">
+          <image src="../../resource/images/fx.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>我的任务</view>
+            <view></view>
+        </view>
+    </view>
+
+
+
+     <view class="servicelist"   bindtap='toMymoneyjob'>
+        <view class="logo">
+          <image src="../../resource/images/fx.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>悬赏任务</view>
+            <view></view>
+        </view>
+    </view>
+
+    <view class="servicelist"   bindtap='toAgentnotelist' id="{{item.id}}">
+        <view class="logo">
+          <image src="../../resource/images/qj.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>{{title[0]}}</view>
+            <view>{{agent_setting.notemoney}}元/份</view>
+        </view>
+    </view>
+
+
+
+    <view class="servicelist"   bindtap='toAgentcompanylist'>
+        <view class="logo">
+          <image src="../../resource/images/tz.png"  />  
+
+        </view>
+        <view class="name">
+            <view>推荐企业</view>
+            <view>{{agent_setting.companymoney}}元/份</view>
+        </view>
+    </view>
+
+  <view class="servicelist"   bindtap='toFxrecord'>
+        <view class="logo">
+          <image src="../../resource/images/fx.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>推广记录</view>
+            <view>推荐有奖</view>
+        </view>
+    </view>
+
+
+
+    <view class="servicelist"   bindtap='toAgentqrcode' id="{{item.id}}" >
+        <view class="logo">
+          <image src="../../resource/images/tzhi.png"  />  
+
+        </view>
+        <view class="name">
+            <view>推广二维码</view>
+            <view></view>
+        </view>
+    </view>
+
+
+    <view class="servicelist"   bindtap='toMyteam'  >
+        <view class="logo">
+          <image src="../../resource/images/agent.png"  />  
+
+        </view>
+        <view class="name">
+            <view>我的团队</view>
+            <view></view>
+        </view>
+    </view>
+    
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+ 
+</view>
+
+

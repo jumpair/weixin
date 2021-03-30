@@ -1,0 +1,90 @@
+
+<import src="../../resource/wxParse/wxParse.wxml" />
+<view class="container" hidden='{{isshow}}'>
+ 
+  <view class="jobinfo">
+
+      <view class="jobtitle">
+          <view>{{data.title}}</view>
+          <view>{{title[2]}}</view>
+      </view>
+      <view class="joblabel">
+          <view>{{data.money}}元/月</view>
+          <view>|</view>
+          <view>{{data.areaname}}</view>
+      </view>
+  </view>
+
+
+
+  <view class="jobdetail">
+      <view class="jobtitle">{{title[3]}}</view>
+  </view>
+  <view class="jobcontent">
+      <view class="detail">   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+  </view>
+
+
+
+</view>
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+     
+      <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}" data-id="{{data.companyid}}" > <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+
+
+        <view class="footer"  data-id="{{data.companyid}}">  
+ 
+       <button  class="footerbuttons"  bindtap='toSharejob' data-id="{{data.id}}" >{{title[4]}}</button>
+     
+     
+     </view>
+
+
+      <view class="footer"  data-id="{{data.companyid}}">  
+
+       <button class="footerbuttons"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo"  hidden="{{isuser}}"    >{{title[5]}}</button>
+ 
+      <form bindsubmit="doSendjob" report-submit="true">
+       <button  hidden="{{!isuser}}" class="footerbuttons"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo"   formType="submit" >{{title[5]}}</button>
+     </form>
+     
+     </view>
+    
+
+
+
+
+
+    </view>
+</view>
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          需要您的授权
+        </view>
+      
+           <view class="userinfo-content">
+          
+          <view>为了提供更好的服务</view>
+          <view>请稍后在提示框上点击“允许”。</view>
+        </view>
+      
+  <view class="userinfo-img">
+         <image src="../../resource/images/getinfo.png"></image>
+        </view>
+
+   <view class="userinfo-button">
+             <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">我知道了</button>
+        </view>
+
+
+    </view>
+</view>

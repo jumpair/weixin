@@ -1,0 +1,35 @@
+
+<!--充值金额分类模块-->
+<view class="balance-demo" id="balanceDemo">
+  <form>
+      <block wx:for="{{navList}}">
+        <button class="type-nav {{curNav == item.id ? 'selected' : ''}}" bindtap="selectNav" data-index="{{index}}" data-id="{{item.id}}" data-money="{{item.money}}">
+          <text class="top type-nav {{curNav == item.id ? 'selected' : ''}}" data-index="{{index}}" data-id="{{item.id}}">{{item.chongzhi}}
+          </text>
+          <text  style="font-size:.7rem;" class="botton type-nav {{curNav == item.id ? 'selected' : ''}}" data-index="{{index}}" data-id="{{item.id}}">{{item.song}}
+          </text>
+        </button>
+		</block>
+  </form>
+</view>
+
+
+
+<!--去充值模块-->
+<view class="goblance">
+
+  <view class="txt_t">
+  <!--
+    <view>点击去充值，即表示已经阅读并同意 <navigator url="../../pages/service/service">《充值协议》</navigator></view>
+   -->
+    <button bindtap="pay" data-money="500">立即支付</button>
+  </view>
+</view>
+<!--充值余额成功弹出层-->
+<modal class="mb-balance" hidden="false" title="充值成功" confirm-text="确定" bindconfirm="confirm" no-cancel="true">
+  您已成功充值{{sucmoney}}元。
+</modal>
+<!--充值余额弹出层-->
+<modal class="mb-yajin" hidden="{{yajinhidden}}" title="{{tajinmodaltitle}}" confirm-text="{{yajinmodaltxt}}" cancel-text="取消" bindcancel="yajincancel" bindconfirm="yajinconfirm"  no-cancel="{{nocancel}}">
+  {{yajintxt}}。
+</modal>

@@ -1,0 +1,10 @@
+   <view class="container">
+
+  
+
+
+       <view style="white-space:pre-wrap;background-color: #8edc80;border-radius: 5px;font-weight: 600;color:#1008089c;width: 90%;margin: auto;height: 120px;margin-top: 20px;text-align: center;display: flex;"><view style="align-items:center;display: flex;vertical-align: middle;margin: auto;color:#fff;" bindtap='toMyTaxdeclare'> <image src="../../resource/images/declare.png" style="width: 30px;height: 30px;"></image>  人员申报管理</view></view>
+       <view style="white-space:pre-wrap;background-color: #c48ce6;border-radius: 5px;font-weight: 600;color:#1008089c;width: 90%;margin: auto;height: 120px;margin-top: 20px;text-align: center;display: flex;"><view style="align-items:center;display: flex;vertical-align: middle;margin: auto;color:#fff;" bindtap='toMyTaxcontract'><image src="../../resource/images/contract.png" style="width: 30px;height: 30px;"></image>  人员申报合同管理</view></view>
+       <view style="white-space:pre-wrap;background-color: #5c9ae6;border-radius: 5px;font-weight: 600;color:#1008089c;width: 90%;margin: auto;height: 120px;margin-top: 20px;text-align: center;display: flex;"><view style="align-items:center;display: flex;vertical-align: middle;margin: auto;color:#fff;" bindtap='toMyTaxpayment'><image src="../../resource/images/payment.png" style="width: 30px;height: 30px;"></image>  完税申报记录</view></view>
+
+</view>

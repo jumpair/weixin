@@ -1,0 +1,71 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+ <view class="item">
+              <view class="name">姓  名</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入您的姓名" /></view>
+
+            </view>
+      
+   <view class="item">
+              <view class="name">联系方式</view>
+              <view class="selectitem"><input  type="text" name="tel" placeholder="请输入您的手机号" /></view>
+            </view>
+
+               <view class="item">
+              <view class="name">微 信 号</view>
+              <view class="selectitem"><input  type="text" name="weixin" placeholder="请输入您的微信号" /></view>
+            </view>
+        
+             <view class="item">
+              <view class="name">电子邮箱</view>
+              <view class="selectitem"><input  type="text" name="email" placeholder="请输入您的电子邮箱" /></view>
+            </view>
+         
+         
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >提交申请</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

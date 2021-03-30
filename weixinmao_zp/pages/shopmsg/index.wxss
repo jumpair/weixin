@@ -1,0 +1,20 @@
+/* weixinmao_ktv/pages/shopmsg/index.wxss */
+
+.save-btn{
+    width: 600rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    margin-top:30rpx; 
+    border-radius: 6rpx;
+    box-sizing: border-box;
+    font-size: .8rem;
+}
+.save-btn{
+    background-color: #3274e5;
+    color:#fff;
+}
+button[type="default"]{
+    background-color: #ffffff;
+    color:#000;
+}

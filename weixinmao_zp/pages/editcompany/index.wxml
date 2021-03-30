@@ -1,0 +1,130 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+          企业信息编辑    
+        </view>
+        <view class="list">
+  <view class="item">
+              <view class="name">选择区域</view>
+              <view class="selectitem">
+              
+              
+                 <picker value="{{Index}}"  range="{{arealist}}" range-key="name"  bindchange="bindAreaChange">  
+    <view class="picker">  
+
+        {{arealist[areaidindex].name ? arealist[areaidindex].name : '请选择地区'}}
+    </view>  
+  </picker>
+          
+              
+              
+              
+              </view>
+
+            </view>
+           <view class="item">
+              <view class="name">企业名称</view>
+              <view class="selectitem"><input  value="{{companyinfo.companyname ? companyinfo.companyname:''}}" type="text" name="companyname" placeholder="请输入企业名称" /></view>
+
+            </view>
+            <view class="item">
+              <view class="name">企业行业</view>
+             <view class="selectitem"><input  value="{{companyinfo.companycate ? companyinfo.companycate:''}}" type="text" name="companycate" placeholder="请输入企业行业" /></view>
+
+
+            </view>
+
+              <view class="item">
+              <view class="name">企业性质</view>
+                          <view class="selectitem"><input  value="{{companyinfo.companytype ? companyinfo.companytype:''}}" type="text" name="companytype" placeholder="请输入企业性质" /></view>
+
+
+            </view>
+              <view class="item">
+              <view class="name">人员规模</view>
+                          <view class="selectitem"><input  value="{{companyinfo.companyworker ? companyinfo.companyworker:''}}" type="text" name="companyworker" placeholder="请输入人员规模" /></view>
+
+
+            </view>
+            <view class="item">
+              <view class="name"> 负责人</view>
+              <view class="selectitem"><input  type="text"  value = "{{companyinfo.mastername ? companyinfo.mastername:''}}" name="mastername" placeholder="请输入负责人" /></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name"> 电 话</view>
+              <view class="selectitem"><input  type="text"  value = "{{companyinfo.tel ? companyinfo.tel:''}}" name="tel" placeholder="请输入电话" /></view>
+
+            </view>
+
+               <view class="item">
+              <view class="name">地址</view>
+                  <view class="selectitem"><input  type="text"  value = "{{companyinfo.address ? companyinfo.address:''}}" name="address" placeholder="请输入地址" /></view>
+
+            </view>
+
+              
+         </view>
+         </view>
+
+
+
+
+
+
+
+    <view class="main">
+        <view class="title">
+          公司介绍
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+         <textarea name="content" placeholder="请填写公司介绍" value="{{companyinfo.content}}" maxlength="-1" />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+    
+       <view class="main">
+        <view class="title">
+          企业LOGO
+        </view>
+           <view class="imglist">
+            <view class="imgitem" >
+              <image src="{{imgurl1 ? imgurl1: '../../resource/images/pub.png'}}" bindtap='upload' data-id="1"></image>
+              <view class="sum" hidden="{{true1}}" bindtap="delupload" data-id="1"><text>×</text></view>
+             </view>
+
+        </view>
+
+    </view>
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >保存公司信息</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+

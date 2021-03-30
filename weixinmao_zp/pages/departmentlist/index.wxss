@@ -1,0 +1,220 @@
+/* weixinmao_hssy/pages/orderlist/index.wxss */
+
+.container {
+  background-color: #f5f5f5;
+  min-height: 100%;
+}
+.container .orderlist{
+  
+  width:750rpx;
+  display: flex;
+  flex-direction: column;
+  background: #FFF;
+  margin-top: 10rpx;
+}
+.container .orderlist .orderid{
+  border-bottom:  1rpx solid #efefef;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 20rpx;
+  font-size: .8rem;
+  width:720rpx;
+  display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+
+}
+.container .orderlist .orderid image{
+  width:50rpx;
+  height: 50rpx;
+}
+
+.container .orderlist .content{
+
+  font-size: .8rem;
+  border-bottom:  1rpx solid #efefef;
+
+}
+.container .orderlist .content .item{
+    
+  padding-top:16rpx;
+  padding-bottom: 16rpx;
+  padding-left: 20rpx;
+   border-bottom:  1rpx dotted #efefef;
+   display: flex;
+   flex-direction: row;
+}
+.syscompany{
+
+    width:180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  border-radius: 5rpx;
+  background: #44b549;
+  font-size: .6rem;
+  color: #FFF;
+  margin-left:230rpx;
+}
+.container .orderlist .content .payitem {
+
+    display: flex;
+   flex-direction: row;
+   justify-content:flex-end;
+    padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  margin-left: 20rpx;
+}
+.container .orderlist .content .payitem view{
+  width:120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  border-radius: 5rpx;
+  border: 1rpx solid #f5f5f5;
+  font-size: .6rem;
+  color: #fff;
+  background: #e64340;
+  
+}
+/*
+.container .orderlist .content .payitem view:nth-child(1){
+
+  background: #44b549;
+
+}
+.container .orderlist .content .payitem view:nth-child(2){
+
+  background: #3274e5;
+
+}
+
+.container .orderlist .content .payitem view:nth-child(3){
+
+  background: #e64340;
+
+}
+
+*/
+
+
+.weixinmao-float{ height: 150rpx;}
+.weixinmao-foot{ 
+  display:flex; 
+  justify-content: center;
+  flex-direction:row;
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  }
+
+.weixinmao-foot view{
+color:#FFF;
+height: 100rpx;
+line-height: 100rpx;
+font-size: .9rem;
+width:100%;
+border-radius: 0rpx;
+background: #e64340;
+text-align: center;
+}
+
+
+
+.intro{
+padding: 10rpx;
+font-size: .8rem;
+
+}
+
+
+.jobinfo{
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom:  1rpx solid #f5f5f5;
+}
+.jobinfo .jobleft{
+
+  width:200rpx;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.jobinfo .jobleft view:nth-child(1){
+
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.jobinfo .jobleft view:nth-child(2){
+
+  color: #666666;
+  font-size: .7rem;
+}
+
+.jobinfo .jobleft{
+
+  width:230rpx;
+  height: 230rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.jobinfo .jobright{
+
+  width:500rpx;
+  height: 230rpx;
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+ 
+
+}
+.jobinfo .jobright .jobtitle{
+     font-weight: 600;
+  font-size: 1.2rem; 
+  display: flex;
+  flex-direction: row;
+  padding-top:30rpx;
+
+}
+.jobinfo .jobright .jobtitle image{
+  width:45rpx;
+  height: 45rpx;
+  margin-left:30rpx;
+}
+
+.jobinfo .jobright view:nth-child(2){
+
+  color: #666666;
+  font-size: .7rem;
+}
+
+
+.jobinfo .jobright view:nth-child(3){
+
+  color: #666666;
+  font-size: .7rem;
+}
+
+.jobinfo .jobright view:nth-child(4){
+
+  color: #666666;
+  font-size: .7rem;
+}
+.line{
+  height: 230rpx;
+  border: 1rpx dotted #f5f5f5; 
+}

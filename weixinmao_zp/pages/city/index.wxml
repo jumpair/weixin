@@ -1,0 +1,58 @@
+<!--
+<view class="city_header">
+	<image src="../../images/back.png" bindtap="goBack"></image>
+	<text>选择城市</text>
+</view>
+<view style="height: 51px"></view>
+-->
+<!-- 城市列表 -->
+<scroll-view class="city_list" scroll-y="true" scroll-into-view="{{toView}}" style="height: {{scrollHeight}}px">
+	<view class="cities">
+		<view class="current" id="AA">热门城市</view>
+		<view class="city_type">
+			<text class="city_tag" wx:for="{{hotlist}}" data-name="{{item.name}}" data-id="{{item.id}}" bindtap='selectcity'>{{item.name}}</text>
+		
+		</view>
+	</view>
+	<view class="cities" wx:for="{{firstnamelist}}">
+		<view class="current" id="{{item.firstname}}">{{item.firstname}}</view>
+		<view class="city_type">
+			<text class="city_tag"  wx:for="{{item.firstlist}}" wx:for-item="itemName" data-name="{{itemName.name}}" data-id="{{itemName.id}}" bindtap='selectcity'>{{itemName.name}}</text>
+
+		
+		</view>
+	</view>
+	
+</scroll-view>
+
+<!-- 侧栏字母 -->
+<view class="aside_letter" bindtap="choiceWordindex">
+		<text data-wordindex="AA">#</text>
+		<text data-wordindex="AA">热</text>
+		<text data-wordindex="A">A</text>
+		<text data-wordindex="B">B</text>
+		<text data-wordindex="C">C</text>
+		<text data-wordindex="D">D</text>
+		<text data-wordindex="E">E</text>
+    <text data-wordindex="F">F</text>
+    <text data-wordindex="G">G</text>
+    <text data-wordindex="H">H</text>
+    <text data-wordindex="I">I</text>
+    <text data-wordindex="J">J</text>
+    <text data-wordindex="K">K</text>
+    <text data-wordindex="L">L</text>
+    <text data-wordindex="M">M</text>
+    <text data-wordindex="N">N</text>
+    <text data-wordindex="O">O</text>
+    <text data-wordindex="P">P</text>
+    <text data-wordindex="Q">Q</text>
+    <text data-wordindex="R">R</text>
+    <text data-wordindex="S">S</text>
+    <text data-wordindex="T">T</text>
+    <text data-wordindex="U">U</text>
+    <text data-wordindex="V">V</text>
+    <text data-wordindex="W">W</text>
+    <text data-wordindex="X">X</text>
+     <text data-wordindex="Y">Y</text>
+      <text data-wordindex="Z">Z</text>
+</view>

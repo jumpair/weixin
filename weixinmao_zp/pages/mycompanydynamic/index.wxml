@@ -1,0 +1,144 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+    <view class="main">
+        
+ <!-- <view class="list">
+              <view class="title"><view>视频上传</view><view>(禁止上传不良视频)</view></view>
+              <view class="item">
+                 <view class="uploadimg" bindtap="chooseVideo"  ><image src="../../resource/images/upvideo.png"></image>                 <view class="uploadtitle">视频限于20M</view>
+</view>
+              </view>
+          </view> -->
+
+
+        <view class="list" style='display:{{isvideo}};'>
+      <view class='imgsbox'>
+      <view class="weui-uploader">
+        <view class="img-v">
+          <view class="imgvedio" >
+
+ <video src="{{src}}" style='width:660rpx;height:400rpx;'></video>
+            <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
+           <!-- <image class='imgx' src='../images/x.png'></image>-->
+            </view>
+          </view>
+
+      </view>
+      </view>
+      </view>
+      </view>
+
+
+      
+
+           <view class="list">
+              <view class="title"><view>图片上传</view><view>(禁止上传不良图片)</view></view>
+              <view class="item"> 
+                 <view class="uploadimg" bindtap="chooseImg" ><image src="../../resource/images/upload.png"></image>                 <view class="uploadtitle">上传照片最多3张</view>
+</view>
+              </view>
+          </view>
+
+
+    <view class="list" style='display:{{show}};'>
+      <view class='imgsbox'>
+      <view class="weui-uploader">
+        <view class="img-v">
+          <view class="img" wx:for="{{imgs1}}" wx:for-item="item" wx:key="*this">
+            <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg1"></image>
+            <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
+           <!-- <image class='imgx' src='../images/x.png'></image>-->照片
+            </view>
+          </view>
+
+      </view>
+      </view>
+      </view>
+      </view>
+          
+
+
+
+
+        <view class="list">
+              <view class="title"><view>动态</view><view></view></view>
+              <view class="item"> 
+    <view class="weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" bindinput="bindTextAreaChange" placeholder="展示开始的地方..." style="height: 6em" value="{{notevideo.content}}" maxlength="{{noteMaxLen}}" focus   name="content"/>
+     
+      </view>
+    </view>
+  </view>
+              </view>
+          </view>
+
+          
+
+
+
+
+
+    </view>
+</view>
+  
+
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+     
+    
+
+
+
+
+      <view class="footer" >  
+
+       <button class="footerbuttons bg2"   formType="submit"  >{{title[1]}}</button>
+ 
+
+     
+     </view>
+    
+
+
+
+
+
+    </view>
+</view>
+      
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+   <view class="container">
+
+
+
+      <view class="orderlist" wx:for-items="{{list}}">
+
+
+        <view class="content">
+
+       
+
+          <view class="jobinfo">
+              <view class="jobleft">
+                 <view> {{item.sort}}</view>
+                 <view>排序</view>
+              </view>
+<view class="line">
+</view>
+
+              <view class="jobright">
+                <view class="jobtitle"><view>{{item.name}}</view>
+</view>
+         
+               
+
+                <view class="payitem">
+
+
+       
+             <view hidden="" bindtap='cancleJob' data-id="{{item.id}}">删除</view>
+            
+             </view>
+
+              </view>
+          
+          </view>
+
+
+
+
+           
+  
+        </view>
+      </view>
+</view>
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <view class="footer" bindtap='adddepartment'>添加部门</view>
+    </view>
+</view>

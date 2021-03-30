@@ -1,0 +1,62 @@
+    
+    <view class="container">
+    <view class="service">
+    <view class="servicelist"   bindtap='toEmployeelist'  style='background: #dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/agent.png"  />  
+
+        </view>
+        <view class="name">
+            <view>在职员工管理</view>
+            <view></view>
+        </view>
+    </view>
+
+
+    
+
+
+  <view class="servicelist"   bindtap='toMysendnote' id="{{item.id}}" style='background: #dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/qj.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>面试人员管理</view>
+            <view></view>
+        </view>
+    </view>
+
+
+
+<!--
+  <view class="servicelist"   bindtap='toMyshare' id="{{item.id}}" style='background:#DA70D6;'>
+        <view class="logo">
+          <image src="../../resource/images/fx.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>员工工资管理</view>
+            <view>{{title[4]}}</view>
+        </view>
+    </view>
+-->
+
+    
+  <view class="servicelist"   bindtap='toDepartment' id="{{item.id}}" style='background: #dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/tz.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>部门管理</view>
+            <view></view>
+        </view>
+    </view>
+
+
+
+
+
+</view>
+</view>

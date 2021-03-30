@@ -1,0 +1,73 @@
+<view class="container">
+
+  <view class="swiper-container">
+        <swiper class="swiper_box"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style="height:{{imgheights[current]}}rpx;" bindchange="swiperChange" >
+            <block wx:for="{{bannerlist}}">
+                <swiper-item >
+                   <image  data-id="" src="{{item.thumb}}" class="slide-image" bindload="imageLoad"  
+style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;" bindtap='{{item.toway}}' data-id='{{item.link}}' data-appid='{{item.appid}}'/> 
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="dots">  
+            <block wx:for="{{bannerlist}}" wx:key="index">  
+                <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
+            </block>  
+        </view>   
+   </view>
+
+
+<view class="navlist">
+
+
+    <view class="item"  wx:for="{{navlist}}" >
+
+      <form bindsubmit="{{item.link}}" report-submit>
+          <button  class="shares" style="background-image:url({{item.thumb}}); background-repeat:no-repeat;background-size:100% 100%;"   formType="submit"></button>
+      <input type="text" name="appid" value="{{item.appid}}" hidden="true" />
+      <input type="text" name="innerurl" value="{{item.innerurl}}" hidden="true" />
+      <input type="text" name="id" value="{{item.id}}" hidden="true" />
+
+            </form>
+
+          <view>{{item.advname}}</view>
+          
+          </view>
+</view>
+
+</view>
+
+
+
+
+
+
+  <view class="type-container">
+        <scroll-view class="type-navbar" scroll-x="true">
+            <view class="type-box" >
+                <view  class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" >
+                {{cateinfo.name}}
+                </view>
+            </view>
+            
+
+        </scroll-view>
+    </view>
+
+
+<view class="container">
+        <view class="news" >
+                  <view class="newslist" wx:for-items="{{newslist}}">
+                        <view class="pic" bindtap="toNewsDetail" data-id="{{item.id}}">
+                          <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title" bindtap="toNewsDetail" data-id="{{item.id}}">
+                          <view>{{item.title}}</view>
+                          <view>{{item.createtime}}</view>
+                        </view>
+                  </view>
+           
+                  
+        </view>
+<!--news end-->
+</view>

@@ -1,0 +1,24 @@
+   <view class="container">
+
+      <view class="moneylist">
+        <view class="list">
+            <view>￥{{moneyinfo.dtotalmoney}}</view>
+            <view>待收益</view>
+        </view>
+        <view class="list" bindtap='toGetmoney'>
+            
+             <view>￥{{moneyinfo.totalmoney}}</view>
+            <view>可提金额</view>
+        </view>
+      </view>
+
+      <view class="orderlist" wx:for-items="{{list}}">
+        <view class="orderid ">  {{item.jobtitle}} <text class="money">奖金￥{{item.money}}元</text></view>
+        <view class="content">
+                <view class="item jobdata"><view class="listdata">已查看   <text>{{item.view}}次</text></view> <view class="listdata"> {{title[0]}}  <text>{{item.sendnum}}份</text></view> <view class="listdata">有效  <text>{{item.usednum}}份</text></view></view>
+          
+  
+        </view>
+      </view>
+</view>
+

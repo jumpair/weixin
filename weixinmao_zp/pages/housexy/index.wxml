@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<import src="../../resource/wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="title">
+    <view>{{title}}</view>
+  </view>
+  <view class="content">
+
+   <rich-text nodes="{{content}}"></rich-text>
+
+
+
+
+
+
+
+  </view>
+</view>
+ 

@@ -1,0 +1,259 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+        {{vocationtitle[1]}}
+        </view>
+        <view class="list">
+
+           <view class="item">
+              <view class="name"> {{vocationtitle[2]}}</view>
+              <view class="selectitem"><input  value="{{jobinfo.jobtitle ? jobinfo.jobtitle:''}}" type="text" name="jobtitle" placeholder=" {{vocationtitle[3]}}" /></view>
+
+            </view>
+
+        
+  <view class="item">
+              <view class="name"> {{vocationtitle[4]}}</view>
+              <view class="selectitem" style="flex-direction:row;">
+            男:<input  value="{{jobinfo.bmoney ? jobinfo.bmoney:''}}" type="text" name="bmoney" placeholder="请输入补贴" style="width:180rpx" />元
+
+             女:<input  value="{{jobinfo.gmoney ? jobinfo.gmoney:''}}" type="text" name="gmoney" placeholder="请输入补贴" style="width:180rpx" />元
+              
+              </view>
+
+            </view>
+     
+
+      <view class="item">
+              <view class="name"> 补贴要求</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.moneydes ? jobinfo.moneydes:''}}" name="moneydes" placeholder="请输入补贴要求" /></view>
+
+            </view>
+
+
+  <view class="item">
+              <view class="name"> 发薪日</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.moneyday ? jobinfo.moneyday:''}}" name="moneyday" placeholder="请输入发薪日" /></view>
+
+            </view>
+
+
+                <view class="item">
+              <view class="name"> 薪资</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.money ? jobinfo.money:''}}"  name="money" placeholder="请输入薪资" /></view>
+
+            </view>
+
+
+                <view class="item">
+              <view class="name"> 年终奖</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.yearmoney ? jobinfo.yearmoney:''}}" name="yearmoney" placeholder="请输入年终奖" /></view>
+
+            </view>
+
+
+                 <view class="item">
+              <view class="name"> 伙食</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.food ? jobinfo.food:''}}" name="food" placeholder="请输入伙食" /></view>
+
+            </view>
+
+
+               <view class="item">
+              <view class="name"> 住宿</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.hotel ? jobinfo.hotel:''}}" name="hotel" placeholder="请输入住宿" /></view>
+
+            </view>
+
+
+                <view class="item">
+              <view class="name"> 交通</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.travel ? jobinfo.travel:''}}" name="travel" placeholder="请输入交通" /></view>
+
+            </view>
+
+
+ <view class="item">
+              <view class="name">  {{vocationtitle[5]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.workcloseth ? jobinfo.money:''}}" name="workcloseth" placeholder=" {{vocationtitle[6]}}" /></view>
+
+            </view>
+
+
+          
+
+
+    <view class="item">
+              <view class="name"> 年龄要求</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.age ? jobinfo.age:''}}" name="age" placeholder="请输入年龄要求" /></view>
+
+            </view>
+
+
+                  <view class="item">
+              <view class="name">学历要求</view>
+              <view class="selectitem">  
+              
+             <picker value="{{Index}}"  range="{{education}}" range-key=""  bindchange="bindEducationChange">  
+              <view class="picker">  
+
+                  {{education[educationindex] ? education[educationindex] : '请选择学历要求'}}
+              </view>  
+            </picker>
+          </view>
+            </view>
+
+        
+
+
+               <view class="item">
+              <view class="name"> 身高要求</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.height ? jobinfo.height:''}}" name="height" placeholder="请输入身高要求" /></view>
+
+            </view>
+
+<!--
+                  <view class="item">
+              <view class="name"> 体检说明</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.health ? jobinfo.health:''}}" name="health" placeholder="请输入体检说明" /></view>
+
+            </view>
+
+
+                  <view class="item">
+              <view class="name"> 体检说明</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.money ? jobinfo.money:''}}" name="money" placeholder="请输入体检说明" /></view>
+
+            </view>
+-->
+
+                  <view class="item">
+              <view class="name">  {{vocationtitle[7]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.workcontent ? jobinfo.workcontent:''}}" name="workcontent" placeholder=" {{vocationtitle[8]}}" /></view>
+
+            </view>
+
+
+     <view class="item">
+              <view class="name">  {{vocationtitle[9]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.worktime ? jobinfo.worktime:''}}" name="worktime" placeholder=" {{vocationtitle[10]}}" /></view>
+
+            </view>
+
+
+  <view class="item">
+              <view class="name">  {{vocationtitle[11]}}</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.workev ? jobinfo.workev:''}}" name="workev" placeholder=" {{vocationtitle[12]}}" /></view>
+
+            </view>
+
+
+
+
+          
+
+
+             <view class="item">
+              <view class="name"> 工资发放</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.sendmoney ? jobinfo.sendmoney:''}}" name="sendmoney" placeholder="请输入工资发放" /></view>
+
+            </view>
+
+
+             <view class="item">
+              <view class="name"> 集合地点</view>
+              <view class="selectitem"><input  type="text"  value = "{{jobinfo.address ? jobinfo.address:''}}" name="address" placeholder="请输入集合地点" /></view>
+
+            </view>
+
+
+
+
+        </view>
+
+
+
+
+
+
+    </view>
+
+
+
+
+
+
+
+    <view class="main">
+        <view class="title">
+          体检说明
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+         <textarea name="health" placeholder="请填写体检说明" />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+
+
+        <view class="main">
+        <view class="title">
+          合同说明
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;'>
+         <textarea name="safedes" placeholder="请填写合同说明" />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+
+    
+   
+
+
+       
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >立即保存</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+

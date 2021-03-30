@@ -1,0 +1,15 @@
+   <view class="container">
+
+  
+
+      <view class="orderlist" wx:for-items="{{list}}">
+<!--        <view class="orderid">{{title}}</view>-->
+        <view class="content">
+            <view class="item"><view ><image src="{{item['avatarUrl']}}"  style="height:50px; width:50px;border-radius: 25px;"></image></view><view  style="white-space:pre-wrap;font-weight:600;color:#666666;">   姓名:{{item.name}}<image wx:if="{{item.gender  == 1}}" src="../../resource/images/nan.png"  style="width:20px;height:20px;"></image><image wx:if="{{item.gender  == 0}}" src="../../resource/images/nv.png"  style="width:20px;height:20px;"></image>
+   时间:{{item.createtime}}                      城市:{{item.city}}</view></view>
+
+  
+        </view>
+      </view>
+</view>
+

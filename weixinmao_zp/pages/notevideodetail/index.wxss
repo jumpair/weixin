@@ -1,0 +1,354 @@
+/* weixinmao_hssy/pages/user/index.wxss */
+.container {
+  background-color: #FFF;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .header{
+  width:730rpx;
+
+  padding-top:10rpx;
+ 
+}
+
+
+.container .order{
+  width:720rpx;
+  display: flex;
+  flex-direction: column;
+
+
+}
+.container .order .title{
+  font-size:.8rem;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+  background: #FFF;
+  color:#666666;
+  margin-top:20rpx;
+  padding-left: 20rpx;
+  border-bottom: 1rpx solid #efefef;
+  font-weight: 600;
+}
+.container .order .content{
+    display: flex;
+ 
+    background: #FFF;
+    padding: 20rpx;
+    text-indent: 20rpx;
+    font-size: .8rem;
+     color:#666666;
+     padding-bottom: 120rpx;
+    
+
+}
+/*
+.container .order .content .item{
+
+  width:250rpx;
+  text-align: center;
+  font-size: .8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.container .order .content .item image{
+    width:100rpx;
+    height: 100rpx;
+
+}
+*/
+.container .list{
+
+  width:750rpx;
+  background: #FFF;
+}
+.container .list .item{
+    padding-top: 25rpx;
+    padding-bottom: 25rpx;
+    font-size: .8rem;
+    border-bottom: 1rpx solid #efefef;
+    padding-left: 20rpx;
+    color: #747474;
+
+}
+.list button{
+
+  width:600rpx;
+  background: #62c7b5;
+  color: #FFF;
+  font-size: .8rem;
+  margin-top:10rpx;
+}
+
+
+
+.myVideo{ 
+  width:100%;
+  height: calc(9 * 750rpx / 16);
+  background-color: #fff;
+}
+.controls{
+  position:absolute;
+  z-index:1; 
+  background-color: #fff;    
+  height: 600rpx;
+  margin-top:-614rpx;
+  width:730rpx;
+}
+.play{ 
+    position:absolute;
+    left:50%;
+    margin-top:-400rpx;
+    margin-left:-80rpx;    
+}
+.noteinfo{
+  
+  width:720rpx;
+
+  display: flex;
+  flex-direction: column;
+  
+
+}
+
+.noteinfo .notename{
+  color:#262626;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 80rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+}
+.noteinfo .notename image{
+
+  width:50rpx;
+  height: 50rpx;
+  margin-top:15rpx;
+}
+
+.noteinfo .notelabel{
+  color:#262626;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 45rpx;
+}
+
+.noteinfo .notelabel text{
+  
+padding: 10rpx 40rpx;
+border-radius: 50rpx;
+margin-right: 5rpx;
+height: 60rpx;
+line-height:60rpx; 
+color:#656565;
+  background: #f5f5f5;
+  font-size: .7rem;
+
+
+}
+
+.noteinfo .notejob{
+  color:#666666;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 45rpx;
+  font-size: 1rem;
+}
+
+.noteinfo .noteadress{
+  color:#666666;
+
+  margin-bottom: 45rpx;
+  font-size: 1rem;
+}
+
+.noteinfo .noteadress .notetel{
+    display: flex;
+  flex-direction: row;
+  width:550rpx;
+  height: 120rpx;
+  border-radius:60rpx;
+  background: #fe4998;
+  font-size: .7rem;
+  color: #FFF;
+}
+.notetel .noteicon{
+  width:30%;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+ .noteicon image{
+
+width:80rpx;
+height: 80rpx;
+}
+.notetel .tel{
+  width:70%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+}
+.notetel .tel view:nth-child(1){
+  font-size: 1rem;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-weight: 600;
+}
+.notetel .tel view:nth-child(2){
+  font-size: .9rem;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.note-list{
+
+  display: flex;
+  flex-direction: row;
+  width:720rpx;
+  justify-content: space-between;
+  
+}
+.note-list .note-left image{
+
+width:480rpx;
+height: 480rpx;
+}
+.note-list .note-right{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+
+}
+.note-list .note-right image{
+
+width:240rpx;
+height: 240rpx;
+
+}
+.note-list .note-right image:nth-child(2){
+  margin-top: 5rpx;
+}
+
+.weixinmao-float{ height: 150rpx;}
+
+
+.weixinmao-foot{ 
+  display:flex; 
+  justify-content: center;
+  flex-direction:row;
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  background: #1aac19;
+  }
+
+
+
+.weixinmao-foot button{
+color:#FFF;
+align-self: center;
+height: 100rpx;
+line-height: 100rpx;
+font-size: .9rem;
+display: flex;
+width:100%;
+border-radius: 0rpx;
+border:1rpx solid #1aac19 ;
+flex-direction: row;
+  background: #1aac19;
+
+}
+
+button::after{
+border: none;
+}
+
+
+.weixinmao-foot view image{
+width:70rpx;
+height: 70rpx;
+align-self: center;
+
+}
+
+
+.weixinmao-msg-userinfo{ 
+  position: fixed; 
+  top: 0%; left: 0%; 
+  width: 100%; 
+  height: 100%; 
+  background-color: black; 
+  z-index:2001; 
+  background:rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  
+  }
+  .weixinmao-content-userinfo{
+ 
+      width:650rpx;
+      height:500rpx;
+       z-index:4001; 
+       background: #FFF;
+       align-self: center;
+       border-radius:15rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+  }
+    .weixinmao-content-userinfo .userinfo-title
+    {
+      align-self: center;
+      font-size: 1.2rem;
+      margin-top: 40rpx;
+      
+    }
+   
+  .weixinmao-content-userinfo .userinfo-content
+    {
+       align-self: left;
+      font-size: .9rem;
+      padding: 25rpx;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      color:#999999;
+      
+      
+    }
+
+
+  .userinfo-button {
+    display: flex;
+    flex-direction: column;
+    width:650rpx;
+  
+    align-items: baseline ;
+    padding-bottom: 20rpx;
+
+  }
+  .userinfo-button button{
+        background: #44b549;
+        font-size: .8rem;
+        color:#FFF;
+        width:300rpx;
+        margin-bottom: 20rpx;
+  }
+    .userinfo-button button:nth-child(2){
+
+      background: #e93609;
+    }
+ 

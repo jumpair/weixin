@@ -1,0 +1,236 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+
+<view class="container">
+
+
+ 
+   <view class="header" style='background-image: linear-gradient(to right, #1C52F4 , #436ff3);background-size: 100%;'>
+
+         <view hidden="{{!isuser}}">
+                  <view class="pic" >
+                  
+                    <image src="../../resource/images/male1.png"></image>
+                              <view class="userinfo">
+                              
+                              <view>{{userinfo.wxInfo.nickName}}</view>
+                              
+                                <view><button open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" style='background:#f57562;color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;'>点击登录</button></view>
+                                </view>
+
+                  </view>
+
+      </view>
+
+
+          <view hidden="{{isuser}}">
+                  <view class="pic" >
+                  
+                    <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+                              <view class="userinfo">
+                              
+                              <view>{{userinfo.wxInfo.nickName}}</view>
+                              
+                                <view>账户余额: ￥{{moneyrecordinfo.totalmoney}}</view>
+                                </view>
+
+                  </view>
+
+      </view>
+
+<!--
+        <view hidden="{{isuser}}">
+        <view class="pic" >
+        
+          <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+
+                     <button open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo" style='background:#3274e5;color:#FFF;font-size:.7rem;'>点击登录</button>
+
+        </view>
+</view>
+
+-->
+       <block wx:if="{{ischeck  == 0}}">
+      <view class="setting" bindtap="toMyNote"><image src="../../resource/images/setting.png"  />  {{title[0]}} </view>
+
+ <view class="opencard" bindtap='toLogin'  style=' background-color: rgba(0,0,0,0.2);'><image src="../../resource/images/comlogin.png"  /> 企业中心</view>
+
+
+ 
+</block>
+</view>
+
+  <block wx:if="{{ischeck  == 0}}">
+
+<!--
+<view class="oncompany">
+<view>
+<image src="../../resource/images/jobexpress.png"  />
+</view>
+
+
+<view>我的履职经历</view>
+
+
+</view>
+
+-->
+
+
+
+<view class="service">
+
+
+
+    <view class="servicelist"   bindtap='toMyFind' id="{{item.id}}">
+        <view class="logo">
+          <image src="../../resource/images/qj.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>{{title[1]}}</view>
+            <view>{{countinfo.jobrecord}}份</view>
+        </view>
+    </view>
+
+
+
+     <view class="servicelist"   bindtap='toMatchjob'  style='background: #dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/tz.png"  />  
+
+        </view>
+        <view class="name">
+            <view>{{title[2]}}</view>
+            <view></view>
+        </view>
+    </view>
+
+
+
+        <view class="servicelist" wx:if="{{intro.ispay==0}}"   bindtap='toLookrole'  style='background: #dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/VIP.png"  />  
+
+        </view>
+        <view class="name">
+            <view>{{title[9]}}</view>
+            <view></view>
+        </view>
+    </view>
+
+
+    
+
+
+  <view class="servicelist"   bindtap='toMyshare' id="{{item.id}}" style='background:#dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/fx.png"  />  
+
+        </view>
+        <view class="name" >
+            <view>{{title[3]}}</view>
+            <view>{{title[4]}}</view>
+        </view>
+    </view>
+
+
+
+    <view class="servicelist"   bindtap='toMyNotice' id="{{item.id}}" style='background: #dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/tzhi.png"  />  
+
+        </view>
+        <view class="name">
+            <view>{{title[5]}}</view>
+            <view>{{countinfo.noticerecord}}条</view>
+        </view>
+    </view> 
+      
+
+        <view class="servicelist"   bindtap='toAgent'  style='background:#dfe4ef;'>
+        <view class="logo">
+          <image src="../../resource/images/agent.png"  />  
+
+        </view>
+        <view class="name">
+            <view>{{title[10]}}</view>
+            <view></view>
+        </view>
+    </view>
+
+
+
+
+
+</view>
+
+</block>
+
+
+
+
+
+
+
+
+
+  <view class="list">
+<block wx:if="{{ischeck  == 0}}">
+       <view class="item" bindtap='toMyinvaterecord'><text class="fa fa-comment fa-lg"></text>{{title[6]}}</view>
+         <view class="item" bindtap='toMyvideonote'><text class="fa fa-camera  fa-lg"></text>{{title[7]}}</view>
+      <view class="item" bindtap='toMyregmoney'><text class="fa fa-th  fa-lg"></text>{{title[8]}}</view>
+
+  </block>
+         <view class="item" bindtap='toMyPay'><text class="fa fa-list  fa-lg"></text>消费记录</view>
+
+        <view class="item" bindtap='toMySave'><text class="fa fa-heart  fa-lg"></text>我的收藏</view>
+        <view class="item" bindtap='toMySociety'><text class="fa fa-comments  fa-lg"></text>交友社交</view>
+        <view class="item" bindtap='toMyWage'><text class="fa fa-file  fa-lg"></text>工资管理</view>
+        <view class="item" bindtap='toMyTax'><text class="fa fa-table  fa-lg"></text>个税管理</view>
+        <view class="item" bindtap='toMydynamic'><text class="fa fa-star  fa-lg"></text>发布动态</view>
+       <block wx:if="{{ischeck  == 0}}">
+     
+     
+        <view class="item" bindtap="refreshNotice"><text class="fa fa-refresh  fa-lg"></text>{{title[11]}}</view>
+</block>
+  </view>
+</view>
+
+<!--
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          您还没有授权呢
+        </view>
+      
+           <view class="userinfo-content">
+          点击授权按钮，期待与您愉快的沟通~
+        </view>
+   <view class="userinfo-button">
+          <button bindtap='cancelUser'>取消</button>   <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">去授权</button>
+        </view>
+
+
+    </view>
+</view>
+
+-->
+
+<view class="weixinmao-msg-usertel" hidden='{{isphone}}' >
+    <view class="weixinmao-content-usertel" >
+
+        <view class="usertel-title">
+          您还没有绑定手机号呢
+        </view>
+      
+           <view class="usertel-content">
+          点击‘获取’按钮，期待与您愉快的沟通~
+        </view>
+   <view class="usertel-button" style="margin:auto;">
+          <button bindtap='cancelPhone'>取消</button>   <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">去获取</button>
+        </view>
+
+
+    </view>
+</view>

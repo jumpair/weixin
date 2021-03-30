@@ -1,0 +1,50 @@
+   <view class="container">
+   <view class="type-container">
+        <scroll-view class="type-navbar" scroll-x="true">
+        
+
+          <view class="type-box">
+                <view id="1" class="type-navbar-item {{ordertype == 1 ? 'type-item-on' : ''}}" bindtap="tabClick" >
+                    全部订单
+                </view>
+          </view>
+          <view class="type-box">
+                <view id="2" class="type-navbar-item {{ordertype == 2 ? 'type-item-on' : ''}}" bindtap="tabClick" >
+                    待付款
+                </view>
+          </view>
+
+           <view class="type-box">
+                <view id="3" class="type-navbar-item {{ordertype == 3 ? 'type-item-on' : ''}}" bindtap="tabClick" >
+                    已付款
+                </view>
+          </view>
+            
+          <view class="type-box">
+                <view id="4" class="type-navbar-item {{ordertype == 4 ? 'type-item-on' : ''}}" bindtap="tabClick">
+                已取消
+                </view>
+          </view>
+        </scroll-view>
+    </view>
+
+
+      <view class="orderlist" wx:for-items="{{list}}">
+        <view class="orderid">订 单 号:{{item.orderid}}</view>
+        <view class="content">
+            <view class="item">{{title[0]}}{{item.title}}</view>
+            <view class="item">实付金额:￥{{item.money}}</view>
+            <view class="item">支付状态:{{item.statusStr}}</view>
+            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class="payitem">
+             <block wx:if="{{item.status !=-1 && item.paid ==0 }}">
+            <view hidden="{{item.paid==0 ? false : true}}" bindtap='RepayOrder' data-id="{{item.id}}" >立即支付</view>
+            </block>
+            <block wx:if="{{item.paid ==0 }}">
+             <view hidden="{{item.status==-1? true : false}}" bindtap='delOrder' data-id="{{item.id}}">取消订单</view>
+             </block>
+             </view>
+  
+        </view>
+      </view>
+</view>

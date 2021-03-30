@@ -1,0 +1,95 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+<import src="../../resource/wxParse/wxParse.wxml" />
+
+<view class="container">
+  <view class="header">
+        <view class="pic">
+        
+          <image src="{{data.thumb}}"></image>
+          
+              
+              <view>{{data.companyname}}</view>
+        </view>
+  </view>
+
+   <view class="order">
+      <view class="title">
+          公司名片
+      </view>
+        <view class="list">
+        <view class="item">规模 : {{data.companyworker}}</view>
+        <view class="item">行业 : {{data.companycate}}</view>
+         <view class="item">地址 : {{data.address}}</view>
+
+  </view>
+  </view>
+  <view class="order">
+      <view class="title">
+          公司简介
+      </view>
+      <view class="content">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+      </view>
+  </view>
+  
+
+
+
+
+
+    <view class="order">
+      <view class="title">
+         {{title[0]}}
+      </view>
+  </view>
+</view>
+
+
+
+
+
+
+  <view class="container">
+         <block wx:if="{{joblist}}">
+
+<view class="newslist" wx:for="{{joblist}}">
+                            <view class="title" bindtap="toJobDetail" data-id="{{item.id}}">
+                                      <view class="address">
+                                            <view class="jobname">{{item.title}}<text>（{{item.areaname}}）</text></view>
+                                           
+                                        
+                                      </view>
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.thumb}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view class="special">
+                                                <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial">{{itemSpecial}}</view>
+                                            
+                                            </view>
+                                            <view> {{item.companyname}} </view>
+                                            <view class="jobmoney"><text><block  wx:if="{{item.money == 0}}">面议</block><block  wx:else>{{item.money}}元/月</block> </text> <text>{{item.createtime}}</text> </view>
+
+
+                                           
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+
+
+</block>
+<!--news end-->
+</view>
+
+
+
+
+
+
+

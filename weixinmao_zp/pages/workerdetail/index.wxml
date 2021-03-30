@@ -1,0 +1,130 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+<import src="../../resource/wxParse/wxParse.wxml" />
+
+<view class="container">
+  <view class="header" style="background:{{intro.maincolor}}">
+         
+  </view>
+
+
+  <view class="pic">
+        
+          <image src="{{data.avatarUrl}}"></image>
+          
+              
+              <view>{{data.name}}</view>
+               <view>{{data.sex == 1? '男' : '女'}} {{data.age}}岁 {{data.express}} {{data.education}}</view>
+ </view>  
+
+   <view class="order" style='margin-top:140rpx;'>
+      <view class="title">
+        {{title[0]}}
+      </view>
+        <view class="list">
+        <view class="item">{{title[1]}} {{data.jobtitle}}</view>
+        <view class="item">{{title[2]}} {{data.birthday}}</view>
+         <view class="item">{{title[3]}} {{data.education}}</view>
+         <view class="item">{{title[4]}} {{data.express}}</view>
+         <view class="item">{{title[5]}} {{data.address}}</view>
+         <view class="item">{{title[6]}} {{data.currentname}}</view>
+         <view class="item">{{title[7]}} {{data.worktype}}</view>
+        <view class="item">{{title[8]}} {{data.jobcatename}}</view>
+        <view class="item">{{title[9]}} {{data.money}}</view>
+        <view class="item">{{title[10]}} {{data.areaname}}</view>
+  </view>
+  </view>
+
+ <block wx:if="{{advmoney}}">
+<view class="advmoney">
+<ad unit-id="{{advmoney.advid}}"></ad>
+</view>
+</block>
+
+  
+
+ <view class="order">
+      <view class="title">
+          联系方式
+      </view>
+
+    <view class="list" hidden='{{showcontact}}'>
+        <view class="item" bindtap='doCall' data-tel="{{data.tel}}">联系电话 : {{data.tel}}</view>
+
+  </view>
+     <view class="list" hidden='{{!showcontact}}' ><button bindtap='toSelectlook'>查看联系方式</button></view>
+  </view>
+
+
+  <view class="order">
+      <view class="title">
+         {{title[11]}}
+      </view>
+      <view class="content">
+
+      <rich-text nodes="{{data.content}}"></rich-text>
+ <!--
+           <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+           -->
+      </view>
+  </view>
+   
+</view>
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+    <form bindsubmit="{{!showcontact ? 'doSendmsg' : 'toLookContact'}}" report-submit="true">
+      <button class="footer"    formType="submit" >{{title[12]}}</button>
+     </form>
+    </view>
+</view>
+
+
+<view class="u-tap-btn">
+  
+   <navigator url="/weixinmao_zp/pages/index/index" open-type="switchTab" class="u-go-home">
+    <view class="iconfont fa fa-home"></view>
+  </navigator>
+</view>
+
+
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}' >
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+             {{title[13]}}
+        </view>
+      
+           <view class="userinfo-content">
+          
+          <view>1、个人用户可直接购买套餐后可看</view>
+          <view>2、企业用户登录后，购买套餐即可查看</view>
+        </view>
+      
+
+   <view class="userinfo-button">
+            <button  open-type ='getUserInfo' bindgetuserinfo="toLookUser">普通用户</button>
+            <button  bindtap='toLookContact'>企业用户</button>
+
+        </view>
+
+
+    </view>
+</view>

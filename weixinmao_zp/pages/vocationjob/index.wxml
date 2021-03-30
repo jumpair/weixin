@@ -1,0 +1,37 @@
+   <view class="container">
+
+ 
+
+      <view class="orderlist" wx:for-items="{{list}}">
+        <view class="orderid">{{title[1]}}:{{item.jobtitle}}</view>
+        <view class="content">
+            <view class="item">薪资待遇:￥{{item.money}}元</view>
+
+           <view class="item">当前状态:{{item.status == 0 ? '已上架' : '已下架'}}</view>
+
+            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class="payitem">
+
+            <view hidden="" bindtap='editCompanyjob' data-id="{{item.id}}" >{{title[3]}}</view>
+
+            
+
+              <block wx:if="{{item.status == 0}}">
+             <view hidden="" bindtap='cancleJob' data-id="{{item.id}}">{{title[4]}}</view>
+            </block>
+             <block wx:else>
+             <view hidden="" bindtap='upJob' data-id="{{item.id}}">{{title[5]}}</view>
+
+             </block>
+             </view>
+  
+        </view>
+      </view>
+</view>
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <view class="footer" bindtap='addvocationjob'>{{title[6]}}</view>
+    </view>
+</view>

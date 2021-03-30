@@ -1,0 +1,93 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+ <view class="item">
+              <view class="name">姓  名</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入您的姓名" /></view>
+
+            </view>
+             <view class="item">
+              <view class="name">{{regtitle[0]}}</view>
+              <view class="selectitem">
+              
+          <picker  mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">  
+    <view class="picker">  
+        {{dates ? dates : regtitle[1]}}
+    </view>  
+  </picker>
+  
+              
+              </view>
+
+            </view>
+
+
+              <view class="item">
+              <view class="name">{{regtitle[2]}}</view>
+              <view class="selectitem">
+              
+          <picker  mode="date" value="{{jobdate}}" start="" end="" bindchange="bindDatejobChange">  
+    <view class="picker">  
+        {{jobdates ? jobdates : regtitle[3]}}
+    </view>  
+  </picker>
+  
+              
+              </view>
+
+            </view>
+          
+           <view class="item">
+              <view class="name">{{regtitle[4]}}</view>
+              <view class="selectitem"><input  type="text" name="companyname" placeholder="请输入您在的公司名称" /></view>
+            </view>
+            <view class="item">
+              <view class="name">联系方式</view>
+              <view class="selectitem"><input  type="text" name="tel" placeholder="请输入您的手机号" /></view>
+            </view>
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit"  >提交申请</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

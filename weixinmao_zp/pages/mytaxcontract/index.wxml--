@@ -1,0 +1,117 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+         当前城市：【{{city}}】
+        </view>
+        <view class="list">
+
+            <view class="item">
+              <view class="name">姓 名</view>
+              <view class="selectitem"><input  value="{{Taxcontract.name ? Taxcontract.name:''}}" type="text" name="name" placeholder="请输入姓名" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">身份证号</view>
+                <view class="selectitem"><input style="width:50%;" value="{{Taxcontract.identity ? Taxcontract.identity:''}}" type="text" name="identity" placeholder="请输入身份证号" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">手机号</view>
+                <view class="selectitem"><input  value="{{Taxcontract.mobile ? Taxcontract.mobile:''}}" type="text" name="mobile" placeholder="请输入手机号" /></view>
+
+            </view>
+
+
+            <view class="item">
+                <view class="name">签约日期</view>
+                <view class="selectitem"><input  value="{{Taxcontract.contractdate ? Taxcontract.contractdate:''}}" type="text" name="contractdate" placeholder="请输入签约日期" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">落地公司</view>
+                <view class="selectitem"><input  value="{{Taxcontract.company ? Taxcontract.company:''}}" type="text" name="company" placeholder="请输入落地公司" /></view>
+
+            </view>
+
+
+
+</view>
+        <view class="main">
+            <view class="title">
+                合同照片
+            </view>
+            <view class="imglist">
+                <view class="imgitem" >
+                    <image src="{{imgurl1 ? imgurl1: '../../resource/images/pub.png'}}" bindtap='upload' data-id="1"></image>
+                    <view class="sum" hidden="{{true1}}" bindtap="delupload" data-id="1"><text>×</text></view>
+                </view>
+            </view>
+
+        </view>
+        <view class="main">
+            <view class="title">
+                合同内容
+            </view>
+            <view class="list">
+                <view class="item">
+
+                    <view class="selectitem" style='width:100%;'>
+                        <textarea name="content" placeholder="请填写内容" value="{{Taxcontract.content}}" maxlength="-1" />
+
+                    </view>
+
+                </view>
+
+
+            </view>
+
+
+        </view>
+
+</view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >{{title[1]}}</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+
+<!--<view class="weixinmao-msg_show" hidden="{{isuser}}">-->
+<!--    <view class="weixinmao-content_show">-->
+
+<!--        <view class="title">-->
+<!--        <view></view>-->
+<!--        <view>消息提醒</view>-->
+<!--        <view ></view>-->
+<!--        </view>-->
+
+<!--        <view class="list"  style='height:300rpx;'>-->
+
+<!--    <view class="heaerpic" >-->
+<!--        -->
+<!--          <image src="{{companyinfo.logo}}"></image>-->
+<!--                     <view>{{companyinfo.name}}</view>-->
+<!--        </view>-->
+
+<!--        -->
+<!--      -->
+<!--        </view>-->
+
+<!--        <button class="masterbtn" open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">立即授权</button>-->
+<!--   -->
+<!--    </view>-->
+<!--</view>-->

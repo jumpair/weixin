@@ -1,0 +1,27 @@
+   <view class="container">
+
+  
+
+      <view class="orderlist" wx:for-items="{{list}}">
+          <view class="orderid" style="white-space:pre-wrap;background-color: #b2f3a6;border-radius: 5px;font-weight: 600;color:#1008089c;width: 90%;margin: auto;">  姓名：{{item.name}}                            票证号码：{{item.ticketnum}}
+  申报机构：{{item.mechanism}}                     城市：{{item.city}}
+  用人企业：{{item.company}}                     发布日期：{{item.create_time}}</view>
+      </view>
+</view>
+<view class="weixinmao-msg-usertel" hidden='{{isidentity}}' >
+    <view class="weixinmao-content-usertel" >
+
+        <view class="usertel-title">
+          消息提醒
+        </view>
+      
+           <view class="usertel-content">
+          您没有填写身份证号码或者身份证号与平台不匹配,请联系客服
+        </view>
+   <view class="usertel-button" style="margin:auto;">
+          <button open-type="getPhoneNumber" bindtap="toMyNote" style="color:#da4848">去填写</button>
+        </view>
+
+
+    </view>
+</view>

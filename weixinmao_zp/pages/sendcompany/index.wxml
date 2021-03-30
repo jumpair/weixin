@@ -1,0 +1,59 @@
+
+
+
+
+<view class="container" hidden='{{isshow}}'>
+
+
+
+
+
+
+
+
+
+       <radio-group class="radio-group" bindchange="radioChange">
+
+        <view class="news" >
+                  <view class="newslist" wx:for="{{joblist}}" >
+
+                        <view class="select">
+                        
+                          <radio value="{{item.jobid}}" />
+                        </view>
+                        <view class="pic" >
+                          <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title">
+                          <view>{{item.title}}</view>
+                          <view style="color:red;">佣金：￥{{item.vprice}}</view>
+                          <view>{{item.companyname}}</view>
+                        </view>
+                  </view>
+           
+                 
+
+          
+
+
+
+
+                  
+        </view>
+
+
+</radio-group>
+<!--news end-->
+</view>
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <view class="footer" ></view>
+      <form bindsubmit="toOrder" report-submit>
+
+      <button class="footer" style="background:{{intro.maincolor}}"  formType="submit" >立即派遣</button>
+         </form>
+    </view>
+</view>

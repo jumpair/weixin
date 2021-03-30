@@ -1,0 +1,131 @@
+
+<import src="../../resource/wxParse/wxParse.wxml" />
+<view class="container" hidden='{{isshow}}'>
+ <block wx:if="{{data.vprice}}">
+
+  <view class="header">
+       <view class="moneytitle">悬赏红包总金额</view>
+       <view class="money">￥{{data.vprice}}</view>
+
+                <view class="role" bindtap="goHousexy">规则说明</view>
+
+       
+  </view>
+  <view class="title">
+        <view class="jobtitle">
+            <view class="jobname"> {{title[0]}}{{data.title}}</view>
+            <view class="redtitle">{{title[6]}}</view>
+            <view class="jobdata">
+                  <view class="jobdataleft">
+                        <view>￥{{data.noteprice}}</view>
+                        <view>{{title[1]}}</view>
+                  </view>
+                  <view class="jobdataright">
+                        <view>{{sharenum}}</view>
+                        <view>分享次数</view>
+                  
+                  </view>
+            </view>
+
+        </view>
+  </view>
+  
+  <view class="jobinfo">
+
+      <view class="jobtitle">
+          <view>{{data.title}}</view>
+          <view>{{title[2]}}</view>
+      </view>
+      <view class="joblabel">
+          <view>{{data.money}}元/月</view>
+          <view>|</view>
+          <view>{{data.areaname}}</view>
+      </view>
+  </view>
+
+
+    <view class="company">
+                  <view class="companyinfo" bindtap='toCompanyDetail' data-id="{{data.companyid}}">
+
+                      <image src='{{data.thumb}}'></image>
+                      <view class="companyname">
+                          <view>{{data.companyname}}</view>
+                          <view>{{data.companyworker}}| {{data.companytype}}|{{data.companycate}} </view>
+                          <view><text class="fa fa-map-marker fa-lg" style='color:#bfbfbf;'></text> {{data.address}}</view>
+                        </view>
+
+                  </view>
+                
+                  
+          </view>
+
+
+
+
+    
+  <block wx:if="{{data.videourl !='' }}">
+
+  <view class="jobdetail">
+      <view class="jobtitle">视频介绍</view>
+  </view>
+  <view class="jobcontent">
+      <view class="detail2"> 
+      
+       <video autoplay="true" src='{{data.videourl}}' style='width:700rpx;'></video>
+       </view>
+  </view>
+
+
+
+</block>
+
+
+
+
+  <view class="jobdetail">
+      <view class="jobtitle">{{title[3]}}</view>
+  </view>
+  <view class="jobcontent">
+      <view class="detail">   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+  </view>
+
+
+</block>
+
+
+
+</view>
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+     
+      <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}" data-id="{{data.companyid}}" > <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+
+
+        <view class="footer"  data-id="{{data.companyid}}">  
+ 
+       <button  class="footerbuttons"  bindtap='toSharejob' data-id="{{data.id}}" >{{title[4]}}</button>
+     
+     
+     </view>
+
+
+      <view class="footer"  data-id="{{data.companyid}}">  
+
+       <button class="footerbuttons"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo"  hidden="{{isuser}}"    >{{title[5]}}</button>
+ 
+      <form bindsubmit="doSendjob" report-submit="true">
+       <button  hidden="{{!isuser}}" class="footerbuttons"  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo"   formType="submit" >{{title[5]}}</button>
+     </form>
+     
+     </view>
+    
+
+
+
+
+
+    </view>
+</view>

@@ -1,0 +1,51 @@
+page{
+
+  background:#eee;
+}
+
+
+.scorelist{
+
+  width:750rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scorelist .title{
+
+  width:720rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: .7rem;
+  border-bottom: 1rpx dotted #808080;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  
+  
+}
+.scorelist .title view{
+
+  width:20%;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.scorelist .list{
+
+  width:720rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: .7rem;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+    border-bottom: 1rpx dotted #808080;
+
+}
+.scorelist .list view{
+
+  width:20%;
+  text-align: center;
+}

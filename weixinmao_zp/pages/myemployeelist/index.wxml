@@ -1,0 +1,104 @@
+   <view class="container">
+
+
+
+
+
+
+
+
+
+<view style="height:28rpx;"></view>
+
+<!-- 列表 -->
+<block wx:if="{{list.length>0}}">
+
+<view class="news">
+          <view class="newslist" wx:for="{{list}}">
+                            <view class="title" bindtap="toWorkerDetail22"  data-id="{{item.id}}">
+                                     
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.avatarUrl}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view>{{item.name}} <text class="time">{{item.createtime}}</text></view>
+
+                                            <view> {{item.sex == 1 ? '男' : '女'}} / {{item.tel}}  </view>     <view>在职岗位:<text>{{item.jobtitle}}</text></view>    
+
+                                         
+
+                                            <view class="jobmoney">
+                                            
+                                        
+
+                                                    
+
+
+
+ <view class='vprice' style="color:#FFF;background:#2de09f;" bindtap="toMyemployeemoneylist" data-id="{{item.id}}"  data-status = "-1">查看工时</view>
+                                       
+                                              <view class='vprice' style="color:#FFF;background:red;" bindtap="toAddemployeemoney" data-id="{{item.id}}"  data-status = "-1">录入工时</view>
+                                               <block wx:if='{{item.status == 0}}'>
+
+                                                  <view class='vprice' style="color:#FFF;" bindtap="setsendnote" data-id="{{item.id}}"  data-status = "1" >{{title[1]}}</view>
+                                             <view class='vprice' style="color:#FFF;background:red;" bindtap="setsendnote" data-id="{{item.id}}"  data-status = "-1">面试失败</view>
+
+                              </block>
+
+                               <block wx:if='{{item.status == 1}}'>
+
+                               <view class='vprice' style="color:#FFF;" bindtap="RepayOrder" data-id="{{item.id}}" >支付返费</view>
+
+                               
+                               </block>
+
+                                  <block wx:if='{{item.status == 2 && item.paid == 1}}'>
+
+                               <view class='vprice' style="color:#FFF;" bindtap="doEmployee" data-id="{{item.id}}" >办理入职</view>
+
+                               
+                               </block>
+
+
+
+
+
+                                            
+                                            </view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+  </block>
+    <block wx:else>
+
+
+    
+      <view class="tjnote"><button bindtap="toAgentqrcode">暂无记录，我要推荐</button></view>
+
+</block>
+
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>
+
+
+</view>
+

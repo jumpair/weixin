@@ -1,0 +1,37 @@
+   <view class="container">
+   <view class="type-container">
+        <scroll-view class="type-navbar" scroll-x="true">
+        
+
+          <view class="type-box">
+                <view id="1" class="type-navbar-item {{ordertype == 1 ? 'type-item-on' : ''}}" bindtap="tabClick" >
+                    一级团队
+                </view>
+          </view>
+          <view class="type-box">
+                <view id="2" class="type-navbar-item {{ordertype == 2 ? 'type-item-on' : ''}}" bindtap="tabClick" >
+                    二级团队
+                </view>
+          </view>
+          
+            <view class="type-box">
+                <view id="3" class="type-navbar-item {{ordertype == 3 ? 'type-item-on' : ''}}" bindtap="tabClick" >
+                    三级团队
+                </view>
+          </view>
+         
+        </scroll-view>
+    </view>
+
+
+      <view class="orderlist" wx:for-items="{{list}}">
+        <view class="content">
+            <view class="pic"><image src='{{item.avatarUrl}}'></image></view>
+            <view class="detail">
+                <view class="item">{{item.name}}</view>
+                <view class="item">加入时间:{{item.createtime}}</view>
+            </view>
+           
+        </view>
+      </view>
+</view>

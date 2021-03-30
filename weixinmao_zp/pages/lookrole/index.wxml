@@ -1,0 +1,53 @@
+
+<!--充值金额分类模块-->
+<view class="balance-demo" id="balanceDemo">
+  <form>
+      <block wx:for="{{navList}}">
+        <button class="type-nav {{curNav == item.id ? 'selected' : ''}}" bindtap="selectNav" data-index="{{index}}" data-id="{{item.id}}" data-money="{{item.money}}">
+          <text class="top type-nav {{curNav == item.id ? 'selected' : ''}}" data-index="{{index}}" data-id="{{item.id}}">{{item.chongzhi}}
+          </text>
+          <text  style="font-size:.7rem;" class="botton type-nav {{curNav == item.id ? 'selected' : ''}}" data-index="{{index}}" data-id="{{item.id}}">{{item.song}}
+          </text>
+        </button>
+		</block>
+  </form>
+</view>
+
+
+
+<!--去充值模块-->
+<view class="goblance">
+
+  <view class="txt_t">
+ <block wx:if="{{navList!=''}}">
+    <button bindtap="pay" data-money="500">立即支付</button>
+     </block>
+    <block wx:else>
+        <button  data-money="500">已经是最高套餐</button>
+
+</block>
+  </view>
+</view>
+
+
+
+
+
+<view class="scorelist">
+    <view class="title" >
+        <view>ID</view>
+        <view>操作(充/消)</view>
+        <view>剩余次数</view>
+         <view>备注</view>
+         <view>时间</view>
+
+    </view>
+    <view class="list" wx:for="{{moneyrecordlist}}"  >
+        <view>{{item.id}}</view>
+        <view>{{item.money}}</view>
+       <view>{{item.totalmoney}}</view>
+        <view>{{item.mark}}</view>
+         <view>{{item.createtime}}</view>
+
+    </view>
+</view>

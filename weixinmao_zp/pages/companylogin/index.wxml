@@ -1,0 +1,121 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+<view class="container">
+  <view class="header" style="background:{{intro.maincolor}};" >
+        <view class="pic">
+        
+          <image src="{{companyinfo.thumb}}"></image>
+                     <view>{{companyinfo.companyname}}</view>
+        </view>
+<!--
+        <view class="money" bindtap='toPaymoney'>年卡会员【于2019-10-01到期】 </view>
+-->
+  </view>
+   
+
+ <view class="mymoney">
+
+  <view class="item">
+      <view>{{companyinfo.pubjobnum}}/{{companyinfo.jobnum}}个</view>
+      <view>{{title[0]}}</view>
+  </view>
+  <view class="line">
+  </view>
+  <view class="item">
+      <view>{{companyinfo.notenum}}条</view>
+      <view>{{title[1]}}</view>
+  </view>
+  
+    <view class="line">
+  </view>
+    <view class="item" bindtap='toCompanyrole'>
+      <view>{{companyinfo.rolename}}</view>
+      <view>升级会员</view>
+  </view>
+</view>
+
+
+
+
+
+  <view class="list">
+
+     <view class="item" bindtap="toMatchnote"><image src="../../resource/img/search.png"></image>{{title[2]}}</view>
+        <view class="item" bindtap="toEditcompany"><image src="../../resource/img/edit.png"></image>企业信息编辑</view>
+        <view class="item" bindtap='toMyjoblist'><image src="../../resource/img/manage.png"></image>{{title[3]}}</view>
+        
+        
+    <view class="item" bindtap='toMyvocationjoblist'><image src="../../resource/img/manage.png"></image>{{title[5]}}</view>
+
+
+        <view class="item" bindtap='toMypartjoblist'><image src="../../resource/img/Jjob.png"></image>{{title[6]}}</view>
+
+        <view class="item" bindtap="toMynote"><image src="../../resource/img/note.png"></image>{{title[7]}}</view>
+
+        <view class="item" bindtap="toMySavewage"><image src="../../resource/img/note.png"></image>{{title[8]}}</view>
+
+        <view class="item" bindtap="toMyCompanydynamic"><image src="../../resource/img/note.png"></image>{{title[9]}}</view>
+        <view class="item" bindtap='toEmployeemain' ><image src="../../resource/img/em.png"></image>员工管理</view>
+        
+        <view class="item" bindtap='toMyPayMoney'><image src="../../resource/img/buy.png"></image>{{title[4]}} <text style='color:red;font-weight:600;'>(剩余:{{companyinfo.notenum}}条)</text></view> 
+    
+      
+  
+
+        
+        <view class="item" bindtap="loginout"><image src="../../resource/img/exit.png"></image>退出登录</view>
+
+  </view>
+</view>
+<view class="weixinmao-msg" hidden="{{showmsg}}">
+    <view class="weixinmao-content">
+
+        <view class="title">
+        <view></view>
+        <view>绑定主管</view>
+        <view bindtap='closemsg'>关闭</view>
+        </view>
+  <form bindsubmit="saveuserinfo">
+        <view class="content">
+            <view class="item">
+             <input class="inputlist" placeholder="请输入您的姓名" name="name" type='text' value='{{user.name}}'/>
+            </view>
+            <view  class="item">
+              <input class="inputlist" placeholder="请输入您的手机号" name="tel" type='text' value='{{user.tel}}'/>
+
+            </view>
+
+             <view  class="item tops">
+              <button class="bindtel" formType="submit">立即绑定</button>
+             </view>
+        </view>
+
+  </form>  
+    </view>
+</view>
+
+
+
+<view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          您还没有授权呢
+        </view>
+      
+           <view class="userinfo-content">
+          点击授权按钮，期待与您愉快的沟通~
+        </view>
+   <view class="userinfo-button">
+          <button bindtap='cancelUser'></button>   <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">去授权</button>
+        </view>
+
+
+    </view>
+</view>
+
+<view class="u-tap-btn">
+  
+   <navigator url="/weixinmao_zp/pages/index/index" open-type="switchTab" class="u-go-home">
+    <view class="iconfont fa fa-home"></view>
+  </navigator>
+</view>

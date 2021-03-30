@@ -1,0 +1,689 @@
+page{
+
+  background-color: #f8f8f9;
+
+
+}
+.container {
+  background-color: #f8f8f9;
+  min-height: 100%
+}
+.container .header{
+  display: flex;
+  flex-direction:column;  
+  background:linear-gradient(to bottom,#ff6732,#ff4c35);
+  width:750rpx;
+  height: 450rpx;
+  border-radius: 0 0 50% 50%;
+  align-items: center;
+}
+.container .header .moneytitle{
+
+  color: #ffed02;
+  margin-top: 50rpx;
+
+}
+
+.container .header .money{
+
+  color: #ffed02;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 40rpx;
+}
+
+.container .title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750rpx;  
+}
+
+.container .title .jobtitle{
+  width:730rpx;
+  height: 400rpx;
+  background: #FFF;
+  margin-top:-200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  padding-top:40rpx;
+}
+.container .title .jobtitle .jobname{
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.container .title .jobtitle .redtitle{
+background: #fff9f0;
+color: #ff9102;
+font-size: .8rem;
+margin-top:20rpx;
+padding: 5rpx;
+
+}
+
+.container .title .jobtitle .jobdata{
+  width:730rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  margin-top:80rpx;
+}
+
+.container .title .jobtitle .jobdata .jobdataleft{
+  display: flex;
+  flex-direction: column;
+  width:325rpx;
+  align-items: center;
+
+}
+
+.container .title .jobtitle .jobdata .jobdataleft view:nth-child(1){
+
+  color: #fd725c;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.container .title .jobtitle .jobdata .jobdataleft view:nth-child(2){
+
+  color: #999999;
+  font-size: .8rem;
+}
+
+
+.container .title .jobtitle .jobdata .jobdataright{
+  display: flex;
+  flex-direction: column;
+  width:325rpx;
+  align-items: center;
+
+}
+
+.container .title .jobtitle .jobdata .jobdataright view:nth-child(2){
+
+  color: #999999;
+  font-size: .8rem;
+}
+
+.container .title .jobtitle .jobdata .jobdataright view:nth-child(1){
+
+  color: #fd725c;
+  font-size: .8rem;
+  font-weight: bold;
+}
+.container .jobinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:#FFF;
+  margin-top: 20rpx;
+padding-top:  30rpx ;
+padding-bottom:  10rpx ;
+}
+
+.container .jobinfo .jobtitle{
+  width:730rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  
+}
+.container .jobinfo .jobtitle view:nth-child(1){
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.container .jobinfo .jobtitle view:nth-child(2){
+ background: #fff9f0;
+ color: #ff9102;
+ font-size: 1rem;
+ padding: 5rpx;
+   font-weight: bold;
+
+}
+
+
+.container .jobinfo .joblabel{
+  width:730rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top:20rpx;
+  font-size:.7rem;
+  color: #7b7a7a;
+  
+}
+
+
+
+.advmoney{
+  width:750rpx;
+}
+
+
+.container .jobinfo .special {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+  font-size: .8rem;
+  width:730rpx;
+
+
+}
+.container .jobinfo .special .item{
+
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+ 
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+  margin-bottom: 15rpx;
+}
+.container .jobinfo .special .item:nth-child(2n-1){
+
+ background: #e4fcdc;
+  color:#76af58;
+}
+.container .jobinfo .special .item:nth-child(2n){
+
+ background: #fef5da;
+  color:#ea994e;
+}
+.container .jobinfo .special .item:nth-child(4n-1){
+
+ background: #daf2fe;
+  color:#30a2c8;
+}
+
+
+
+
+
+
+
+.container .joblabel view{
+
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+ 
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+  margin-bottom: 15rpx;
+}
+.container .joblabel view:nth-child(2n-1){
+
+ background: #e4fcdc;
+  color:#76af58;
+}
+.container .joblabel view:nth-child(2n){
+
+ background: #fef5da;
+  color:#ea994e;
+}
+.container .joblabel view:nth-child(4n-1){
+
+ background: #daf2fe;
+  color:#30a2c8;
+}
+
+
+
+
+.container .companyinfo{
+margin-top:10rpx;
+width:730rpx;
+background: #FFF;
+display: flex;
+flex-direction: row;
+justify-content: center;
+border-bottom: 1rpx solid #e5e5e5;
+
+
+}
+
+.container .companyinfo image{
+
+  width:150rpx;
+  height: 150rpx;
+  align-self: center;
+  
+}
+.company{
+
+  background: #FFF;
+  display:flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  width:730rpx;
+
+}
+
+
+.container .companyinfo .companyname{
+  width:70%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+   padding-top:40rpx;
+  padding-bottom:40rpx;
+ 
+}
+.container .companyinfo .companyname view:nth-child(1){
+
+  font-size: .8rem;
+  color: #000;
+}
+.container .companyinfo .companyname view:nth-child(2){
+
+ font-size: .7rem;
+  color: #777676;
+}
+.container .companyinfo .companyname view:nth-child(3){
+ font-size: .7rem;
+  color: #777676;
+
+}
+.container .companyaddress{
+      padding-left: 20rpx;
+       padding-top: 20rpx;
+  
+      font-size: .8rem;
+}
+
+.container .contentlist{
+margin-top:10rpx;
+width:730rpx;
+background: #FFF;
+display: flex;
+flex-direction: column;
+
+}
+.container .contentlist .title{
+width:730rpx;
+height: 80rpx;
+line-height: 80rpx;
+font-size: .9rem;
+border-bottom: 1rpx solid #efefef;
+display: flex;
+flex-direction: row;
+align-content: center;
+
+}
+
+
+
+.container .contentlist .title view:nth-child(1){
+
+  height: 40rpx;
+  line-height: 40rpx;
+  width:6rpx;
+  background:#3274e5;
+  align-self: center;
+  
+
+}
+.container .contentlist .title view:nth-child(2){
+
+  height: 80rpx;
+  line-height: 80rpx;
+  width:200rpx;
+  padding-left: 15rpx; 
+
+}
+.container .contentlist .listitem{
+width:730rpx;
+display: flex;
+flex-direction: column;
+
+}
+.container .contentlist .listitem .items{
+ padding-left:30rpx;
+ color:#777676;
+ height: 60rpx;
+ line-height: 60rpx;
+ font-size: .8rem;
+ border-bottom: 1rpx dotted #e5e5e5;
+}
+.container .contentlist .listitem .items text{
+
+  color:#7b7a7a;
+  padding-left:10rpx;
+}
+
+
+.container .jobdetail{
+  background:#FFF;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  width:730rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+
+}
+
+.container .jobdetail .jobtitle{
+  font-weight: 600;
+  font-size: .9rem;
+  width:730rpx;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+
+}
+
+
+.container .jobcontent{
+  background:#FFF;
+  display: flex;
+  flex-direction: column;
+  width:750rpx;
+  align-items: center;
+
+}
+
+.container .jobcontent .detail2{
+  width:700rpx;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+  color: #777676;
+  font-size: .8rem;
+
+
+
+
+}
+
+
+.weixinmao-float{ height: 150rpx;}
+.weixinmao-foot{ 
+  display:flex; 
+  justify-content: center;
+  flex-direction:row;
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  }
+
+
+.footer button{
+
+
+color:#FFF;
+align-self: center;
+height: 80rpx;
+font-size: 1.5rem;
+display: flex;
+flex-direction: column;
+background: #0180cf;
+text-align: center;
+ padding-top:10rpx;
+ border:0rpx;
+
+}
+
+
+
+button::after{
+border: none;
+}
+.weixinmao-foot view:nth-child(1){
+color:#FFF;
+align-self: center;
+height: 80rpx;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+background: #0180cf;
+width:20%;
+text-align: center;
+ padding-top:20rpx;
+}
+.weixinmao-foot view:nth-child(2){
+color:#FFF;
+align-self: center;
+height: 80rpx;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+background: #11cd6e;
+width:20%;
+text-align: center;
+ padding-top:20rpx;
+}       
+.weixinmao-foot view:nth-child(3){
+align-self: center;
+height: 80rpx;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+width:20%;
+text-align: center;
+ padding-top:20rpx;
+ background: #fff;
+}    
+.black{
+color:#777676;
+
+}
+.red{
+
+color:red;
+
+}
+.weixinmao-foot view:nth-child(4){
+color:#FFF;
+align-self: center;
+height: 100rpx;
+line-height: 100rpx;
+text-align: center;
+font-size: .9rem;
+display: flex;
+flex-direction: column;
+background: #fe552e;
+width:40%;
+}
+
+.weixinmao-foot view image{
+width:50rpx;
+height: 50rpx;
+align-self: center;
+
+}
+
+.footerbutton{
+
+
+background: #fe552e;
+}
+
+.weixinmao-float_pay{ height: 150rpx;}
+.weixinmao-foot_pay{ 
+  display:flex; 
+  justify-content: center;
+  flex-direction:row;
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  background: #1aac19;
+  }
+
+.weixinmao-foot_pay view{
+color:#FFF;
+align-self: center;
+height: 100rpx;
+line-height: 100rpx;
+font-size: .9rem;
+display: flex;
+flex-direction: row;
+}
+.weixinmao-foot_pay view image{
+width:70rpx;
+height: 70rpx;
+align-self: center;
+
+}
+
+
+
+.weixinmao-msg-userinfo{ 
+  position: fixed; 
+  top: 0%; left: 0%; 
+  width: 100%; 
+  height: 100%; 
+  background-color: black; 
+  z-index:2001; 
+  background:rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  
+  }
+  .weixinmao-content-userinfo{
+ 
+      width:650rpx;
+      height:750rpx;
+       z-index:4001; 
+       background: #FFF;
+       align-self: center;
+       border-radius:15rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+  }
+    .weixinmao-content-userinfo .userinfo-title
+    {
+      align-self: center;
+      font-size: 1.2rem;
+      margin-top: 40rpx;
+      
+    }
+   
+  .weixinmao-content-userinfo .userinfo-content
+    {
+       align-self: center;
+      font-size: .9rem;
+      padding: 25rpx;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color:#999999;
+      
+      
+    }
+
+     .weixinmao-content-userinfo .userinfo-img
+    {
+      align-self: center;
+  
+      font-size: .9rem;
+      
+      
+    }
+
+       .weixinmao-content-userinfo .userinfo-img image
+    {
+      align-self: center;
+  
+     width:400rpx;
+     height: 400rpx;
+    
+      
+    }
+  .userinfo-button {
+    display: flex;
+    flex-direction: row;
+    width:400rpx;
+  
+    align-items: baseline ;
+    padding-bottom: 20rpx;
+
+  }
+  .userinfo-button button{
+        background: #44b549;
+        font-size: .8rem;
+        color:#FFF;
+        width:300rpx;
+  }
+ 
+
+.weixinmao-msg-usertel{ 
+  position: fixed; 
+  top: 0%; left: 0%; 
+  width: 100%; 
+  height: 100%; 
+  background-color: black; 
+  z-index:2001; 
+  background:rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  
+  }
+  .weixinmao-content-usertel{
+ 
+      width:550rpx;
+      height:350rpx;
+       z-index:4001; 
+       background: #FFF;
+       align-self: center;
+       border-radius:5rpx;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+  }
+  .weixinmao-content-usertel .usertel-title
+    {
+      align-self: left;
+      margin-left: 40rpx;
+      font-size: 1.2rem;
+      margin-top: 40rpx;
+      
+    }
+   
+  .weixinmao-content-usertel .usertel-content
+    {
+      align-self: left;
+      margin-left: 40rpx;
+      font-size: .9rem;
+      margin-top: 40rpx;
+      
+    }
+  .usertel-button {
+    display: flex;
+    flex-direction: row;
+    width:400rpx;
+  }
+  .usertel-button button{
+        background: #FFF;
+            font-size: .8rem;
+  }
+  .usertel-button button:nth-child(2)
+    {
+      color:#d65408;
+    }
+
+
+button::after{
+
+  border: none;
+}
+  

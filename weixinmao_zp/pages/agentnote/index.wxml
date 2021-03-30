@@ -1,0 +1,39 @@
+<view class="container">
+
+   <view class="news">
+          <view class="newslist" wx:for="{{worklist}}">
+                            <view class="title" bindtap="toWorkerDetail"  data-id="{{item.id}}">
+                                     
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.avatarUrl}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view>{{item.name}} <text class="time">{{item.createtime}}</text></view>
+                                            <view> {{item.sex == 1 ? '男' : '女'}} / {{item.age}}岁 / {{item.education}} / {{item.express}} </view>
+                                            <view class="jobmoney">{{notetitle['notetitle']}}<text>{{item.jobtitle}}</text></view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+
+
+
+
+
+
+
+</view>
+
+</view>
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <view class="footer" bindtap='toAddagentnote'>添加推荐简历</view>
+    </view>
+</view>

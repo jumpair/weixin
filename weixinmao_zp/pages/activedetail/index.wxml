@@ -1,0 +1,159 @@
+<view class="container">
+
+   <view class="header">
+
+      <view class='acitveinfo'>
+
+          <view class="item">时间：{{activeinfo.begintime}}至{{activeinfo.endtime}}</view>
+
+          <view class="item">主办：{{activeinfo.mainwork}}</view>
+
+            <view class="item">规模：参会企业{{total.companycount}}家|岗位{{total.jobcount}}个|{{total.jobrecordcount}}个求职者</view>
+
+
+          <view class="notice">
+<text class="fa fa-volume-up fa-lg" style='color:#FFF;'></text>
+<swiper class="swiper_container_move" vertical="true" autoplay="true" circular="true" interval="2000">
+
+   <navigator url="" open-type="navigate" wx:for="{{list}}">
+    <swiper-item>
+     <view class="swiper_item_move">{{item.companyname}}</view>
+    </swiper-item>
+   </navigator>
+
+   
+
+
+ </swiper>
+
+ </view>
+
+
+
+      </view>
+
+
+
+
+
+
+   
+   </view>
+
+      <view class="companylist">
+
+        <view class="jobitem"  wx:for="{{list}}">
+
+    <image src="{{item.thumb}}" class="img"></image>
+         
+            <view class="jobtitle">{{item.companyname}}</view>
+
+              <view class="joblist">
+                <view class="title" wx:for="{{item.joblist_four}}" wx:for-item="itemjob" ><view></view><view>{{itemjob.jobtitle}}</view></view>
+                 
+            
+            </view>
+
+            <view class="jobcount">共用{{item.jobnum}}个职位招聘</view>
+
+
+
+ <view class="sendjob" bindtap='doSendjob' data-id="{{itemjob.id}}" data-companyid = "{{item.companyid}}" >投递简历</view>
+
+
+
+          
+        
+        
+        </view>
+
+          
+<!--
+            <view class="jobitem">
+
+    <image src="https://api.site100.cn/attachment/images/31/2018/06/raBWds77d5iLBXC7wIXt7Ctm4BQI0T.jpg" class="img"></image>
+         
+            <view class="jobtitle">上海智源网络科技有限公司</view>
+
+              <view class="joblist">
+                <view class="title"><view></view><view>Web前端</view></view>
+                   <view class="title"><view></view><view>Web前端</view></view>
+                    <view class="title"><view></view><view>Web前端</view></view>
+                   <view class="title"><view></view><view>Web前端</view></view>
+            
+            </view>
+
+            <view class="jobcount">共用8个职位招聘</view>
+
+
+
+ <view class="sendjob">投递简历</view>
+
+
+
+          
+        
+        
+        </view>
+      
+
+
+
+
+           <view class="jobitem">
+
+    <image src="https://api.site100.cn/attachment/images/31/2018/06/raBWds77d5iLBXC7wIXt7Ctm4BQI0T.jpg" class="img"></image>
+         
+            <view class="jobtitle">上海智源网络科技有限公司</view>
+
+              <view class="joblist">
+                <view class="title"><view></view><view>Web前端</view></view>
+                   <view class="title"><view></view><view>Web前端</view></view>
+                    <view class="title"><view></view><view>Web前端</view></view>
+                   <view class="title"><view></view><view>Web前端</view></view>
+            
+            </view>
+
+            <view class="jobcount">共用8个职位招聘</view>
+
+
+
+ <view class="sendjob">投递简历</view>
+
+
+
+          
+        
+        
+        </view>
+
+      
+
+           <view class="jobitem">
+
+    <image src="https://api.site100.cn/attachment/images/31/2018/06/raBWds77d5iLBXC7wIXt7Ctm4BQI0T.jpg" class="img"></image>
+         
+            <view class="jobtitle">上海智源网络科技有限公司</view>
+
+              <view class="joblist">
+                <view class="title"><view></view><view>Web前端</view></view>
+                   <view class="title"><view></view><view>Web前端</view></view>
+                    <view class="title"><view></view><view>Web前端</view></view>
+                   <view class="title"><view></view><view>Web前端</view></view>
+            
+            </view>
+
+            <view class="jobcount">共用8个职位招聘</view>
+
+
+
+ <view class="sendjob">投递简历</view>
+
+
+        </view>
+
+
+        -->
+
+   </view>
+</view>

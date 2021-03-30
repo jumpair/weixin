@@ -1,0 +1,63 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+ <view class="item">
+              <view class="name">姓名</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入您的姓名" /></view>
+
+            </view>
+      
+   <view class="item">
+              <view class="name">支付宝账号</view>
+              <view class="selectitem"><input  type="text" name="account" placeholder="请输入您的支付宝账号" /></view>
+            </view>
+
+        
+         
+         
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >立即绑定</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

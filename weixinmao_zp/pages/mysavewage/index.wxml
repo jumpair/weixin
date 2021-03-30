@@ -1,0 +1,101 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+
+        <view class="list">
+
+            <view class="item">
+              <view class="name">姓 名</view>
+              <view class="selectitem"><input  value="" type="text" name="name" placeholder="请输入姓名" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">身份证号</view>
+                <view class="selectitem"><input style="width:50%;" value="" type="text" name="identity" placeholder="请输入身份证号" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">手机号</view>
+                <view class="selectitem"><input  value="" type="text" name="mobile" placeholder="请输入手机号" /></view>
+
+            </view>
+
+
+            <view class="item">
+                <view class="name">工资年度</view>
+                <view class="selectitem"><input  value="" type="text" name="wage_year" placeholder="请输入工资年度" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">工资月份</view>
+                <view class="selectitem"><input  value="" type="text" name="wage_month" placeholder="请输入工资月份" /></view>
+
+            </view>
+
+            <view class="item">
+                <view class="name">落地公司</view>
+                <view class="selectitem"><input  value="" type="text" name="company" placeholder="请输入落地公司" /></view>
+
+            </view>
+            
+            <view class="item">
+                <view class="name">金额</view>
+                <view class="selectitem"><input  value="" type="text" name="money" placeholder="请输入金额" /></view>
+
+            </view>
+            <view class="item">
+                <view class="name">发薪日期</view>
+                <view class="selectitem"><input  value="" type="text" name="wage_pay" placeholder="请输入发薪日期" /></view>
+
+            </view>
+
+
+</view>
+       
+
+</view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >{{title[1]}}</button>
+    </view>
+</view>
+
+   </form>
+
+
+
+
+
+
+
+<!--<view class="weixinmao-msg_show" hidden="{{isuser}}">-->
+<!--    <view class="weixinmao-content_show">-->
+
+<!--        <view class="title">-->
+<!--        <view></view>-->
+<!--        <view>消息提醒</view>-->
+<!--        <view ></view>-->
+<!--        </view>-->
+
+<!--        <view class="list"  style='height:300rpx;'>-->
+
+<!--    <view class="heaerpic" >-->
+<!--        -->
+<!--          <image src="{{companyinfo.logo}}"></image>-->
+<!--                     <view>{{companyinfo.name}}</view>-->
+<!--        </view>-->
+
+<!--        -->
+<!--      -->
+<!--        </view>-->
+
+<!--        <button class="masterbtn" open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">立即授权</button>-->
+<!--   -->
+<!--    </view>-->
+<!--</view>-->

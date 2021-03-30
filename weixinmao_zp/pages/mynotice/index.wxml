@@ -1,0 +1,25 @@
+   <view class="container">
+
+
+
+      <view class="orderlist" wx:for-items="{{list}}">
+        <view class="orderid">{{title[1]}}:{{item.jobtitle}}</view>
+        <view class="content">
+            <view class="item">{{title[2]}}:{{item.companyname}}</view>
+            <view class="item">联系电话:{{item.tel}}</view>
+            <view class="item">负责人:{{item.mastername}}</view>
+            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class="payitem">
+
+            <view hidden="" bindtap='toJob' data-id="{{item.jobid}}" >{{title[3]}}</view>
+           
+         
+                          <view hidden=""  data-id="{{item.id}}">已通知</view>
+
+             </view>
+  
+        </view>
+      </view>
+</view>
+
+

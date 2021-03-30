@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<import src="../../resource/wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="title">
+    <view>{{data.title}}</view>
+    <view>{{data.createtime}}</view>
+  </view>
+  <view class="content">
+
+
+   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+
+
+
+
+
+
+  </view>
+</view>
+ 

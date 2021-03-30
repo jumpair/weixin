@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="header">
+      <view><image src="../../resource/img/getmoney.png"></image></view>
+        <view> 账户余额</view>
+        <view>￥{{moneyinfo.totalmoney}}</view>
+    </view>
+    <view class="getmoney">
+        <button bindtap='toMymoney'>全部提现</button>
+         <button bindtap='toMymoneyrecord'>查看流水</button>
+    </view>
+</view>

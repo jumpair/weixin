@@ -1,0 +1,26 @@
+
+
+<view class="scorelist">
+    <view class="title" >
+        <view>ID</view>
+        <view>类型</view>
+        <view>待收益</view>
+        <view>待总收益</view>
+        <view>金额</view>
+        <view>余额</view>
+         <view>备注</view>
+         <view>时间</view>
+
+    </view>
+    <view class="list" wx:for="{{list}}"  >
+        <view>{{item.id}}</view>
+        <view>{{item.type}}</view>
+         <view>{{item.dmoney}}</view>
+          <view>{{item.dtotalmoney}}</view>
+        <view>{{item.money}}</view>
+        <view>{{item.totalmoney}}</view>
+        <view>{{item.mark}}</view>
+         <view>{{item.createtime}}</view>
+
+    </view>
+</view>

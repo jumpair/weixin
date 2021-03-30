@@ -1,0 +1,44 @@
+
+
+
+
+
+
+<view style="height:28rpx;"></view>
+
+<!-- 列表 -->
+<view class="news">
+          <view class="newslist" wx:for="{{worklist}}">
+                            <view class="title" bindtap="toWorkerDetail"  data-id="{{item.id}}">
+                                     
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.avatarUrl}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view>{{item.name}} <text class="time">{{item.createtime}}</text></view>
+                                   <view> {{item.sex == 1 ? '男' : '女'}} / {{item.age}}岁 / {{item.education}} / {{item.express}} </view>
+                                            <view class="jobmoney"><view>{{matchtitle['notetitle']}}<text>{{item.jobtitle}}</text></view><view>状态:待收益</view></view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>
+

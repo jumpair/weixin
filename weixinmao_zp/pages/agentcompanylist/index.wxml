@@ -1,0 +1,57 @@
+
+
+
+
+
+
+<view style="height:28rpx;"></view>
+
+<!-- 列表 -->
+
+
+<block wx:if="{{list.length>0}}">
+
+
+<view class="news">
+          <view class="newslist" wx:for="{{list}}">
+                            <view class="title" bindtap="toWorkerDetail"  data-id="{{item.id}}">
+                                     
+
+                                       <view class="detail">
+                                           <view class="pic">
+                                           <image src="{{item.thumb}}"></image>
+                                           </view>
+                                           <view class="info">
+                                            <view>{{item.companyname}} <text class="time">{{item.createtime}}</text></view>
+                                            <view> {{item.cityname}} / {{item.areaname}} </view>
+                                            <view class="jobmoney">地址:<text>{{item.address}}</text></view>
+                                            </view>
+                                      </view>
+                            </view>
+                </view>
+
+
+
+
+
+
+
+
+
+</view>
+
+  </block>
+    <block wx:else>
+
+
+    
+      <view class="tjnote"><button bindtap="toAgentqrcode">暂无记录，我要推荐</button></view>
+
+</block>
+
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>
+

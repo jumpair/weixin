@@ -1,0 +1,138 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+
+
+<!--推荐楼盘 begin-->
+       <form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+   
+
+   <view class="item">
+              <view class="name">工作日期</view>
+              <view class="selectitem">
+              
+            <picker  mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">  
+    <view class="picker">  
+        {{dates ? dates : '请选择工作日期'}}
+    </view>  
+  </picker>
+              
+              
+              </view>
+            </view>
+
+
+
+
+ <view class="item">
+              <view class="name">员工姓名</view>
+              <view class="selectitem"><input  type="text" name="name" placeholder="请输入员工姓名"  value="{{employee.name}}" disabled="true"/></view>
+
+            </view>
+
+             <view class="item">
+              <view class="name">上岗职位</view>
+              <view class="selectitem"><input  type="text" name="jobtitle"  value="{{employee.jobtitle}}" disabled="true"  placeholder="请输入职位" /></view>
+            </view>
+
+      
+
+
+                <view class="item">
+              <view class="name">所属部门</view>
+              <view class="selectitem">  
+                   <input  type="text" name="jobtitle"  value="{{department.name}}" disabled="true"  placeholder="" />
+             </view>
+
+            </view>
+
+
+
+              <view class="item">
+              <view class="name">员工类别</view>
+              <view class="selectitem">
+                 <input  type="text" name="jobtitle"  value="{{employee.type ==1 ? '正式工':'临时工'}}" disabled="true"  placeholder="" />
+
+              
+              </view>
+            </view>
+      
+          
+           <view class="item">
+              <view class="name">工时单位</view>
+              <view class="selectitem">
+              
+                 <radio-group class="radio-group" bindchange="radioPerChange">
+  <label class="radio">
+    <radio value="1" checked="checked"/>天数
+  </label>
+    <label class="radio">
+    <radio value="0" checked=""/>小时
+  </label>
+
+</radio-group>
+              
+              
+              
+              </view>
+            </view>
+
+           
+
+               <view class="item">
+              <view class="name">上班工时</view>
+              <view class="selectitem"><input  type="text" name="workdays" placeholder="请输入上班工时"  /></view>
+            </view>
+
+
+          
+            
+             <view class="item">
+              <view class="name">其他说明</view>
+              <view class="selectitem"><input  type="text" name="mark" placeholder="请输入其他说明" /></view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >提交信息</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

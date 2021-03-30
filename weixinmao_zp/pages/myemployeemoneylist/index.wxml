@@ -1,0 +1,24 @@
+
+
+<view class="scorelist">
+    <view class="title" >
+        <view>ID</view>
+        <view>姓名</view>
+        <view>上班日期</view>
+        <view>职位</view>
+        <view>工时</view>
+         <view>备注</view>
+         <view>时间</view>
+
+    </view>
+    <view class="list" wx:for="{{list}}"  >
+        <view>{{item.id}}</view>
+        <view>{{item.name}}</view>
+         <view>{{item.worktime}}</view>
+          <view>{{item.jobtitle}}</view>
+        <view>{{item.money}}</view>
+        <view>{{item.mark}}</view>
+         <view>{{item.createtime}}</view>
+
+    </view>
+</view>
