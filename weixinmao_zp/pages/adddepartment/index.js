@@ -42,7 +42,9 @@ Page({
           })
 
           that.setData({
-            title: that.data.title
+            title: that.data.title,
+            starttime: '00.00',
+            endtime:'00.00'
           })
           wx.setNavigationBarColor({
             frontColor: '#ffffff',
@@ -92,6 +94,14 @@ Page({
       datetime: e.detail.value
     })
   },
+  changeTime:function(e){
+    this.setData({ starttime: e.detail.value });
+    wx.setStorageSync("starttime",  e.detail.value)
+},
+changeendTime:function(e){
+  this.setData({ endtime: e.detail.value });
+  wx.setStorageSync("endtime",  e.detail.value)
+},
   savepubinfo: function (e) {
 
     // this.data.uploadimagelist = [];
@@ -100,7 +110,9 @@ Page({
     var companyid = wx.getStorageSync('companyid');
     var name = e.detail.value.name;
     var sort = e.detail.value.sort;
-
+    var starttime = wx.getStorageSync("starttime");
+    var endtime = wx.getStorageSync("endtime");
+    var period = e.detail.value.period;
 
     if (name == "") {
       wx.showModal({
@@ -120,17 +132,39 @@ Page({
       })
       return
     }
-
-
-
- 
-
+    if (starttime == "") {
+      wx.showModal({
+        title: '提示',
+        content: '请输入开始时间',
+        showCancel: false
+      })
+      return
+    }
+    if (endtime == "") {
+      wx.showModal({
+        title: '提示',
+        content: '请输入结束时间',
+        showCancel: false
+      })
+      return
+    }
+    if (period == "") {
+      wx.showModal({
+        title: '提示',
+        content: '请输入时间段',
+        showCancel: false
+      })
+      return
+    }
 
     var data = {
       sessionid: userinfo.sessionid,
       uid: userinfo.memberInfo.uid,
       companyid: companyid,
       name: name,
+      starttime: starttime,
+      endtime: endtime,
+      period: period,
       sort:sort
      
     };

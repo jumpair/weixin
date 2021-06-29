@@ -93,7 +93,7 @@ onShow:function(){
     console.log(appuser);
 
     if (appuser) {
-      if (appuser.hasOwnProperty("wxInfo")) {
+      if (appuser.hasOwnProperty("memberInfo")) {
         that.data.isuser = true;
         userid = appuser.memberInfo.uid;
         that.setData({
@@ -133,7 +133,7 @@ onShow:function(){
             }
           })
 
-          console.log(res.data.data.navtitle);
+          // console.log(res.data.data.cmtitle);
 
           var bartitle = res.data.data.bartitle;
           that.setData({
@@ -240,7 +240,7 @@ onShow:function(){
             })
             wx.setTabBarItem({
               index: 3,
-              text: '会员',
+              text: '会员 ',
               iconPath: 'weixinmao_zp/resource/images/nav/user-off.png',
               selectedIconPath: 'weixinmao_zp/resource/images/nav/user-on.png'
             })
@@ -266,20 +266,22 @@ onShow:function(){
                 success: function (res) {
                   wx.setStorageSync('latitude', res.latitude);
                   wx.setStorageSync('longitude', res.longitude);
+                  that.lat = res.latitude;
+                  that.lng = res.longitude;
                   qqmapsdk.reverseGeocoder({
                     location: {
                       latitude: res.latitude,
                       longitude: res.longitude
                     },
-                   
+                    
                     success: function (addressRes) {
 
                       var address = addressRes.result.address_component.city;
-
+                      
                       var city = address.substr(0, address.length - 1);
-
+                      console.log(city);
                       wx.setStorageSync('city', city);
-
+                      wx.setStorageSync('address', address);
                       that.initpage();
 
                     }
@@ -325,7 +327,7 @@ onShow:function(){
   },
   initpage:function(){
   var that = this;
-  var city = wx.getStorageSync('city');
+  var city = wx.getStorageSync('address');
     app.util.request({
       'url': 'entry/wxapp/GetIndexList',
       data: { city: city },
@@ -339,9 +341,11 @@ onShow:function(){
             wx.setNavigationBarTitle({
               title: wx.getStorageSync('companyinfo').name,
             })
+            // console.log(res.data.data.friendlist);return;
 
             that.setData({
               companylist: res.data.data.companylist,
+              friendlist: res.data.data.friendlist,
               notelist: res.data.data.notelist,
               joblist: res.data.data.joblist,
               intro: res.data.data.intro,
@@ -349,8 +353,8 @@ onShow:function(){
               navlist: res.data.data.navlist,
               glist: res.data.data.glist,
               isshow: false,
-              city: wx.getStorageSync('cityinfo').name
-
+              // city: wx.getStorageSync('cityinfo').name
+              city:wx.getStorageSync('address')
             })
 
          
@@ -364,6 +368,47 @@ onShow:function(){
     });
 
 
+  },
+  toAgent:function(){
+    var that = this;
+
+    that.bindGetUserInfo(function(){
+
+    var userinfo = wx.getStorageSync('userInfo');
+    var uid = userinfo.memberInfo.uid;
+    app.util.request({
+      'url': 'entry/wxapp/Checkagent',
+      data: { uid: uid },
+      success: function (res) {
+        if (!res.data.message.errno) {
+          if(res.data.data.error == 0)
+          {
+            wx.navigateTo({
+              url: "/weixinmao_zp/pages/agentcenter/index"
+            })
+
+           } else if (res.data.data.error == 1){
+
+            wx.showModal({
+              title: '提示',
+              content: res.data.data.msg,
+              showCancel: false
+            })
+            return
+          }else{
+       
+            wx.navigateTo({
+              url: "/weixinmao_zp/pages/regagent/index"
+            })
+
+          }
+      
+        }
+
+      }
+    })
+
+  })
   },
   getRedmoney:function()
   {
@@ -399,9 +444,34 @@ onShow:function(){
 
   },
 
-  bindGetUserInfo: function (e) {
+ 
+  bindGetUserInfo: function (fun) {
     var that = this;
     var result;
+
+    var appuser = wx.getStorageSync('userInfo');
+
+    if (appuser) {
+      if (appuser.hasOwnProperty("memberInfo")) {
+
+
+        typeof fun == "function" && fun();
+    
+      
+      }else{
+
+        that.getUserInfo(fun);
+
+      } 
+    }else{
+
+      that.getUserInfo(fun);
+    }
+
+  },
+   getUserInfo:function(fun){
+
+    var that = this;
 
     app.util.getUserInfo(function (userInfo) {
       console.log(userInfo);
@@ -409,6 +479,7 @@ onShow:function(){
       var uid = userInfo.memberInfo.uid;
       var nickname = userInfo.wxInfo.nickName;
       var avatarUrl = userInfo.wxInfo.avatarUrl;
+      // console.log(avatarUrl);return;
       that.data.uid = uid;
       if (uid > 0) {
         that.setData({
@@ -422,9 +493,13 @@ onShow:function(){
           data: { uid: uid, nickname: nickname, avatarUrl: avatarUrl },
           success: function (res) {
             if (!res.data.message.errno) {
-              //app.globalData.isuser = true;
+          
               that.data.isphone = res.data.data.isphone;
               that.data.indeximg = res.data.data.indeximg;
+
+
+              typeof fun == "function" && fun();
+
               that.setData({
                 indeximg: that.data.indeximg,
                 userinfo: userInfo,
@@ -438,12 +513,14 @@ onShow:function(){
 
       }
 
+    });
 
-
-    }, e.detail);
+  
+  
+  
   },
   swiperChange: function (e) {
-    console.log(e);
+    // console.log(e);
     this.setData({
       swiperCurrent: e.detail.current   //获取当前轮播图片的下标
     })
@@ -696,6 +773,12 @@ onShow:function(){
     })
 
   },
+  toFindvocationjob: function (e) {
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/findvocationjob/index"
+    })
+
+  },
   toFindworker: function (e) {
 
 
@@ -784,6 +867,12 @@ onShow:function(){
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: "/weixinmao_zp/pages/companydetail/index?id=" + id
+    })
+  },
+  toMysociety: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/mysociety/index"
     })
   },
   toArticle: function (e) {

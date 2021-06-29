@@ -141,6 +141,7 @@ savepubinfo:function(e){
     var mastername = e.detail.value.mastername;
     var tel = e.detail.value.tel;
     var address = e.detail.value.address;
+    var range = e.detail.value.range;
     var content = e.detail.value.content;
     var id = that.data.id;
     var areaid = that.data.areaid;
@@ -212,6 +213,25 @@ savepubinfo:function(e){
       })
       return
     }
+
+    if (range == "") {
+      wx.showModal({
+        title: '提示',
+        content: '请输入考勤范围',
+        showCancel: false
+      })
+      return
+    }
+    
+    if (range <=50 || range >=1000) {
+      wx.showModal({
+        title: '提示',
+        content: '请输入正确范围',
+        showCancel: false
+      })
+      return
+    }
+    // console.log(range);return;
   
     if (content == "") {
       wx.showModal({
@@ -224,9 +244,6 @@ savepubinfo:function(e){
   
     var uploadimagelist = this.data.uploadimagelist;
 
-    
-
-    
     var data = {
                 sessionid: userinfo.sessionid,
                 uid: userinfo.memberInfo.uid,
@@ -239,6 +256,7 @@ savepubinfo:function(e){
                 mastername: mastername,
                 tel: tel,
                 address: address,
+                range: range,
                 content: content,
                 logo: uploadimagelist[0]
                             };
@@ -265,36 +283,15 @@ savepubinfo:function(e){
               success: function (res) {
                 console.log(res);
                 wx.navigateTo({
-                  url: "/weixinmao_house/pages/mysalepub/index?id=1"
+                  url: "/weixinmao_zp/pages/companylogin/index"
                 })
               }
             })
 
           }
 
-        
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
       }
     });
-
-
-
-
 
   },
   /**

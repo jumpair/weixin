@@ -17,13 +17,13 @@
   padding-top:20rpx;
   padding-bottom: 20rpx;
   padding-left: 20rpx;
-  font-size: .8rem;
+  font-size: .9rem;
 
 }
 
 .container .orderlist .content{
 
-  font-size: .8rem;
+  font-size: .9rem;
   border-bottom:  1rpx solid #efefef;
 
 }
@@ -52,7 +52,7 @@
   margin-right: 20rpx;
   border-radius: 5rpx;
   background: #3274e5;
-  font-size: .6rem;
+  font-size: .9rem;
   color: #FFF;
   
 }

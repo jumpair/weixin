@@ -14,7 +14,6 @@
 
             <view hidden="" bindtap='editCompanyjob' data-id="{{item.id}}" >{{title[3]}}</view>
 
-            
 
               <block wx:if="{{item.status == 0}}">
              <view hidden="" bindtap='cancleJob' data-id="{{item.id}}">{{title[4]}}</view>

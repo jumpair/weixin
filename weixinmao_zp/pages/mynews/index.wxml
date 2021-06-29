@@ -1,0 +1,38 @@
+
+<view class='news'>
+ <view class='xiahuaxian1 xiahuaxia'></view>
+ <view class='new_top_txt'>您正在与{{name}}进行沟通</view>
+ <view class="historycon">
+  <scroll-view scroll-y="true" scroll-top="{{scrollTop}}"  class="history" wx:for="{{list}}" wx:key="this" id="item{{index + 1}}">
+   <view>
+    <text class='time'>{{item.create_time}}</text>
+   </view>
+   <block wx:if="{{item.status == uid}}">
+    <view class='my_right'>
+     <view class='page_row'>
+      <text class='new_txt'>{{item.content}}</text>
+      <image src='{{item.imguid}}' class='new_imgtent'></image>
+     </view>
+    </view>
+   </block>
+   <block wx:else>
+    <view class='you_left'>
+     <view class='page_row'>
+      <!-- <image class='new_img' wx:if='{{item.show_rignt == "不是自己的内容，显示在左边，左边渲染 nickname_owner，head_owner"}}' src='{{item.head_owner}}'></image>
+       <image class='new_img' wx:if='{{item.show_rignt == "不是自己的内容，显示在左边，左边渲染 nickname_open，head_open"}}' src='{{item.head_open}}'></image> -->
+      <!-- <view wx:if='{{!item.is_img}}' class='sanjiao you'></view> -->
+      <image wx:if='{{item.status == item.uid}}' src='{{item.imguid}}' class='new_imgtent'></image>
+      <image wx:if='{{item.status == item.userid}}' src='{{item.imguserid}}' class='new_imgtent'></image>
+      <text  class='new_txt' style="background-color:#b2e281">{{item.content}}</text>
+     </view>
+    </view>
+   </block>
+  </scroll-view>
+ </view>
+</view>
+<view class='hei' id="hei"></view>
+<view class="sendmessage">
+ <input type="text" bindinput="bindChange"  confirm-type="done" value='{{news_input_val}}' placeholder="" />
+ <button catchtap="add">发送</button>
+ <input style='display:none' type="" bindinput="bindChange" confirm-type="done" placeholder="" />
+</view>

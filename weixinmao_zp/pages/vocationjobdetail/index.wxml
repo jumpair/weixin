@@ -6,24 +6,25 @@
   <view class="main">
       <view class="title">
           <view> <text>{{data.title}} </text></view>
-             <view class="price"><view>{{data.jobtype}}{{data.money}}</view></view>
+             <view class="price"><view>{{data.jobtype}}{{data.money}}</view>元</view>
         
       </view>
       <view class="address">
           <view> {{data.areaname}}</view>
-          <view class="money">
+          <!-- <view class="money">
             <view class="item" wx:for="{{data.special}}">{{item}} </view>
    
-          </view>
+          </view> -->
       </view>
          <view class="jobintro">
           <view><text class="fa fa-intersex fa-lg"></text>
           <block wx:if="{{data.sex==1}}"> 男</block><block wx:elif="{{data.sex==2}}">女</block><block wx:else>男女不限</block>
           </view>
           <view><text class="fa fa-mortar-board fa-lg"></text> {{data.education}}</view>
-          <view><text class="fa fa-diamond fa-lg"></text>{{data.express}}</view>
-          <view><text class="fa fa-cubes fa-lg"></text>{{data.jobtype}}</view>
           <view><text class="fa fa-child fa-lg"></text>{{data.age}}</view>
+          <view><text class="fa beer fa-lg"></text>{{data.food}}</view>
+          <view><text class="fa fa-cubes fa-lg"></text>{{data.jobtype}}</view>
+         
           <view><text class="fa fa-users fa-lg"></text>{{title[0]}}{{data.num}}人</view>
          </view>
 
@@ -65,8 +66,8 @@
         <view class="title"><view></view><view>{{title[3]}}</view></view>
         <view class="intro">
                  
-   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+          <template is="wxParse" data="{{wxParseData:safedes.nodes}}"/>
         </view>
   </view>
 

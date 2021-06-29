@@ -142,7 +142,7 @@
         </view>
         <view class="name">
             <view>{{title[5]}}</view>
-            <view>{{countinfo.noticerecord}}条</view>
+            <view>{{countinfo.invaterecord}}条</view>
         </view>
     </view> 
       
@@ -177,15 +177,19 @@
   <view class="list">
 <block wx:if="{{ischeck  == 0}}">
        <view class="item" bindtap='toMyinvaterecord'><text class="fa fa-comment fa-lg"></text>{{title[6]}}</view>
-         <view class="item" bindtap='toMyvideonote'><text class="fa fa-camera  fa-lg"></text>{{title[7]}}</view>
-      <view class="item" bindtap='toMyregmoney'><text class="fa fa-th  fa-lg"></text>{{title[8]}}</view>
+         <!-- <view class="item" bindtap='toMyvideonote'><text class="fa fa-camera  fa-lg"></text>{{title[7]}}</view> -->
+       <view class="item" bindtap='toMyregmoney'><text class="fa fa-th  fa-lg"></text>{{title[8]}}</view>
 
   </block>
-         <view class="item" bindtap='toMyPay'><text class="fa fa-list  fa-lg"></text>消费记录</view>
+        <view class="item" bindtap='toMyClock'><text class="fa fa-location-arrow  fa-lg"></text>我的考勤</view>
+        <view class="item" bindtap='toMyContract'><text class="fa fa-file-text  fa-lg"></text>我的合同</view>
+        <view class="item" bindtap='toMyRepair'><text class="fa fa-calendar-times-o  fa-lg"></text>我的报修</view>
+        <view class="item" bindtap='toMyPay'><text class="fa fa-list  fa-lg"></text>消费记录</view>
 
         <view class="item" bindtap='toMySave'><text class="fa fa-heart  fa-lg"></text>我的收藏</view>
-        <view class="item" bindtap='toMySociety'><text class="fa fa-comments  fa-lg"></text>交友社交</view>
-        <view class="item" bindtap='toMyWage'><text class="fa fa-file  fa-lg"></text>工资管理</view>
+        <view class="item" bindtap='toMySociety'><text class="fa fa-comments  fa-lg"></text>聊天交友<view wx:if='{{news > 0}}' style="background-color: red; width: 25px;height: 25px;float: right;margin-right: 20px;border-radius: 5px;color:#fff;text-align: center;">{{news}}</view></view>
+        <view class="item" bindtap='toMyuserplus'><text class="fa fa-user-plus  fa-lg"></text>好友收藏</view>
+        <view class="item" bindtap='toMyWage'><text class="fa fa-file  fa-lg"></text>费用管理</view>
         <view class="item" bindtap='toMyTax'><text class="fa fa-table  fa-lg"></text>个税管理</view>
         <view class="item" bindtap='toMydynamic'><text class="fa fa-star  fa-lg"></text>发布动态</view>
        <block wx:if="{{ischeck  == 0}}">

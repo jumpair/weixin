@@ -388,11 +388,12 @@ Page({
   goMap: function (e) {
     var that = this;
     console.log('ffffff');
+    console.log(that.data);
     wx.openLocation({
       latitude: parseFloat(that.data.lat),
       longitude: parseFloat(that.data.lng),
       scale: 18,
-      name: that.data.title,
+      name: that.data.data.title,
       address: that.data.address
     })
   },

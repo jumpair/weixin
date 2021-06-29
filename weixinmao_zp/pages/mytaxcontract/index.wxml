@@ -16,7 +16,7 @@
         </view>
       
            <view class="usertel-content">
-          您没有填写身份证号码或者身份证号与平台不匹配,请联系客服
+            您没有填写身份证号码或暂时没有数据
         </view>
    <view class="usertel-button" style="margin:auto;">
           <button open-type="getPhoneNumber" bindtap="toMyNote" style="color:#da4848">去填写</button>

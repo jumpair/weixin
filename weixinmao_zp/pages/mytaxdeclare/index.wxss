@@ -90,22 +90,20 @@
 
   }
   .weixinmao-content-usertel .usertel-title
-    {
-      align-self: left;
-      margin-left: 40rpx;
-      font-size: 1.2rem;
-      margin-top: 40rpx;
-      
-    }
-   
-  .weixinmao-content-usertel .usertel-content
-    {
-      align-self: left;
-      margin-left: 40rpx;
-      font-size: .9rem;
-      margin-top: 40rpx;
-      
-    }
+  {
+    align-self: left;
+    font-size: 1.2rem;
+    margin-top: 40rpx;
+    text-align: center;
+  }
+ 
+.weixinmao-content-usertel .usertel-content
+  {
+    align-self: left;
+    font-size: .9rem;
+    margin: 20px 10px 0px 10px;
+    
+  }
   .usertel-button {
     display: flex;
     flex-direction: row;

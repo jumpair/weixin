@@ -118,7 +118,8 @@ Page({
             title:title,
             savestatus: res.data.data.savestatus,
             ispay: res.data.data.ispay,
-            content: WxParse.wxParse('article', 'html', res.data.data.jobdetail.workcontent, that, 5)
+            content: WxParse.wxParse('article', 'html', res.data.data.jobdetail.workcontent, that, 5),
+            content: WxParse.wxParse('safedes', 'html', res.data.data.jobdetail.safedes, that, 5)
             // content: houseDetail
           })
         }

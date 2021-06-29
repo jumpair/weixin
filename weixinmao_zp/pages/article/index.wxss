@@ -177,7 +177,7 @@ border-bottom: 1px solid #F2f2f2;
 .news .newslist .contents{
   color:#666666;
   margin-left:20px;
-  margin-top:20px;
+  margin-top:10px;
 }
 .news .newslist .title .image{
   display:block;
@@ -197,7 +197,7 @@ display: flex;
 justify-content: space-between;
 }
 .news .newslist .title view{
-  padding-left: 5%;
+  padding-left: 2%;
   text-align: left;
 }
 .images_father{display:flex;margin-top:10px;}
@@ -205,10 +205,86 @@ justify-content: space-between;
 
 .news .newslist .title view:nth-child(1){
 font-size: .8rem;
-
 font-weight: 600;
 color: #081994;
 }
+
+.input-section {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 500;
+  background: #fff;
+}
+.input_input {
+  background: #fff;
+  margin-top: 12rpx;
+  z-index: 500;
+  width: 580rpx;
+  height: 110rpx;
+  padding-left: 35rpx;
+
+}
+
+.send_btn {
+  width: 110rpx;
+  height: 66rpx;
+  position: absolute;
+  top: 24rpx;
+  right: 30rpx;
+  background: rgb(47, 80, 19);
+  z-index: 550;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send_btn_text {
+  display: flex;
+  font-size: 32rpx;
+  font-family: 'PingFang';
+  color: #fff;
+  z-index: 560;
+
+}
+.sendmessage {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+ }
+   
+ .sendmessage input {
+  width: 80%;
+  height: 40px;
+  background-color: white;
+  line-height: 40px;
+  font-size: 14px;
+  border: 1px solid #d0d0d0;
+  padding-left: 10px;
+  margin-left: 10px;
+   margin-right: 10px;
+   border-radius: 5px;
+ }
+   
+ .sendmessage button {
+  border: 1px solid white;
+  width: 18%;
+  height: 40px;
+  background: #2ba245;
+  color: #fff;
+  line-height: 40px;
+  font-size: 14px;
+  margin-right: 10px;
+ }
 .news .newslist .title view:nth-child(2){
 font-size: .7rem;
 

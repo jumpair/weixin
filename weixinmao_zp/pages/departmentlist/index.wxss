@@ -190,6 +190,13 @@ font-size: .8rem;
   padding-top:30rpx;
 
 }
+.jobinfo .jobright .jobtitle .name{
+  padding-left: 60rpx;
+}
+.jobinfo .jobright  .summary{
+  padding-left:60rpx;     
+  
+}
 .jobinfo .jobright .jobtitle image{
   width:45rpx;
   height: 45rpx;
@@ -217,4 +224,17 @@ font-size: .8rem;
 .line{
   height: 230rpx;
   border: 1rpx dotted #f5f5f5; 
+}
+.jobinfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.joinright{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  
 }

@@ -136,11 +136,10 @@
                                   <view>{{item.jobtype}}<block  wx:if="{{item.money == 0}}">面议</block><block  wx:else>{{item.money}}元</block> </view>
                                 </view>
 
-                                <view class="special">
-                                                <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial">{{itemSpecial}}</view>
-                                            
-                                    
-                                    </view>
+                                <!-- <view class="special">
+                                                 <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial">{{itemSpecial}}</view> 
+                                                
+                                    </view> -->
 
                           </view>
 

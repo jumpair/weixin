@@ -28,7 +28,7 @@ Page({
     var that = this;
      
     var id = options.id;
-
+    console.log(id)
     that.data.id = id;
 
   
@@ -247,7 +247,7 @@ Page({
             success: function (res) {
               console.log(res);
               wx.navigateTo({
-                url: "/weixinmao_zp/pages/myregmoney/index"
+                url: "/weixinmao_zp/pages/employeemain/index"
               })
             }
           })

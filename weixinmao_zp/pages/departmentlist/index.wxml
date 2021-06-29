@@ -1,52 +1,39 @@
-   <view class="container">
+<view class="container">
 
 
 
-      <view class="orderlist" wx:for-items="{{list}}">
+  <view class="orderlist" wx:for-items="{{list}}">
 
 
-        <view class="content">
-
-       
-
-          <view class="jobinfo">
-              <view class="jobleft">
-                 <view> {{item.sort}}</view>
-                 <view>排序</view>
-              </view>
-<view class="line">
-</view>
-
-              <view class="jobright">
-                <view class="jobtitle"><view>{{item.name}}</view>
-</view>
-         
-               
-
-                <view class="payitem">
+    <view class="content">
 
 
-       
-             <view hidden="" bindtap='cancleJob' data-id="{{item.id}}">删除</view>
-            
-             </view>
 
-              </view>
-          
+      <view class="jobinfo">
+        <view class="jobright">
+          <view class="jobtitle">
+            <view class="name">{{item.name}}</view>
           </view>
-
-
-
-
-           
-  
+          <view class="summary" >考勤时间：{{item.starttime}}-{{item.endtime}}</view>
+          <view class="summary" >打卡有效时间：{{item.period}}小时</view>
         </view>
+        <view class="jobleft">
+            <view class="payitem">
+              <view hidden="" bindtap='editdepartment' data-id="{{item.id}}">编辑</view>
+            </view>
+            <view class="payitem">
+              <view hidden="" bindtap='cancleJob' data-id="{{item.id}}">删除</view>
+            </view>
+          </view>
       </view>
+
+    </view>
+  </view>
 </view>
 
 
 <view class="weixinmao-float">
-    <view class="weixinmao-foot">
-      <view class="footer" bindtap='adddepartment'>添加部门</view>
-    </view>
+  <view class="weixinmao-foot">
+    <view class="footer" bindtap='adddepartment'>添加部门</view>
+  </view>
 </view>

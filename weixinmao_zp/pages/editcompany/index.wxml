@@ -57,13 +57,18 @@
 
              <view class="item">
               <view class="name"> 电 话</view>
-              <view class="selectitem"><input  type="text"  value = "{{companyinfo.tel ? companyinfo.tel:''}}" name="tel" placeholder="请输入电话" /></view>
+              <view class="selectitem"><input  type="number"  value = "{{companyinfo.tel ? companyinfo.tel:''}}" name="tel" placeholder="请输入电话" length="11" /></view>
 
             </view>
 
                <view class="item">
               <view class="name">地址</view>
                   <view class="selectitem"><input  type="text"  value = "{{companyinfo.address ? companyinfo.address:''}}" name="address" placeholder="请输入地址" /></view>
+
+            </view>
+            <view class="item">
+              <view class="name">考勤范围</view>
+                  <view class="selectitem"><input  type="number"  value = "{{companyinfo.range ? companyinfo.range:''}}" name="range" placeholder="范围大于50小于1000" /></view>
 
             </view>
 

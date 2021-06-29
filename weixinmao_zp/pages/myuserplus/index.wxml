@@ -1,0 +1,33 @@
+  
+  <view class="container">
+      <!-- <input  type="text" bindinput="inputsearch" value = "" name="search" placeholder="请输入内容" style="width: calc(100% - 104px);display: inline-block;border: 1px solid #ccc;height: 40px;margin: 6px 0 0 10px;border-radius: 5px;" />
+      <button class="footer"  formType="submit" style="width: 70px; height: 40px;line-height: 40px;font-size: 14px;display: inline-block;margin-left: 10px;background-color: #1C52F4;color: #fff;" catchtap="search" >搜索</button> -->
+
+      <view class="orderlist" wx:for-items="{{list}}">
+<!--        <view class="orderid">{{title}}</view>-->
+        <view class="content">
+            <view class="item">
+                  <view >
+                  <image src="{{item['avatarUrl']}}"  style="height:50px; width:50px;border-radius: 25px;"></image>
+                  </view>
+                  <view  style="white-space:pre-wrap;font-weight:600;color:#666666;width:70%;">  
+                        <view>
+                              <view style="display: inline-block; width: 86%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 10px;">姓名:{{item.name}}</view>
+                              <image wx:if="{{item.gender  == 1}}" src="../../resource/images/nan.png"  style="width:20px;height:20px;"></image>
+                              <image wx:if="{{item.gender  == 0}}" src="../../resource/images/nv.png"  style="width:20px;height:20px;"></image>
+                        </view>   时间:{{item.createtime}}
+                  </view>
+                   
+                  <view  style=" display: flex;align-items: center;">
+                        <view>
+                        <view  bindtap='toMynews' data-uid="{{item.uid}}" style="width: 50px;margin:auto;background-color: #5abb28;height: 22px;text-align: center;border-radius: 5px;color: #fff;" >发消息</view>
+                        </view>
+                        <view>
+                        <view wx:if='{{item.news > 0}}' style="background-color: red; width: 25px;height: 25px;border-radius: 5px;color:#fff;text-align: center;margin-left:8px;">{{item.news}}</view></view>
+                        </view>
+                  </view>
+  
+        </view>
+      </view>
+</view>
+

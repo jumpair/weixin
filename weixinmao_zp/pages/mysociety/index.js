@@ -49,7 +49,7 @@ Page({
     app.util.request({
 
       'url': 'entry/wxapp/Mysociety',
-      data: {},
+      data: {uid: userinfo.memberInfo.uid},
       success: function (res) {
         if (!res.data.message.errno) {
           if (!res.data.data.intro.maincolor) {
@@ -83,6 +83,49 @@ Page({
   onReady: function () {
   
   },
+  inputsearch:function(e){
+
+    var message = e.detail.value;
+      this.setData({
+        message: e.detail.value,     //通过setData方法将值存进去
+      })
+
+  },
+  search: function(e) {
+      var that = this
+      var userinfo = wx.getStorageSync('userInfo');
+      var message = this.data.message;
+
+      app.util.request({
+
+        'url': 'entry/wxapp/Mysocsearch',
+        data: {uid: userinfo.memberInfo.uid,message:message},
+        success: function (res) {
+          if (!res.data.message.errno) {
+            if (!res.data.data.intro.maincolor) {
+              res.data.data.intro.maincolor = '#3274e5';
+  
+            }
+            
+            wx.setNavigationBarColor({
+              frontColor: '#ffffff',
+              backgroundColor: res.data.data.intro.maincolor,
+              animation: {
+                duration: 400,
+                timingFunc: 'easeIn'
+              }
+            })
+            // console.log(res.data.data.list);return;
+            that.setData({
+              
+              list: res.data.data.list,
+              title:res.data.data.title
+            })
+            
+          }
+        }
+      });
+  },
   tabClick: function (e) {
 
     var that = this;
@@ -110,6 +153,8 @@ Page({
     }); 
 
   },
+
+
   cancleSave:function(e){
 
     var that = this;
@@ -213,7 +258,52 @@ Page({
   onUnload: function () {
   
   },
+  toMynews:function(e){
+    
+    var userid = e.target.dataset.uid;
+  
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/mynews/index?userid="+userid
+    })
+  },
+  toUserplus:function(e){
+    
+    var userid = e.target.dataset.uid;
+    var userinfo = wx.getStorageSync('userInfo');
+    app.util.request({
 
+      'url': 'entry/wxapp/Userplus',
+      data: {uid: userinfo.memberInfo.uid,userid:userid},
+      success: function (res) {
+        if (!res.data.message.errno) {
+          // console.log(res.data.data.message);return;
+          wx.showToast({
+            title: res.data.data.message, // 标题
+            icon: 'success',  // 图标类型，默认success
+            duration: 1500  // 提示窗停留时间，默认1500ms
+          })
+          // if (!res.data.data.intro.maincolor) {
+          //   res.data.data.intro.maincolor = '#3274e5';
+          // }
+          
+          // wx.setNavigationBarColor({
+          //   frontColor: '#ffffff',
+          //   backgroundColor: res.data.data.intro.maincolor,
+          //   animation: {
+          //     duration: 400,
+          //     timingFunc: 'easeIn'
+          //   }
+          // })
+          // that.setData({
+            
+          //   list: res.data.data.list,
+          //   title:res.data.data.title
+          // })
+          
+        }
+      }
+    });
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

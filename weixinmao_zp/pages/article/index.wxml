@@ -38,27 +38,53 @@
 
 <view class="container">
         <view class="news" >
-                  <view class="newslist" wx:if="{{item.status  == 1}}" wx:for-items="{{article}}">
+                  <view class="newslist" wx:if="{{item.status  == 1}}" wx:for-items="{{article}}"  wx:key="key">
                         <view class="pic" data-id="{{item.id}}">
-                          <image src="{{item.avatar}}" style="width:50px;height:50px;"></image>
+                          <image src="{{item.avatar}}" style="width:50px;height:50px;border-radius: 5px;"></image>
                         </view>
                         <view class="title" data-id="{{item.id}}">
                         <view style="margin-top:10px">
-                          <view class="titles">{{item.title}}</view>
-
-                            <image wx:if="{{item.ztai  == 1}}" class="img" src='../../resource/images/qi.png' style="width:20px;height:20px;"></image>
-
-                            <view class="times">{{item.updatetime}}</view>
+                          <view class="titles" style="width:30%;">{{item.title}}<image wx:if="{{item.ztai  == 1}}" class="img" src='../../resource/images/qi.png' style="width:20px;height:20px;"></image></view>
+                            <view class="times" style="width: 28%;">{{item.updatetime}}</view>
                         </view>
-                          <view class="contents">{{item.content}}</view>
+                          <view class="contents" style="font-size:15px;">{{item.content}}</view>
                              <view class="images_father">
-                                <view class="images"  wx:for-items="{{item.picurl}}" >
-                                        <image class="img" mode="widthFix" src='{{item}}'></image>
+                                <view class="images"  wx:for-items="{{item.picurl}}"  wx:key="key">
+                                        <image bindtap='imgYu' data-pic='{{item.picurl}}' data-src='{{item}}' class="img" mode="widthFix" src='{{item}}'></image>
                                 </view>
                             </view>
+                            <view >
+                                <view wx:if="{{item.like == 0}}" style="display: inline-block;width: 20px;height: 20px;"><image src="../../resource/images/zan1.png" style="width:20px;height:20px;"></image></view><view data-art="{{item.id}}" bindtap="likeNum" wx:if="{{item.like != 0}}" style="display: inline-block;width: 20px;height: 20px;"><image src="../../resource/images/zan2.png" style="width:20px;height:20px;"></image></view><view style="display:inline;color:#000000c9;font-weight:600;color:#1389c1;">{{item.likenum}}</view>
+                                <view style="float:right;width: 30px; font-weight: 600; color: #1389c1;font-size: .9rem;" data-art="{{item.id}}" bindtap="likeNum">点赞</view><view  bindtap="showInput" data-artid="{{item.id}}" style="float:right; width: 30px; font-weight: 600; color: #1389c1;font-size: .9rem;" >评论</view></view>
+                            <view wx:if="{{ item.dt == '1' }}"  >
+                            <view style="width:80%;background-color:#0000000f;padding: 10px 5px 10px 5px;border-radius:10px;" >
+                               
+                                    <view style="font-weight:600;color:#1389c1;font-size:.8rem;" wx:for-items="{{item.comment}}" wx:for-item="com" wx:key="key" wx:if="{{item.id == com.artid}}">
+                                        <view bindtap="commentReply" data-comid ="{{com.id}}" data-artid ="{{com.artid}}" data-uid ="{{com.replyuid}}" data-name="{{com.replyname}}" style="font-weight:600;color:#1389c1;font-size:.8rem;display:inline;">{{com.replyname}}</view>
+                                        <view  style="font-weight:600;color:#1389c1;font-size:.8rem;display:inline;"wx:if="{{com.breplyname}}" data-artid ="{{com.artid}}" data-comid ="{{com.id}}" data-uid ="{{com.breplyuid}}" data-name="{{com.breplyname}}"><view style="font-size:.7rem;color:#000000c9;display:inline;">回复</view>{{com.breplyname}}</view>:
+                                        <view style="color:#121215bd;font-weight:400;display:inline;font-size:.8rem;">{{com.comments}}</view>
+                                        
+                                    </view>
+                                    <view  wx:if="{{item.countevent == 1}}" bindtap="morecomment" data-artid="{{item.id}}" data-eventid="{{item.countevent}}" style="text-align:center;line-height:20px;" ><image src="../../resource/images/more.png" style="width:20px;height:20px;"></image></view>
+                                    <view  wx:if="{{item.countevent == 0}}" bindtap="morecomment" data-artid="{{item.id}}" data-eventid="{{item.countevent}}"style="text-align:center;line-height:20px;" ><image src="../../resource/images/shou.png" style="width:20px;height:20px;"></image></view>
+
+                            </view>
+                        </view>
                     </view>
+                    
                   </view>
-           
+                  <view class="sendmessage" wx:if="{{showInput}}" >
+                                <input  value="{{inputMessage}}" focus="true" placeholder="{{placeholder}}" bindinput='bindInputMsg'  confirm-type="send" bindconfirm="sendTextMsg" bindblur="onHideInput" />
+                                <!-- <textarea class='input_input' focus="true"  bindblur="onHideInput" ></textarea> -->
+                                <!-- <input  class='input_input' focus="auto" placeholder="请输入内容" bindtap="myclick"   bindblur="onHideInput"  /> -->
+                                <button class="fasong" focus="true" bindtap="bindFaso">发送</button>
+                                <!-- <view style="height:110rpx;width:170rpx;display:flex; align-items: center;justify-content: center;border: 1px solid red">
+                                    <view class="send_btn">
+                                    <text class="send_btn_text" focus="true" bindtap="bindFaso" >发送</text>
+                                    </view>
+                                </view> -->
+                            </view>
+
                   
         </view>
 <!--news end-->

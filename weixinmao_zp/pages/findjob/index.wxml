@@ -207,7 +207,7 @@
                                                       <view class="jobmoney">
                                                   <block wx:if='{{item.vprice > 0}}'> <view class='vprice' >推荐人才赚红包</view></block><block wx:else><view class='vprice' style='background:#fff;' ></view></block>
                                                         
-                                                        <view>距离{{item.distance}}KM</view>
+                                                        <!-- <view>距离{{item.distance}}KM</view> -->
                                                                                                                                                         
 
                                                    </view>

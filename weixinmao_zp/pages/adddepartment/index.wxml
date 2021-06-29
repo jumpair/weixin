@@ -26,11 +26,38 @@
               <view class="selectitem"><input  type="text" name="name" placeholder="请输入部门名称" /></view>
 
             </view>
+            <view class="item">
+              <view class="name">开始时间</view>
+              <!-- <view class="selectitem"><input  type="date" name="starttime" placeholder="请输入考勤开始时间"value="{{department.endtime}}" /></view> -->
+              <picker mode="time" value="{{starttime}}" start="00:00" end="24:00" bindchange="changeTime" placeholder="请输入考勤开始时间">
+                <view class="tui-picker-detail">
+                  {{starttime}}
+                </view>
+              </picker>
+            </view>
+            <view class="item">
+              <view class="name">结束时间</view>
+              <!-- <view class="selectitem"><input  type="date" name="endtime" placeholder="请输入考勤结束时间" value="{{department.endtime}}"/></view> -->
+              <picker mode="time" value="{{endtime}}" start="00:00" end="24:00" bindchange="changeendTime" placeholder="请输入考勤结束时间">
+                <view class="tui-picker-detail">
+                  {{endtime}}
+                </view>
+              </picker>
 
-          
+            </view>
+            <view class="item">
+              <view class="name">打卡时间段</view>
+              <view class="selectitem"><input  type="number" name="period" placeholder="请输入打卡时间段以小时为单位" value=""/></view>
+
+            </view>
+            <view class="item">
+              <view class="name">简介</view>
+              <view class="selectitem"><input  type="text" name="summary" placeholder="请输入简介" value=""/></view>
+
+            </view>
              <view class="item">
               <view class="name">排序</view>
-              <view class="selectitem"><input  type="text" name="sort" placeholder="请输入排序" /></view>
+              <view class="selectitem"><input  type="text" name="sort" placeholder="请输入排序" value=""/></view>
             </view>
 
 

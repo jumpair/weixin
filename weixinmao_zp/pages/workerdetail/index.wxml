@@ -42,7 +42,7 @@
 
   
 
- <view class="order">
+<view class="order">
       <view class="title">
           联系方式
       </view>
@@ -114,8 +114,8 @@
       
            <view class="userinfo-content">
           
-          <view>1、个人用户可直接购买套餐后可看</view>
-          <view>2、企业用户登录后，购买套餐即可查看</view>
+          <!-- <view>1、个人用户可直接购买套餐后可看</view>-->
+          <view>企业用户登录后，购买套餐即可查看</view> 
         </view>
       
 

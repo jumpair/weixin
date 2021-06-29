@@ -125,6 +125,13 @@ Page({
   toLookUser:function(){
     var that =this;
     var userinfo = wx.getStorageSync('userInfo');
+    if (userinfo) {//为了用户不让查看
+      wx.showModal({
+        title: '系统提示',
+        content: '您无权查看',
+        showCancel: false,
+      });
+    }else{
     app.util.request({
       'url': 'entry/wxapp/CheckLookuserrecord',
       data: { id: that.data.id, sessionid: userinfo.sessionid, uid: userinfo.memberInfo.uid,notetype:0},
@@ -134,12 +141,12 @@ Page({
           if (res.data.data.status == 1) {
             wx.showModal({
               title: '系统提示',
-              content: '您的查看简历次数达到了上限,请到用户套餐购买！',
+              content: '您无权查看',
               showCancel: false,
               success:function(){
 
                 wx.navigateTo({
-                  url: "/weixinmao_zp/pages/lookrole/index"
+                  url: "/weixinmao_zp/pages/findworker/index"
                 })
               }
             })
@@ -153,7 +160,7 @@ Page({
         }
       }
     });
-
+  }
 
   },
   toLookContact:function(e){
@@ -225,6 +232,14 @@ Page({
               'url': 'entry/wxapp/Sendinvatejob',
               data: { id: id, companyid: companyid, form_id: form_id },
               success: function (res) {
+                if(res.data.data.error == 1){
+                  wx.showModal({
+                    title: '提示',
+                    content: res.data.data.msg,
+                    showCancel: false
+                  })
+                  return
+                }
                 if (!res.data.message.errno) {
 
                 }

@@ -43,6 +43,7 @@ Page({
                   timingFunc: 'easeIn'
                 }
               })
+             
               var title = res.data.data.title;
               that.setData({
                 list: res.data.data.list,

@@ -3,9 +3,9 @@
   
 
       <view class="orderlist" wx:for-items="{{list}}">
-          <view class="orderid" style="white-space:pre-wrap;background-color: #b2f3a6;border-radius: 5px;font-weight: 600;color:#1008089c;width: 90%;margin: auto;">  姓名：{{item.name}}                               工资年度：{{item.wage_year}}
-  工资月份：{{item.wage_month}}                             金额：{{item.money}}
-  用人企业：{{item.company}}                         发薪日期：{{item.wage_pay}}</view>
+          <view class="orderid" style="white-space:pre-wrap;background-color: #b2f3a6;border-radius: 5px;font-weight: 600;color:#1008089c;width: 90%;margin: auto;">  姓名：{{item.name}}                               费用年度：{{item.wage_year}}
+  费用月份：{{item.wage_month}}                             金额：{{item.money}}
+  用人企业：{{item.company}}                         发放日期：{{item.wage_pay}}</view>
       </view>
 </view>
 <view class="weixinmao-msg-usertel" hidden='{{isidentity}}' >
@@ -16,7 +16,7 @@
         </view>
       
            <view class="usertel-content">
-          您没有填写身份证号码或者身份证号与平台不匹配,请联系客服
+          您没有填写身份证号码或暂时没有数据
         </view>
    <view class="usertel-button" style="margin:auto;">
           <button open-type="getPhoneNumber" bindtap="toMyNote" style="color:#da4848">去填写</button>

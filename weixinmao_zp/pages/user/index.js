@@ -22,10 +22,10 @@ Page({
       title: '会员中心',
     })
 
-
+    var appuser = wx.getStorageSync('userInfo');
     app.util.request({
       'url': 'entry/wxapp/UserInit',
-      data: {},
+      data: {uid:appuser.memberInfo.uid},
       success: function (res) {
         if (!res.data.message.errno) {
           //   console.log(res.data.data.intro);
@@ -42,10 +42,12 @@ Page({
               timingFunc: 'easeIn'
             }
           })
-
+          console.log(res.data.data.intro);
           if (res.data.data.intro.isright == 0) {
             var appuser = wx.getStorageSync('userInfo');
+        
             console.log(appuser);
+            
             if (!appuser) {
               //  that.setData({ isuser: true});
               that.data.isuser = true;
@@ -59,14 +61,15 @@ Page({
             that.dealuserinfo();
           }
 
-
+          // console.log(that.data);
           that.setData({
             isuser: that.data.isuser,
             title: res.data.data.title
-
+            
           });
           that.setData({
             ischeck: res.data.data.intro.ischeck,
+            news: res.data.data.news,
             intro: res.data.data.intro
 
           })
@@ -86,7 +89,7 @@ Page({
     var appuser = wx.getStorageSync('userInfo');
     console.log(appuser);
     if (appuser) {
-      if (appuser.hasOwnProperty("wxInfo")) {
+      if (appuser.hasOwnProperty("memberInfo")) {
         that.data.isuser = false;
        console.log('eeeeeeeeeeeeesssss');
         var uid = appuser.memberInfo.uid;
@@ -97,6 +100,10 @@ Page({
             if (!res.data.message.errno) {
               //app.globalData.isuser = true;
               that.data.isphone = res.data.data.isphone;
+
+              console.log(appuser.wxInfo.avatarUrl);
+
+              console.log(res.data.data);
               that.setData({
                 isphone: that.data.isphone,
                 userinfo: appuser,
@@ -115,7 +122,7 @@ Page({
       }
     } else {
 
-      that.data.isuser = false;
+      that.data.isuser = true;
     }
 
 
@@ -380,6 +387,30 @@ Page({
       url: "/weixinmao_zp/pages/mynotice/index"
     })
   },
+  toMyuserplus: function (e) {
+
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/myuserplus/index"
+    })
+  },
+  toMyClock: function (e) {
+
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/myclock/index"
+    })
+  },
+  toMyContract: function (e) {
+
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/mycontract/index"
+    })
+  },
+  toMyRepair: function (e) {
+
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/myrepair/index"
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -398,6 +429,34 @@ Page({
     });
 
     */
+   var that = this;
+   var appuser = wx.getStorageSync('userInfo');
+    app.util.request({
+      'url': 'entry/wxapp/Usernews',
+      data: {uid:appuser.memberInfo.uid},
+      success: function (res) {
+        if (!res.data.message.errno) {
+          if (!res.data.data.intro.maincolor) {
+            res.data.data.intro.maincolor = '#3274e5';
+
+          }
+          
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: res.data.data.intro.maincolor,
+            animation: {
+              duration: 400,
+              timingFunc: 'easeIn'
+            }
+          })
+          that.setData({
+            
+            news: res.data.data.news
+          })
+          
+        }
+      }
+    });
   },
 
   /**
@@ -433,6 +492,7 @@ Page({
       var nickname = userInfo.wxInfo.nickName;
       var avatarUrl = userInfo.wxInfo.avatarUrl;
       that.data.uid = uid;
+      console.log(uid);
       if (uid > 0) {
         that.setData({
           userinfo: userInfo,
