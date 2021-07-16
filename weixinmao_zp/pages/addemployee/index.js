@@ -18,7 +18,9 @@ Page({
     sex:1,
     type:1,
     departmentlist:[],
+    jobtypelist:[],
     departmentid:0,
+    jobtype:0,
     id:0,
     jobdate:''
   },
@@ -49,11 +51,14 @@ Page({
             title: '办理入职',
           })
           that.data.departmentlist = res.data.data.departmentlist;
+          that.data.jobtypelist = res.data.data.jobtypelist;
+
           that.setData({
             title: that.data.title,
             noteinfo:res.data.data.noteinfo,
             jobinfo: res.data.data.jobinfo,
-            departmentlist: res.data.data.departmentlist
+            departmentlist: res.data.data.departmentlist,
+            jobtypelist: res.data.data.jobtypelist
           })
           wx.setNavigationBarColor({
             frontColor: '#ffffff',
@@ -75,9 +80,7 @@ Page({
 
 
   },
-
-
-  bindJobcateChange: function (e) {
+  bindDepartmentChange: function (e) {
     var departmentlist = this.data.departmentlist;
 
     if (departmentlist) {
@@ -87,6 +90,22 @@ Page({
     this.setData({
       departmentlist: departmentlist,
       jobcateindex: e.detail.value
+    })
+  }
+  ,
+
+  bindJobcateChange: function (e) {
+    var jobtypelist = this.data.jobtypelist;
+
+    if (jobtypelist) {
+      this.data.jobtypeindex = e.detail.value;
+      this.data.jobtypeid = jobtypelist[e.detail.value].id;
+      console.log(this.data.jobtypeid);
+    }
+    console.log(e.detail.value);
+    this.setData({
+      jobtypelist: jobtypelist,
+      jobtypeindex: e.detail.value
     })
   }
   ,
@@ -126,9 +145,8 @@ Page({
     var mark = e.detail.value.mark;
     
     var departmentid = that.data.departmentid;
-
-    var type = that.data.type;
-
+    var jobtypeid = that.data.jobtypeid;
+    // console.log(jobtypeid);return;
     var jobdate = that.data.jobdate;
 
     if (name == "") {
@@ -159,7 +177,14 @@ Page({
       })
       return
     }
-
+    if (jobtypeid == 0) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择职业类型',
+        showCancel: false
+      })
+      return
+    }
 
     if (tel == "") {
       wx.showModal({
@@ -209,12 +234,12 @@ Page({
       uid: userinfo.memberInfo.uid,
       name: name,
       sex:that.data.sex,
-      type:that.data.type,
       departmentid: departmentid,
       id:that.data.id,
       tel: tel,
       cardnum: cardnum,
       jobtitle: jobtitle,
+      jobtype: jobtypeid,
       money: money,
       jobdate:jobdate,
       mark: mark

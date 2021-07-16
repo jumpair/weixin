@@ -1,0 +1,51 @@
+<!--pages/bxlist/bxlist.wxml-->
+<view class="page">
+	<view class="container">
+		<view class="pub-box pub-list" wx:for-items="{{list}}" wx:key="list">
+			<view class="l">
+				<view class="pub-text-item">
+					<text>报修人：</text>
+					<text>{{item.title}}</text>
+				</view>
+				<view class="pub-text-item">
+					<text>报修部门：</text>
+					<text>{{item.departmentname}}</text>
+				</view>
+				<view class="pub-text-item">
+					<text>报修主管：</text>
+					<text>{{item.repair_man}}</text>
+				</view>
+				<!-- <view class="pub-text-item">
+					<view class="images"  wx:for-items="{{item.imagelist}}"  wx:key="key">
+                        <image bindtap='imgYu' data-pic='{{item.imagelist}}' data-src='{{item}}' class="img" mode="widthFix" src='{{item}}'></image>
+                    </view>
+						
+				</view> -->
+						 <view class="imglist" >
+						<view class='imgsbox'>
+						<view class="weui-uploader">
+							<view class="img-v">
+							<view class="img" wx:for="{{item.picurl}}" wx:for-item="item" wx:key="*this">
+								<image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg1" data-pic='{{item.picurl}}' data-src='{{item}}'></image>
+								<view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
+							<!-- <image class='imgx' src='../images/x.png'></image>-->照片
+								</view>
+							</view>
+
+						</view>
+						</view>
+						</view>
+						</view>
+				<view class="pub-text-item">
+					<text>详情：</text>
+					<text>{{item.content}}</text>
+				</view>
+				<view class="pub-text-item">
+					<text>报修时间：</text>
+					<text>{{item.createtime}}</text>
+				</view>
+			</view>
+		</view>
+
+	</view>
+</view>

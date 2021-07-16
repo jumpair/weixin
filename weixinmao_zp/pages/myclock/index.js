@@ -47,23 +47,11 @@ Page({
 
 
   }, 
-  setclock:function(e){
-    var that = this;
-    wx.getLocation({
-      type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-      success: function (res) {
-        //赋值经纬度
-        that.setData({
-          lat: res.latitude,
-          lng: res.longitude,
- 
-        })
-      }
-    })
-  },
+  
   oldhouseinit: function (e) {
     var that = this;
     var userinfo = wx.getStorageSync('userInfo');
+    // that.interval1 = setInterval(function () {
     //页面加载时获取位置
     wx.getLocation({
       type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
@@ -78,15 +66,19 @@ Page({
         })
       }
     })
-    var lat = wx.getStorageSync('lat');
-    var lng = wx.getStorageSync('lng');
+    // var lat = wx.getStorageSync('lat');
+    // var lng = wx.getStorageSync('lng');
+    var lat = '37.509139';
+    var lng = '121.269937';
     console.log(lat,lng)
+   
     app.util.request({
       'url': 'entry/wxapp/Myclock',
       data: { uid: userinfo.memberInfo.uid ,lat:lat,lng:lng},
+      showLoading: false,
       success: function (res) {
         if (!res.data.message.errno) {
-          if(!res.data.message.attendancestatus){
+          if(res.data.message.attendancestatus == '1'){
             wx.showToast({
               title: '所在公司未开启考勤',
               icon: 'fail',
@@ -121,6 +113,8 @@ Page({
           that.setData({
             title:title
           })
+          console.log(res.data.data.list);
+          wx.setStorageSync('titlename', res.data.data.list.titlename);
           that.setData({
             name:res.data.data.list.name,
             companyname:res.data.data.list.companyname,
@@ -128,7 +122,12 @@ Page({
             inrange:res.data.data.list.inrange,
             starttime:res.data.data.list.starttime,
             endtime:res.data.data.list.endtime,
-            
+            titlename:res.data.data.list.titlename,
+            inrange:res.data.data.list.inrange,
+            buttoncolor:res.data.data.list.buttoncolor,
+            tscolor:res.data.data.list.tscolor,
+            startcolor:'#a6a9a8',
+            endcolor:'#a6a9a8'
           })
 
         }
@@ -139,372 +138,73 @@ Page({
         wx.stopPullDownRefresh();
       }
     });
-
+  // },3000);
 
   },
-
-
-  chooseImg: function (e) {
-    var that = this;
-   
-    wx.chooseImage({
-       count: 3, // 默认9
-      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-        var imgs1 = that.data.imgs1;
-        imgs1=[];
-        that.data.imagelist = [];
-        for (var i = 0; i < tempFilePaths.length; i++) {
-          if (imgs1.length >= 9) {
-            that.setData({
-              imgs1: imgs1
-            });
-            // return false;
-          } else {
-            imgs1.push(tempFilePaths[i]);
-          }
-        }
-        that.setData({
-          imgs1: imgs1,
-          show:'block'
-        });
-        that.setData({
-          picture1: []
-        })
-        var tempFilePaths = that.data.imgs1
-      
-       // var uploadurl = app.util.geturl({ 'url': 'entry/wxapp/upload' });
-      
-        for (var s = 0; s < tempFilePaths.length; s++) {
-
-          console.log(tempFilePaths[s]);
-             
-          that.uploadimg(tempFilePaths[s]);
-        }
-      
-      },
-      fail: function (res) {
-      },
-      complete: function (res) {
-      }
-    });
-  },
-
-  chooseVideo: function () {
-    var that = this
-    wx.chooseVideo({
-      sourceType: ['album', 'camera'],
-      maxDuration: 60,
-      camera: 'back',
-      success: function (res) {
-        that.uploadvideo(res.tempFilePath);
-        that.setData({
-          src: res.tempFilePath,
-          isvideo:'block'
-        })
-      }
-    })
-  },
-
-  uploadvideo: function (path) {
-    console.log(path);
-    var uploadurl = app.util.geturl({ 'url': 'entry/wxapp/uploadvideo' });
-    //   var id = id;
-    wx.showToast({
-      icon: "loading",
-      title: "正在上传"
-    });
-
-    var that = this;
-    wx.uploadFile({
-      url: uploadurl,
-      filePath: path,
-      name: 'file',
-      header: { "Content-Type": "multipart/form-data" },
-      formData: {
-        //和服务器约定的token, 一般也可以放在header中
-        'session_token': wx.getStorageSync('session_token')
-      },
-      success: function (res) {
-        var getdata = JSON.parse(res.data);
-
-        if (res.statusCode != 200) {
-          wx.showModal({
-            title: '提示',
-            content: '上传失败',
-            showCancel: false
-          })
-          return;
-        } else {
-
-        }
-        var imgpath = getdata.data.path;
-
-        console.log(imgpath);
-        that.data.videourl = imgpath;
-        
-
-
-
-
-      },
-      fail: function (e) {
-
-        wx.showModal({
-          title: '提示',
-          content: '上传失败',
-          showCancel: false
-        })
-      },
-      complete: function () {
-        wx.hideToast();  //隐藏Toast
-      }
-    })
-  },
-
-  bindGetUserInfo: function (e) {
-    var that = this;
-    var result;
-
-    app.util.getUserInfo(function (userInfo) {
-      console.log(userInfo);
-      that.data.isuser = true
-      that.setData({
-        userinfo: userInfo,
-        isuser: that.data.isuser,
-      })
-      that.oldhouseinit();
-    }, e.detail);
-  },
-  upload:function(e){
-    var that = this;
-    var e = e;
-    that.doupload(e);
-  }
-  ,
-  
-
-  doupload:function(e){
-
-
-    var that = this;
-    var id = parseInt(e.currentTarget.dataset.id);
-  
-    switch (id) {
-      case 1:
-        if (that.data.true1 == false)
-          return;
-        break;
-      case 2:
-        if (that.data.true2 == false)
-          return;
-        break;
-      case 3:
-        if (that.data.true3 == false)
-          return;
-        break;
-      case 4:
-        if (that.data.true4 == false)
-          return;
-        break;
-      case 5:
-        if (that.data.true5 == false)
-          return;
-        break;
-      case 6:
-        if (that.data.true6 == false)
-          return;
-        break;
-     
-
-      default:
-
-
-    }
-
-    var imgurl1, imgurl2, imgurl3, imgurl4, imgurl5, imgurl6
-    wx.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-     
-      
-        switch (id) {
-          case 1:
-            imgurl1 = tempFilePaths;
-            // console.log(that.data.true1 );
-            if (that.data.true1  == false)
-              return;
-            that.data.true1 = false;
-            break;
-          case 2:
-            imgurl2 = tempFilePaths;
-            that.data.true2 = false;
-            break;
-          case 3:
-            imgurl3 = tempFilePaths;
-            that.data.true3 = false;
-            break;
-          case 4:
-            imgurl4 = tempFilePaths;
-            that.data.true4 = false;
-            break;
-          case 5:
-            imgurl5 = tempFilePaths;
-            that.data.true5 = false;
-            break;
-          case 6:
-            imgurl6 = tempFilePaths;
-            that.data.true6 = false;
-            break;
-
-          default:
-
-
-        }
- 
-        that.setData({
-          imgurl1: imgurl1,
-          imgurl2: imgurl2,
-          imgurl3: imgurl3,
-          imgurl4: imgurl4,
-          imgurl5: imgurl5,
-          imgurl6: imgurl6,
-          true1:that.data.true1,
-          true2: that.data.true2,
-          true3: that.data.true3,
-          true4: that.data.true4,
-          true5: that.data.true5,
-          true6: that.data.true6,
-
-        })
-   
-        that.data.imagelist.push(tempFilePaths);
-      
-      //  upload(that, tempFilePaths);
-        that.uploadimg(tempFilePaths , id);
-      }
-    })
-
-
-
- 
-  },
-
-
-
-
-
-  savepubinfo:function(e){
-
-
+  setclock:function(e){
     var that = this;
     var userinfo = wx.getStorageSync('userInfo');
-
-   // console.log(that.data.imagelist);
-   // console.log(that.data.videourl);
-  //  console.log(imgstr);
-
-    // if(that.data.videourl == '')
-    // {
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '请先上传视频',
-    //     showCancel: false
-    //   })
-    //   return
-    //
-    // }
-    //
-    // if (that.data.imagelist.length == 0) {
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '请先上传图片',
-    //     showCancel: false
-    //   })
-    //   return
-    //
-    // }
-    console.log(that.data.imagelist);
-    var imgstr = that.data.imagelist.join('@');
-   
-    var content = e.detail.value.content;
-
-     var videourl = that.data.videourl;
-
-    if (content == "") {
-      wx.showModal({
-        title: '提示',
-        content: '请输入填写动态',
-        showCancel: false
+    // var companyid = this.data.companyid;
+    var titlename =  wx.getStorageSync('titlename');
+    
+    if(titlename == '无法打卡' || titlename == '未到范围'){
+      wx.showToast({
+        title: '当前无法打卡',
+        icon: 'none',
+        duration: 3000,
+        success: function (res) {
+          setTimeout(function () {
+            wx.switchTab({
+              url: "/weixinmao_zp/pages/user/index"
+            })
+          },2000)
+        }
       })
-      return
-    }
-    if(content.length >= 200) {
-      wx.showModal({
-        title: '提示',
-        content: '文字输入限制200字以内',
-        showCancel: false
-      })
-      return
-    }
-    var data = {
-      sessionid: userinfo.sessionid,
-      uid: userinfo.memberInfo.uid,
-      videourl:videourl,
-      imgstr:imgstr,
-      content:content
-                };
+    }else{
     app.util.request({
-      'url': 'entry/wxapp/savedynamic',
-      data: data,
+      'url': 'entry/wxapp/Setclock',
+      data: { uid: userinfo.memberInfo.uid },
       success: function (res) {
+        if (!res.data.message.errno) {
+  
+          if (!res.data.data.intro.maincolor) {
+            res.data.data.intro.maincolor = '#3274e5';
 
-        if (res.data.errno != 0) {
-          // 登录错误 
-          wx.hideLoading();
-          wx.showModal({
-            title: '失败',
-            content: res.data.data.msg,
-            showCancel: false
+          }
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: res.data.data.intro.maincolor,
+            animation: {
+              duration: 400,
+              timingFunc: 'easeIn'
+            }
           })
-          return;
-        } else {
 
           wx.showToast({
-            title: '提交成功',
+            title: res.data.data.msg,
             icon: 'success',
             duration: 2000,
             success: function (res) {
-
+              setTimeout(function () {
               wx.switchTab({
                 url: "/weixinmao_zp/pages/user/index"
               })
+            },2000)
             }
           })
-          /*
-          wx.switchTab({
-            url: '/weixinmao_house/pages/index/index',
-          })
-          */
+          
+
         }
-
-
-
       }
     });
-
-
-
-
-
+    }
   },
+  gooff:function(e){
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/myoff/index"
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

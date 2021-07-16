@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="page">
+	<view class="container">
+		<view class="pub-box">
+			<view class="pub-list">
+				<text>姓名：</text>
+				<text>{{list.name}}</text>
+			</view>
+			<view class="pub-list">
+				<text>手机号：</text>
+				<text>{{list.tel}}</text>
+			</view>
+			<view class="pub-list">
+				<text>公司名称：</text>
+				<text>{{list.departmentname}}</text>
+			</view>
+			<view class="pub-list">
+				<text>合同名称：</text>
+				<text>{{list.contractname}}</text>
+			</view>
+			<view class="pub-list">
+				<text>签署职位：</text>
+				<text>{{list.jobcatename}}</text>
+			</view>
+			<view class="pub-img-list">
+				<text>合同预览：</text>
+				<image bindtap="scaleImg" mode="aspectFit" src="{{ list.content }}" data-src="{{ list.content }}"></image>
+			</view>
+			<view class="sign">
+				<text>点击图片可预览合同</text>
+				<button wx:if="{{ list.status == 0 }}" size="100" bindtap="Mysign" data-jobtype="{{ list.jobtype }}">签名</button>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,58 @@
+
+
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+
+
+<!--推荐楼盘 begin-->
+<form bindsubmit="savepubinfo" report-submit >
+
+<view class="repairform">
+
+
+
+       <view class="main">
+  
+        <view class="list">
+            <view class="item">
+              <view class="name">开始时间</view>
+              <view class="selectitem"><input  type="date" name="startofftime" placeholder="请输入开始时间" value=""/></view>
+              
+            </view>
+            <view class="item">
+              <view class="name">结束时间</view>
+              <view class="selectitem"><input  type="date" name="endofftime" placeholder="请输入结束时间" value=""/></view>
+
+            </view>
+            <view class="item">
+              <view class="name">事由</view>
+              <view class="selectitem">
+              <textarea class="weui-textarea"  placeholder="请输入事由"   name="reason"/>
+              </view>
+
+            </view>
+
+
+
+
+        </view>
+    </view>
+
+
+</view>
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+      <button class="footer"  formType="submit" >提交信息</button>
+    </view>
+</view>
+
+
+   </form>
+
+<!--推荐楼盘 end-->
+
+
+</view>

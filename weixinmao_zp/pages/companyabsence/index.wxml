@@ -1,0 +1,15 @@
+<!--pages/kqlist/kqlist.wxml-->
+<view class="page">
+	<view class="container">
+		<view class="pub-box pub-list" wx:for-items="{{ list }}" wx:key="{{ list }}">
+			<view class="l">
+				<text class="item">姓名：<text class="blue">{{item.name}}</text></text>
+				<text class="item">所属部门：<text class="blue">{{item.department}}</text></text>
+			</view>
+			<view class="r">
+				<text class="item">缺卡次数：<text class="red">{{item.outcardnum}}</text>次</text>
+				<button class="item more" bindtap="abnormallist" data-id="{{ item.uid }}">查看异常记录</button>
+			</view>
+		</view>
+	</view>
+</view>

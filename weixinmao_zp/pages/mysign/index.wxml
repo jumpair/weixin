@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="page-sign">
+	<view class="sign-box">
+		<canvas
+			id="canvas"
+			class="canvas-box"
+			canvas-id="canvas"
+			disable-scroll="true"
+			bindtouchstart="canvasStart"
+			bindtouchmove="canvasMove"
+			bindtouchend="canvasEnd"
+			touchcancel="canvasEnd"
+			binderror="canvasIdErrorCallback"
+		></canvas>
+		<text class="warn">请横屏进行签名</text>
+	</view>
+	<button class="to-ht" bindtap="cleardraw">清除画布</button>
+	<button class="out-img" bindtap="getimg" data-jobtype="{{ jobtype }}">导出图片</button>
+</view>

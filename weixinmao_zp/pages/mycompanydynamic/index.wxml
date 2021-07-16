@@ -12,7 +12,7 @@
           </view> -->
 
 
-        <view class="list" style='display:{{isvideo}};'>
+        <!-- <view class="list" style='display:{{isvideo}};'>
       <view class='imgsbox'>
       <view class="weui-uploader">
         <view class="img-v">
@@ -20,14 +20,14 @@
 
  <video src="{{src}}" style='width:660rpx;height:400rpx;'></video>
             <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
-           <!-- <image class='imgx' src='../images/x.png'></image>-->
+
             </view>
           </view>
 
       </view>
       </view>
       </view>
-      </view>
+      </view> -->
 
 
       

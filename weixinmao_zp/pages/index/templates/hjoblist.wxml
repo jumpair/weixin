@@ -1,6 +1,6 @@
     <template name="hjoblist">
     
-               <view class="newslist" wx:for="{{joblist}}">
+               <view class="newslist" wx:for="{{joblist}}" wx:key="joblist">
                             <view class="title" bindtap="{{item.toJobDetail}}" data-id="{{item.id}}">
                                       <view class="address">
                                             <view class="jobname"><!--<image src="../../resource/images/ding.png"></image>--> {{item.title}} </view>
@@ -12,7 +12,7 @@
                                   <view class='vprice2' ></view>
                                 </view>
                                 <view class="special">
-                                                <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial">{{itemSpecial}}</view>
+                                                <view class="item" wx:for="{{item.special}}" wx:for-item="itemSpecial" wx:key="special">{{itemSpecial}}</view>
                                             
                                             </view>
                                        <view class="detail">

@@ -1,0 +1,32 @@
+<!--pages/kqlist/kqlist.wxml-->
+<view class="page">
+  <view class="container">
+    <view class="pub-box pub-list" wx:for-items="{{list}}" wx:key="list">
+      <view class="l">
+        <text class="item">开始时间：<text class="blue">{{item.startofftime}}</text></text>
+        <text class="item">结束时间：<text class="blue">{{item.endofftime}}</text></text>
+        <text class="item">所属部门：<text class="blue">{{item.department}}</text></text>
+        <text class="item">事由：<text class="blue">{{item.reason}}</text></text>
+      </view>
+      <view class="r" wx:if="{{item.status == 0}}">
+        
+        <button class="item more"  bindtap="editaddask" data-id="{{item.id}}">编辑</button>
+        <button class="item more"  style="background-color:#ff393f" bindtap="delaskoff" data-id="{{item.id}}">删除</button>
+      </view>
+      <view class="r" wx:if="{{item.status == 1}}">
+            <view style="color:#ea0707;font-weight:600;">已同意</view>
+      </view>
+      <view class="r" wx:if="{{item.status == 2}}">
+            <view style="color:#23b112;font-weight:600;">已拒绝</view>
+      </view>
+      <view class="r" wx:if="{{item.status == 3}}">
+            <view style="color:#c1bdc4;font-weight:600;">已过期</view>
+      </view>
+     
+    </view> 
+  </view>
+    <view class="weixinmao-foot" bindtap="addoff">
+        <view class="footer">添加请假</view>
+    </view>
+
+</view>

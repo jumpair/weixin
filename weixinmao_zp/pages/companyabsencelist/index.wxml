@@ -1,0 +1,14 @@
+<!--pages/kqlist/kqlist.wxml-->
+<view class="page">
+	<view class="container">
+		<view class="pub-box pub-list" wx:for-items="{{ list }}" wx:key="{{ list }}">
+			<view class="l">
+				<text class="item">姓名：<text class="blue">{{item.name}}</text></text>
+				<text class="item">时间：<text class="blue">{{item.worktime}}</text></text>
+			</view>
+			<view class="r">
+				<text class="item">原因：<text class="red" wx:for-items="{{ item.typename }}" wx:key="{{ item }}">{{item}}</text></text>
+			</view>
+		</view>
+	</view>
+</view>

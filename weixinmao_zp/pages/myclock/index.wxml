@@ -10,26 +10,26 @@
       <view class="p2-01">
         <view class="p2-01-box">
           <view class="cl333">上班 {{starttime}}</view>
-          <view class="p2-012">
-            <radio checked="true" disabled="" color="{{color}}"/>
+          <!-- <view class="p2-012">
+            <radio checked="true" disabled="" color="{{startcolor}}"/>
             <view class="fs12 cl000">08:00</view>
-          </view>
+          </view> -->
         </view>
         <view class="p2-01-box">
           <view class="cl333">下班 {{endtime}}</view>
-          <view class="p2-012">
-            <radio checked="true" disabled="" color="{{color}}"/>
+          <!-- <view class="p2-012">
+            <radio checked="true" disabled="" color="{{endcolor}}"/>
             <view class="fs12 cl000">18:00</view>
-          </view>
+          </view> -->
         </view>
       </view>
       <view class="p2-02">
-        <view class="daka" bindtap="setDaka">下班打卡</view>
-        <view class="text">{{$inrange}}</view>
+        <view  style="background-color:{{buttoncolor}}" class="daka" data-name="{{titlename}}" bindtap="setclock" >{{titlename}}</view>
+        <view class="text" style="color:{{tscolor}}">{{inrange}}</view>
       </view>
       <view>
-        <view class="qj">
-          <text class="pub-text">去请假</text>
+        <view class="qj"  bindtap="gooff">
+          <text class="pub-text"  >去请假</text>
           <text class="fa fa-angle-right  fa-lg"></text>
         </view>
         <view class="qj">

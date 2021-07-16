@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+<view class="container">
+	<!--推荐楼盘 begin-->
+	<form bindsubmit="savepubinfo" report-submit>
+		<view class="repairform">
+			<view class="main">
+				<view class="list">
+					<view class="item">
+						<view class="name">报修人</view>
+						<view class="selectitem">
+							<input type="text" name="title" placeholder="请输入报修人" value="" />
+						</view>
+					</view>
+					<view class="item">
+						<view class="name">报修部门</view>
+						<picker value="{{ Index }}" range="{{ departmentlist }}" range-key="name" bindchange="bindDepartmentChange">
+							<view class="picker selectitem">{{departmentlist[jobcateindex].name ? departmentlist[jobcateindex].name : '请选择部门'}}</view>
+						</picker>
+					</view>
+					<view class="item">
+						<view class="name">报修主管</view>
+						<view class="selectitem">
+							<input type="text" name="repair_man" placeholder="请输入报修主管" value="" />
+						</view>
+					</view>
+					<view class="imglist">
+						<view class="title">
+							<view >图片上传(禁止上传不良图片)</view>
+						</view>
+						<view class="item">
+							<view class="uploadimg" bindtap="chooseImg">
+								<image src="../../resource/images/upload.png"></image>
+								<view class="uploadtitle">上传照片最多3张</view>
+							</view>
+						</view>
+					</view>
+					 <view class="imglist" style='display:{{show}};'>
+						<view class='imgsbox'>
+						<view class="weui-uploader">
+							<view class="img-v">
+							<view class="img" wx:for="{{imgs1}}" wx:for-item="item" wx:key="*this">
+								<image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg1"></image>
+								<view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
+							<!-- <image class='imgx' src='../images/x.png'></image>-->照片
+								</view>
+							</view>
+
+						</view>
+						</view>
+						</view>
+						</view>
+					<view class="item">
+						<view class="name">详细描述</view>
+						<view class="selectitem">
+							<textarea class="weui-textarea" placeholder="请输入详细描述" name="content" />
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="weixinmao-float">
+			<view class="weixinmao-foot">
+				<button class="footer" formType="submit">提交信息</button>
+			</view>
+		</view>
+	</form>
+	<!--推荐楼盘 end-->
+</view>

@@ -257,7 +257,7 @@
                   <view class="caselist">
 
 
-                    <view class="caseitem" wx:for-items="{{glist}}">
+                    <view class="caseitem" wx:for-items="{{glist}}" wx:key="glist">
                           <view class="pic" bindtap="toNewsDetail" data-id="{{item.id}}">
                             <image src="{{item.thumb}}"></image>
                           </view>

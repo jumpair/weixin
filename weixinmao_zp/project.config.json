@@ -4,8 +4,6 @@
     "ignore": []
   },
   "setting": {
-    "bundle": false,
-    "userConfirmedBundleSwitch": false,
     "urlCheck": true,
     "scopeDataCheck": false,
     "coverView": true,
@@ -28,13 +26,11 @@
     "useApiHostProcess": true,
     "showShadowRootInWxmlPanel": true,
     "packNpmManually": false,
-    "enableEngineNative": false,
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.0.4",
-  "appid": "wx176ed768e818a7c7",
   "projectname": "%E7%81%B5%E6%B4%BB%E7%94%A8%E5%B7%A5",
   "debugOptions": {
     "hidedInDevtools": []

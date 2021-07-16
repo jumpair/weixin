@@ -49,11 +49,14 @@
 
         <view class="item" bindtap='toMypartjoblist'><image src="../../resource/img/Jjob.png"></image>{{title[6]}}</view>
 
-        <view class="item" bindtap="toMynote"><image src="../../resource/img/note.png"></image>{{title[7]}}</view>
+        <view class="item" bindtap="toMynote"><image src="../../resource/img/orderuser.png"></image>{{title[7]}}</view>
 
         <!-- <view class="item" bindtap="toMySavewage"><image src="../../resource/img/note.png"></image>{{title[8]}}</view> -->
 
-        <view class="item" bindtap="toMyCompanydynamic"><image src="../../resource/img/note.png"></image>{{title[9]}}</view>
+        <view class="item" bindtap="toMyCompanydynamic"><image src="../../resource/img/fabu.png"></image>{{title[9]}}</view>
+        <view class="item" bindtap="toMyrepair"><image src="../../resource/img/manage.png"></image>{{title[12]}}</view>
+        <view class="item" bindtap="toMysatffoff"><image src="../../resource/img/manage.png"></image>{{title[10]}}</view>
+        <view class="item" bindtap="toAbsence"><image src="../../resource/img/manage.png"></image>{{title[11]}}</view>
         <view class="item" bindtap='toEmployeemain' ><image src="../../resource/img/em.png"></image>员工管理</view>
         
         <!-- <view class="item" bindtap='toMyPayMoney'><image src="../../resource/img/buy.png"></image>{{title[4]}} <text style='color:red;font-weight:600;'>(剩余:{{companyinfo.notenum}}条)</text></view>  -->

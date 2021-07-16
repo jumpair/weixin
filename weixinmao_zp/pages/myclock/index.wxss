@@ -47,7 +47,7 @@ view{
 .pub-btn{
   width: auto!important;
   padding: 10rpx 20rpx!important;
-  background-color: #2E51E9;
+  /* background-color: #2E51E9; */
   font-size: 28rpx;
   color: #fff;
   font-weight: normal;

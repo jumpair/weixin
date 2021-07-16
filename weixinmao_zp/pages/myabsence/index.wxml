@@ -1,0 +1,11 @@
+<!--pages/kqlist/kqlist.wxml-->
+<view class="page">
+	<view class="container">
+		<view class="pub-box pub-list" wx:for-items="{{ list }}" wx:key="{{ list }}">
+			<view class="l">
+				<text class="item">工作日期：<text class="blue">{{item.worktime}}</text></text>
+				<text class="item">类型：<text class="red" wx:for-items="{{ item.typename }}" wx:key="{{ item }}">{{item}}</text></text>
+			</view>
+		</view>
+	</view>
+</view>
