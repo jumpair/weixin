@@ -4,7 +4,7 @@
     <view class="pub-box pub-list">
       <view class="pub-text pub-text-item">姓名：{{name}}</view>
       <view class="pub-text pub-text-item">公司名称：{{companyname}}</view>
-      <view class="pub-text pub-text-item">本月缺卡：<view class="red">{{outworknum}}</view>次</view>
+      <view class="pub-text pub-text-item">本月异常打卡：<view class="red">{{outworknum}}</view>次</view>
     </view>
     <view class="pub-box p2 pub-list">
       <view class="p2-01">
@@ -32,8 +32,8 @@
           <text class="pub-text"  >去请假</text>
           <text class="fa fa-angle-right  fa-lg"></text>
         </view>
-        <view class="qj">
-          <text class="pub-text">本月缺卡记录</text>
+        <view class="qj"  bindtap="Myabsence">
+          <text class="pub-text">本月异常打卡记录：</text>
          <text class="fa fa-angle-right  fa-lg"></text>
         </view>
       </view>

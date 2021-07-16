@@ -95,69 +95,7 @@ Page({
   // },3000);
 
   },
-  setclock:function(e){
-    var that = this;
-    var userinfo = wx.getStorageSync('userInfo');
-    // var companyid = this.data.companyid;
-    var name =  e.target.dataset.name;
-    
-    if(name != ''){
-      wx.showToast({
-        title: '当前无法打卡',
-        icon: 'fail',
-        duration: 1500,
-        success: function (res) {
-          wx.switchTab({
-            url: "/weixinmao_zp/pages/user/index"
-          })
-        }
-      })
-    }
-    app.util.request({
-      'url': 'entry/wxapp/Setclock',
-      data: { uid: userinfo.memberInfo.uid },
-      success: function (res) {
-        if (!res.data.message.errno) {
-  
-          if (!res.data.data.intro.maincolor) {
-            res.data.data.intro.maincolor = '#3274e5';
-
-          }
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: res.data.data.intro.maincolor,
-            animation: {
-              duration: 400,
-              timingFunc: 'easeIn'
-            }
-          })
-          var title = res.data.data.title;
-          that.data.current = res.data.data.current;
-          that.data.title = title;
-          wx.setNavigationBarTitle({
-            title: title[0] + wx.getStorageSync('companyinfo').name,
-          })
-          // console.log(title);
-          that.setData({
-            title:title
-          })
-          console.log(res.data.data.list);
-          wx.showToast({
-            title: 'res.data.data.msg',
-            icon: 'success',
-            duration: 3000,
-            success: function (res) {
-              wx.switchTab({
-                url: "/weixinmao_zp/pages/user/index"
-              })
-            }
-          })
-          
-
-        }
-      }
-    });
-  },
+ 
 
   delaskoff:function(e){
 
@@ -170,6 +108,7 @@ Page({
       content: '确认要删除吗？',
       success: function (res) {
         if (res.confirm) {
+          console.log(123);
           app.util.request({
             'url': 'entry/wxapp/delaskoff',
             data: { id:id,sessionid: userinfo.sessionid, uid: userinfo.memberInfo.uid },

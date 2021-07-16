@@ -14,10 +14,10 @@
         <button class="item more"  style="background-color:#ff393f" bindtap="delaskoff" data-id="{{item.id}}">删除</button>
       </view>
       <view class="r" wx:if="{{item.status == 1}}">
-            <view style="color:#ea0707;font-weight:600;">已同意</view>
+            <view style="color:#23b112;font-weight:600;">已同意</view>
       </view>
       <view class="r" wx:if="{{item.status == 2}}">
-            <view style="color:#23b112;font-weight:600;">已拒绝</view>
+            <view style="color:#ea0707;font-weight:600;">已拒绝</view>
       </view>
       <view class="r" wx:if="{{item.status == 3}}">
             <view style="color:#c1bdc4;font-weight:600;">已过期</view>
@@ -25,8 +25,11 @@
      
     </view> 
   </view>
-    <view class="weixinmao-foot" bindtap="addoff">
-        <view class="footer">添加请假</view>
+    <view class="weixinmao-foot" >
+       <view class="weixinmao-foot">
+        <view class="footer" bindtap='addoff'>添加请假</view>
+        </view>
     </view>
-
+    
+   
 </view>
