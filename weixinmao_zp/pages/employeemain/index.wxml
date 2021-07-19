@@ -6,8 +6,9 @@
           <image src="../../resource/images/agent.png"  />  
 
         </view>
-        <view class="name">
-            <view>在职员工管理</view>
+        <view class="name"  style="white-space:pre-wrap">
+            <view>在职员工管理&
+现行任务管理</view>
             <view></view>
         </view>
     </view>

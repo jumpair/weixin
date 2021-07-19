@@ -58,7 +58,20 @@ Page({
             showLoading: false,
             success: function(res) {
                 if (!res.data.message.errno) {
-
+                    if (!res.data.data.list) {
+                        wx.showToast({
+                            title: '您还未成为公司员工',
+                            icon: 'fail',
+                            duration: 2000,
+                            success: function(res) {
+                                setTimeout(function() {
+                                    wx.switchTab({
+                                        url: "/weixinmao_zp/pages/user/index"
+                                    })
+                                }, 2000)
+                            }
+                        })
+                    }
                     if (!res.data.data.intro.maincolor) {
                         res.data.data.intro.maincolor = '#3274e5';
 

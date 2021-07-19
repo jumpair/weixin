@@ -19,7 +19,7 @@
 				<text>{{list.contractname}}</text>
 			</view>
 			<view class="pub-list">
-				<text>签署职位：</text>
+				<text>签署岗位：</text>
 				<text>{{list.jobcatename}}</text>
 			</view>
 			<view class="pub-img-list">

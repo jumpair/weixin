@@ -53,22 +53,22 @@ Page({
         // that.interval1 = setInterval(function () {
         //页面加载时获取位置
         wx.getLocation({
-            type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-            success: function(res) {
-                wx.setStorageSync('lat', res.latitude);
-                wx.setStorageSync('lng', res.longitude);
-                //赋值经纬度
-                that.setData({
-                    lat: res.latitude,
-                    lng: res.longitude,
+                type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+                success: function(res) {
+                    wx.setStorageSync('lat', res.latitude);
+                    wx.setStorageSync('lng', res.longitude);
+                    //赋值经纬度
+                    that.setData({
+                        lat: res.latitude,
+                        lng: res.longitude,
 
-                })
-            }
-        })
-        var lat = wx.getStorageSync('lat');
-        var lng = wx.getStorageSync('lng');
-        // var lat = '37.509139';
-        // var lng = '121.269937';
+                    })
+                }
+            })
+            // var lat = wx.getStorageSync('lat');
+            // var lng = wx.getStorageSync('lng');
+        var lat = '37.509139';
+        var lng = '121.269937';
         console.log(lat, lng)
 
         app.util.request({
@@ -127,6 +127,8 @@ Page({
                             inrange: res.data.data.list.inrange,
                             buttoncolor: res.data.data.list.buttoncolor,
                             tscolor: res.data.data.list.tscolor,
+                            clickstarttime: res.data.data.list.clickstarttime,
+                            clickendtime: res.data.data.list.clickendtime,
                             startcolor: '#a6a9a8',
                             endcolor: '#a6a9a8'
                         })

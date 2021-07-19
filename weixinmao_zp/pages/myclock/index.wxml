@@ -9,18 +9,28 @@
     <view class="pub-box p2 pub-list">
       <view class="p2-01">
         <view class="p2-01-box">
-          <view class="cl333">上班 {{starttime}}</view>
-          <!-- <view class="p2-012">
-            <radio checked="true" disabled="" color="{{startcolor}}"/>
-            <view class="fs12 cl000">08:00</view>
-          </view> -->
+          <view class="cl333">上班&任务开始</view>
+          <view>{{starttime}}</view>
+          <view class="p2-012" wx:if="{{clickstarttime}}">
+            <radio checked="true" disabled="" color="#44c534"/>
+            <view class="fs12 cl000">{{clickstarttime}}</view>
+          </view>
+          <view class="p2-012" wx:else>
+            <radio checked="true" disabled="" color="#a6a9a8" />
+            <view class="fs12 cl000">未打卡</view>
+          </view>
         </view>
         <view class="p2-01-box">
-          <view class="cl333">下班 {{endtime}}</view>
-          <!-- <view class="p2-012">
-            <radio checked="true" disabled="" color="{{endcolor}}"/>
-            <view class="fs12 cl000">18:00</view>
-          </view> -->
+          <view class="cl333">下班&任务终止</view>
+            <view>{{endtime}}</view>
+           <view class="p2-012" wx:if="{{clickendtime}}">
+            <radio checked="true" disabled="" color="#44c534"/>
+            <view class="fs12 cl000">{{clickendtime}}</view>
+          </view>
+          <view class="p2-012" wx:else>
+            <radio checked="true" disabled="" color="#a6a9a8" />
+            <view class="fs12 cl000">未打卡</view>
+          </view>
         </view>
       </view>
       <view class="p2-02">

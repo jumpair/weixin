@@ -57,7 +57,7 @@
         <view class="item" bindtap="toMyrepair"><image src="../../resource/img/manage.png"></image>{{title[12]}}</view>
         <view class="item" bindtap="toMysatffoff"><image src="../../resource/img/manage.png"></image>{{title[10]}}</view>
         <view class="item" bindtap="toAbsence"><image src="../../resource/img/manage.png"></image>{{title[11]}}</view>
-        <view class="item" bindtap='toEmployeemain' ><image src="../../resource/img/em.png"></image>员工管理</view>
+        <view class="item" bindtap='toEmployeemain' ><image src="../../resource/img/em.png"></image>人员管理</view>
         
         <!-- <view class="item" bindtap='toMyPayMoney'><image src="../../resource/img/buy.png"></image>{{title[4]}} <text style='color:red;font-weight:600;'>(剩余:{{companyinfo.notenum}}条)</text></view>  -->
     
